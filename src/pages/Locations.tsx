@@ -6,40 +6,32 @@ export const locations = [
     name: "Vasco",
     venue: "Flora Grande Hotel (6th floor)",
     address: "Vasco da Gama, Goa 403802",
-    phone: "+91 98230 12345",
     schedule: "Wednesdays & Saturdays",
-    mapUrl:
-      "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=1000&auto=format&fit=crop",
+    mapUrl: "/flora-grand.webp",
     googleMapsUrl: "https://maps.google.com/?q=Flora+Grande+Hotel+Vasco+Goa",
   },
   {
     name: "Margao",
     venue: "Loyola School Hall",
     address: "Margao, Goa 403601",
-    phone: "+91 98230 12345",
-    schedule: "Mondays & Thursdays",
-    mapUrl:
-      "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=1000&auto=format&fit=crop",
+    schedule: "Sundays",
+    mapUrl: "/loyola.webp",
     googleMapsUrl: "https://maps.google.com/?q=Loyola+High+School+Margao+Goa",
   },
   {
     name: "Fatorda",
     venue: "Rosary School Hall",
     address: "Fatorda, Margao, Goa 403602",
-    phone: "+91 98230 12345",
     schedule: "Mondays & Thursdays",
-    mapUrl:
-      "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=1000&auto=format&fit=crop",
+    mapUrl: "/rosary.webp",
     googleMapsUrl: "https://maps.google.com/?q=Rosary+School+Fatorda+Goa",
   },
   {
     name: "Porvorim",
     venue: "Clergy Home Hall",
     address: "Porvorim, Goa 403521",
-    phone: "+91 98230 12345",
     schedule: "Tuesdays & Fridays",
-    mapUrl:
-      "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=1000&auto=format&fit=crop",
+    mapUrl: "/clergy-home.webp",
     googleMapsUrl: "https://maps.google.com/?q=Clergy+Home+Porvorim+Goa",
   },
 ];
@@ -62,8 +54,8 @@ export function Locations() {
             transition={{ delay: 0.1 }}
             className="text-slate-400 text-lg"
           >
-            We have multiple studios across Goa to make it convenient for you to
-            join our classes. Find the one nearest to you.
+            We have multiple locations across Goa to make it convenient for you
+            to join our classes. Find the one nearest to you.
           </motion.p>
         </div>
 
@@ -77,7 +69,7 @@ export function Locations() {
               viewport={{ once: true }}
               className="glass-card overflow-hidden group hover:shadow-purple-500/20"
             >
-              <div className="grid grid-cols-1 lg:grid-cols-2">
+              <div className="grid grid-cols-1 lg:grid-cols-2 h-full">
                 <div className="aspect-square lg:aspect-auto relative overflow-hidden">
                   <img
                     src={location.mapUrl}
@@ -91,7 +83,7 @@ export function Locations() {
                   </div>
                 </div>
 
-                <div className="p-8 space-y-6">
+                <div className="p-8 space-y-6 flex flex-col">
                   <div className="space-y-2">
                     <h3 className="text-2xl font-bold text-white group-hover:text-purple-400 transition-colors">
                       {location.venue}
@@ -117,21 +109,9 @@ export function Locations() {
                         <p className="font-medium">{location.schedule}</p>
                       </div>
                     </div>
-
-                    <div className="flex items-center gap-3 text-slate-300">
-                      <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-pink-400">
-                        <Phone size={18} />
-                      </div>
-                      <div className="text-sm">
-                        <p className="text-slate-500 uppercase text-[10px] font-bold tracking-widest">
-                          Phone
-                        </p>
-                        <p className="font-medium">{location.phone}</p>
-                      </div>
-                    </div>
                   </div>
 
-                  <div className="pt-4 flex gap-4">
+                  <div className="pt-4 flex gap-4 mt-auto">
                     <a
                       href={location.googleMapsUrl}
                       target="_blank"

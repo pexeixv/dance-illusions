@@ -12,6 +12,7 @@ import {
   MessageCircle,
   Plus,
   Minus,
+  Award,
 } from "lucide-react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -22,31 +23,31 @@ function cn(...inputs: ClassValue[]) {
 
 const features = [
   {
-    title: "Online Booking",
+    title: "Beginner-Friendly Classes",
     description:
-      "Easily book your classes and workshops through our seamless online platform.",
-    icon: Calendar,
+      "Our classes are designed so anyone can start dancing, even with no prior experience.",
+    icon: Star,
     color: "from-violet-500 to-purple-500",
   },
   {
-    title: "Flexible Schedule",
+    title: "18+ Years of Experience",
     description:
-      "Morning, afternoon, and evening classes across multiple locations in Goa.",
-    icon: MapPin,
+      "Learn ballroom and Latin dance from instructors with over 18 years of teaching and competition experience.",
+    icon: Award,
     color: "from-cyan-500 to-sky-500",
   },
   {
-    title: "Social Dance Nights",
+    title: "Multiple Dance Styles",
     description:
-      "Regular practice sessions and social gatherings to hone your skills in a fun environment.",
+      "Explore a wide range of dances including Waltz, Tango, Salsa, Bachata, Cha Cha and more.",
     icon: Music,
     color: "from-fuchsia-500 to-pink-500",
   },
   {
-    title: "Wedding Choreography",
+    title: "Classes Across Goa",
     description:
-      "Make your first dance unforgettable with our personalized wedding choreography.",
-    icon: Star,
+      "Attend classes at multiple locations across Goa including Vasco, Margao (Fatorda), and Porvorim.",
+    icon: MapPin,
     color: "from-amber-500 to-orange-500",
   },
 ];
@@ -56,21 +57,21 @@ const danceCategories = [
     title: "Latin",
     dances: ["Rumba", "Cha Cha", "Samba", "International Jive"],
     image:
-      "https://images.unsplash.com/photo-1516475429286-465d815a0df7?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1548026502-3fd4a9ce45a1?q=80&w=1000&auto=format&fit=crop",
     slug: "latin",
   },
   {
     title: "Ballroom",
     dances: ["American Waltz", "Viennese Waltz", "Tango", "Foxtrot"],
     image:
-      "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1594206630984-c2d2af87cbee?q=80&w=1000&auto=format&fit=crop",
     slug: "ballroom",
   },
   {
     title: "Social",
     dances: ["Salsa", "Bachata", "Social Jive"],
     image:
-      "https://images.unsplash.com/photo-1545128485-c400e7702796?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1769245523914-b993631fe7f8?q=80&w=1000&auto=format&fit=crop",
     slug: "social",
   },
 ];
@@ -79,6 +80,8 @@ const testimonials = [
   {
     name: "Anjali S.",
     text: "Dance Illusions has completely transformed my confidence on the dance floor. The instructors are patient and professional.",
+    avatar:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1000&auto=format&fit=crop",
   },
   {
     name: "Rahul M.",
@@ -150,7 +153,7 @@ const testimonials = [
   },
   {
     name: "Maya D.",
-    text: "The Bachata classes are sensual and fun. Sarah is an amazing teacher.",
+    text: "The Bachata classes are fun. Martin is an amazing teacher.",
   },
   {
     name: "Sam W.",
@@ -212,12 +215,12 @@ function AccordionItem({
         className="w-full py-6 flex items-center justify-between text-left group"
       >
         <span
-          className={`text-lg font-bold transition-colors ${isOpen ? "text-purple-400" : "text-white group-hover:text-purple-300"}`}
+          className={`lg:text-lg font-bold transition-colors flex-1 ${isOpen ? "text-purple-400" : "text-white group-hover:text-purple-300"}`}
         >
           {question}
         </span>
         <div
-          className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${isOpen ? "bg-purple-500 text-white rotate-180" : "bg-white/5 text-slate-400 group-hover:bg-white/10"}`}
+          className={`size-8 rounded-full flex items-center justify-center transition-all ${isOpen ? "bg-purple-500 text-white rotate-180" : "bg-white/5 text-slate-400 group-hover:bg-white/10"}`}
         >
           {isOpen ? <Minus size={18} /> : <Plus size={18} />}
         </div>
@@ -272,17 +275,17 @@ export function Home() {
                 vibrant community.
               </p>
 
-              <div className="flex flex-wrap gap-4 pt-4">
+              <div className="flex max-lg:flex-col gap-4 pt-4">
                 <Link
                   to="/schedule"
-                  className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-8 py-4 rounded-2xl font-bold shadow-xl shadow-purple-500/20 hover:shadow-purple-500/40 hover:scale-105 transition-all active:scale-95 flex items-center gap-2"
+                  className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-8 py-4 rounded-2xl font-bold shadow-xl shadow-purple-500/20 hover:shadow-purple-500/40 hover:scale-105 transition-all active:scale-95 flex items-center gap-2 text-center justify-center"
                 >
                   View Schedule
                   <ArrowRight size={20} />
                 </Link>
                 <a
                   href="tel:+919823012345"
-                  className="bg-white/5 border border-white/10 backdrop-blur-md text-white px-8 py-4 rounded-2xl font-bold hover:bg-white/10 transition-all active:scale-95"
+                  className="bg-white/5 border border-white/10 backdrop-blur-md text-white px-8 py-4 rounded-2xl font-bold hover:bg-white/10 transition-all active:scale-95 text-center "
                 >
                   Call to Join
                 </a>
@@ -329,7 +332,7 @@ export function Home() {
 
               <div className="relative z-10 rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-purple-500/20 lg:aspect-4/5 group  max-lg:max-h-100 flex flex-col items-center justify-center">
                 <img
-                  src="https://images.unsplash.com/photo-1547153760-18fc86324498?q=80&w=1000&auto=format&fit=crop"
+                  src="/hero.jpg"
                   alt="Professional Dancers"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   referrerPolicy="no-referrer"
@@ -338,7 +341,7 @@ export function Home() {
 
                 {/* Floating Elements */}
                 <div
-                  className="absolute top-8 right-8 bg-black/40 backdrop-blur-xl border border-white/10 p-4 rounded-2xl animate-bounce"
+                  className="absolute top-8 right-8 bg-black/40 backdrop-blur-xl border border-white/10 p-4 rounded-2xl animate-bounce hidden"
                   style={{ animationDuration: "3s" }}
                 >
                   <Music className="text-purple-400" size={32} />
@@ -394,9 +397,9 @@ export function Home() {
         <div className="container max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
             <h2 className="text-4xl lg:text-5xl font-bold text-white">
-              Our Dance Forms
+              Dance Forms
             </h2>
-            <p className="text-slate-400 text-lg">
+            <p className="text-slate-400 text-lg max-w-xl mx-auto">
               Explore a wide range of dance styles from the elegance of Ballroom
               to the energy of Latin and Social dances.
             </p>
@@ -489,9 +492,21 @@ export function Home() {
                   "{t.text}"
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-600 to-fuchsia-600 flex items-center justify-center text-white font-bold text-xs">
-                    {t.name.charAt(0)}
-                  </div>
+                  {t.avatar ? (
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-600 to-fuchsia-600 flex items-center justify-center text-white font-bold text-xs overflow-hidden">
+                      <img
+                        src={t.avatar}
+                        alt={t.name}
+                        className="w-full h-full object-cover"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-600 to-fuchsia-600 flex items-center justify-center text-white font-bold text-xs">
+                      {t.name.charAt(0)}
+                    </div>
+                  )}
+
                   <span className="text-white font-bold">{t.name}</span>
                 </div>
               </div>
@@ -562,7 +577,7 @@ export function Home() {
               Join Goa's most prestigious dance academy today. Whether you're a
               beginner or an advanced dancer, we have the perfect class for you.
             </p>
-            <div className="flex flex-wrap justify-center gap-4 pt-2">
+            <div className="flex max-md:flex-col justify-center gap-4 pt-2">
               <a
                 href="tel:+919823012345"
                 className="bg-white text-slate-950 px-8 py-3.5 rounded-2xl font-bold text-base hover:bg-purple-50 transition-all active:scale-95"

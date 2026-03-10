@@ -5,8 +5,8 @@ import {
   MapPin,
   Calendar,
   Info,
-  X,
   ExternalLink,
+  X,
   Phone,
 } from "lucide-react";
 import { clsx, type ClassValue } from "clsx";
@@ -77,6 +77,7 @@ export function Schedule() {
   return (
     <div className="pt-32 pb-24">
       <div className="container max-w-7xl mx-auto px-6">
+        {/* Title */}
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -85,39 +86,48 @@ export function Schedule() {
           >
             Class <span className="text-gradient-primary">Schedule</span>
           </motion.h1>
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-slate-400 text-lg"
+            className="text-slate-400 text-lg max-w-xl mx-auto"
           >
             Find the perfect time and location to start your dance journey. We
             offer classes across multiple locations in Goa.
           </motion.p>
         </div>
 
+        {/* Schedule Table */}
         <div className="glass-card overflow-hidden border-purple-500/20">
-          <div className="overflow-x-auto">
+          {/* Scroll container */}
+          <div className="overflow-x-auto overflow-y-auto max-h-[600px]">
             <table className="w-full text-left border-collapse">
+              {/* Sticky Header */}
               <thead>
-                <tr className="bg-white/5 border-b border-white/10">
-                  <th className="px-8 py-6 text-slate-300 font-bold uppercase tracking-wider text-sm">
+                <tr className="border-b border-white/10">
+                  <th className="px-8 py-6 text-slate-300 font-bold uppercase tracking-wider text-sm sticky top-0 bg-slate-900/90 backdrop-blur z-20">
                     Day
                   </th>
-                  <th className="px-8 py-6 text-slate-300 font-bold uppercase tracking-wider text-sm">
+
+                  <th className="px-8 py-6 text-slate-300 font-bold uppercase tracking-wider text-sm sticky top-0 bg-slate-900/90 backdrop-blur z-20">
                     Location
                   </th>
-                  <th className="px-8 py-6 text-slate-300 font-bold uppercase tracking-wider text-sm">
+
+                  <th className="px-8 py-6 text-slate-300 font-bold uppercase tracking-wider text-sm sticky top-0 bg-slate-900/90 backdrop-blur z-20">
                     Time
                   </th>
-                  <th className="px-8 py-6 text-slate-300 font-bold uppercase tracking-wider text-sm">
+
+                  <th className="px-8 py-6 text-slate-300 font-bold uppercase tracking-wider text-sm sticky top-0 bg-slate-900/90 backdrop-blur z-20 whitespace-nowrap">
                     Dance Form
                   </th>
-                  <th className="px-8 py-6 text-slate-300 font-bold uppercase tracking-wider text-sm">
+
+                  <th className="px-8 py-6 text-slate-300 font-bold uppercase tracking-wider text-sm sticky top-0 bg-slate-900/90 backdrop-blur z-20">
                     Level
                   </th>
                 </tr>
               </thead>
+
               <tbody className="divide-y divide-white/5">
                 {scheduleData.map((item, idx) => (
                   <motion.tr
@@ -128,6 +138,7 @@ export function Schedule() {
                     viewport={{ once: true }}
                     className="group hover:bg-white/5 transition-colors cursor-default"
                   >
+                    {/* Day */}
                     <td className="px-8 py-6">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform">
@@ -136,6 +147,8 @@ export function Schedule() {
                         <span className="text-white font-bold">{item.day}</span>
                       </div>
                     </td>
+
+                    {/* Location */}
                     <td className="px-8 py-6">
                       <button
                         onClick={() => {
@@ -155,17 +168,23 @@ export function Schedule() {
                         </span>
                       </button>
                     </td>
+
+                    {/* Time */}
                     <td className="px-8 py-6">
                       <div className="flex items-center gap-2 text-slate-300">
                         <Clock size={16} className="text-pink-400" />
-                        {item.time}
+                        <span className="whitespace-nowrap">{item.time}</span>
                       </div>
                     </td>
+
+                    {/* Dance */}
                     <td className="px-8 py-6">
-                      <span className="text-white font-medium">
+                      <span className="text-white font-medium whitespace-nowrap">
                         {item.dance}
                       </span>
                     </td>
+
+                    {/* Level */}
                     <td className="px-8 py-6">
                       <span
                         className={cn(
@@ -189,10 +208,12 @@ export function Schedule() {
           </div>
         </div>
 
-        <div className="mt-12 p-8 glass-card bg-purple-600/5 border-purple-500/20 flex flex-col md:flex-row items-center gap-6">
+        {/* Info Box */}
+        <div className="mt-12 p-8 glass-card bg-purple-600/5 border-purple-500/20 flex flex-col md:flex-row items-center gap-6 hidden">
           <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 shrink-0">
             <Info size={24} />
           </div>
+
           <div className="space-y-1 text-center md:text-left">
             <h3 className="text-white font-bold text-lg">Important Note:</h3>
             <p className="text-slate-400">
@@ -200,6 +221,7 @@ export function Schedule() {
               clothing and appropriate dance shoes.
             </p>
           </div>
+
           <a
             href="tel:+919823012345"
             className="md:ml-auto bg-white text-slate-950 px-8 py-3 rounded-xl font-bold hover:bg-purple-50 transition-all active:scale-95 shrink-0"
@@ -209,7 +231,7 @@ export function Schedule() {
         </div>
       </div>
 
-      {/* Location Modal */}
+      {/* Location Modal (unchanged) */}
       <AnimatePresence>
         {selectedLocation && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
@@ -220,6 +242,7 @@ export function Schedule() {
               onClick={() => setSelectedLocation(null)}
               className="absolute inset-0 bg-slate-950/80 backdrop-blur-md"
             />
+
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -277,18 +300,6 @@ export function Schedule() {
                         <p className="font-medium">
                           {selectedLocation.schedule}
                         </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center gap-3 text-slate-300">
-                      <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-pink-400">
-                        <Phone size={18} />
-                      </div>
-                      <div className="text-sm">
-                        <p className="text-slate-500 uppercase text-[10px] font-bold tracking-widest">
-                          Phone
-                        </p>
-                        <p className="font-medium">{selectedLocation.phone}</p>
                       </div>
                     </div>
                   </div>

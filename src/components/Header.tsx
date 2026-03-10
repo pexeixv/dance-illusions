@@ -35,7 +35,6 @@ export function Header() {
   }, [location]);
 
   const isActivePath = (href: string) => {
-    console.log(location.pathname, href);
     if (href === "/") return location.pathname === "/";
     return location.pathname.startsWith(href);
   };
@@ -52,11 +51,11 @@ export function Header() {
       <div className="container max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-violet-600 to-fuchsia-600 flex items-center justify-center shadow-lg group-hover:shadow-purple-500/50 transition-all">
-            <span className="text-white font-bold text-xl">DI</span>
+          <div className="size-8 md:size-10 rounded-lg bg-gradient-to-br from-violet-600 to-fuchsia-600 flex items-center justify-center shadow-lg group-hover:shadow-purple-500/50 transition-all">
+            <span className="text-white font-bold text-lg md:text-xl">DI</span>
           </div>
 
-          <span className="text-white font-display font-bold text-xl tracking-tight">
+          <span className="text-white font-display font-bold text-lg lg:text-xl tracking-tight">
             Dance <span className="text-gradient-primary">Illusions</span>
           </span>
         </Link>

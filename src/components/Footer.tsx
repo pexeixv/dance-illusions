@@ -60,7 +60,7 @@ export function Footer() {
             <h3 className="text-white font-semibold text-lg mb-6">
               Quick Links
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-4 grid sm:grid-cols-2 md:grid-cols-1">
               {[
                 "About Us",
                 "Dance Forms",
@@ -87,7 +87,7 @@ export function Footer() {
             <h3 className="text-white font-semibold text-lg mb-6">
               Dance Forms
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-4 grid sm:grid-cols-2 md:grid-cols-1">
               {[
                 "Rumba",
                 "Cha Cha",
