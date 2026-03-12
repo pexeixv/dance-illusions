@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { config } from "../config";
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -56,22 +57,19 @@ const danceCategories = [
   {
     title: "Latin",
     dances: ["Rumba", "Cha Cha", "Samba", "International Jive"],
-    image:
-      "https://images.unsplash.com/photo-1548026502-3fd4a9ce45a1?q=80&w=1000&auto=format&fit=crop",
+    image: "/latin.jpeg",
     slug: "latin",
   },
   {
     title: "Ballroom",
     dances: ["American Waltz", "Viennese Waltz", "Tango", "Foxtrot"],
-    image:
-      "https://images.unsplash.com/photo-1594206630984-c2d2af87cbee?q=80&w=1000&auto=format&fit=crop",
+    image: "/ballroom.jpeg",
     slug: "ballroom",
   },
   {
     title: "Social",
     dances: ["Salsa", "Bachata", "Social Jive"],
-    image:
-      "https://images.unsplash.com/photo-1769245523914-b993631fe7f8?q=80&w=1000&auto=format&fit=crop",
+    image: "/social.jpeg",
     slug: "social",
   },
 ];
@@ -416,12 +414,12 @@ export function Home() {
                 className="group relative rounded-3xl overflow-hidden border border-white/10 aspect-[3/4]"
               >
                 <img
-                  src={category.image}
+                  src={`${config.imageKitUrl}/tr:w-450${category.image}`}
                   alt={category.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-90" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent opacity-90" />
 
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
                   <h3 className="text-3xl font-bold text-white mb-4">
@@ -448,7 +446,7 @@ export function Home() {
                     ))}
                   </ul>
                   <Link
-                    to="/forms"
+                    to={`/forms#${category.slug}`}
                     className="inline-flex items-center gap-2 text-white font-bold hover:text-purple-400 transition-colors"
                   >
                     Explore More

@@ -1,30 +1,50 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion } from "motion/react";
 import { ArrowRight, Music, Star, Heart } from "lucide-react";
 import { danceForms } from "../data/danceForms";
+import { config } from "../config";
+import { useEffect } from "react";
 
 const categories = [
   {
     name: "Latin",
     icon: Music,
+    slug: "latin",
     color: "text-purple-400",
     glow: "shadow-purple-500/20",
   },
   {
     name: "Ballroom",
     icon: Star,
+    slug: "ballroom",
     color: "text-cyan-400",
     glow: "shadow-cyan-500/20",
   },
   {
     name: "Social",
     icon: Heart,
+    slug: "social",
     color: "text-pink-400",
     glow: "shadow-pink-500/20",
   },
 ];
 
 export function DanceForms() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace("#", "");
+      const element = document.getElementById(id);
+
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 100); // small delay so layout finishes
+      }
+    }
+  }, [location]);
+
   return (
     <div className="pt-32 pb-24">
       <div className="container max-w-7xl mx-auto px-6">
@@ -48,7 +68,7 @@ export function DanceForms() {
         </div>
 
         {categories.map((category) => (
-          <div key={category.name} className="mb-24">
+          <div key={category.name} className="mb-24" id={category.slug}>
             <div className="flex items-center gap-4 mb-12">
               <div
                 className={`p-3 rounded-2xl bg-white/5 border border-white/10 ${category.color}`}
@@ -59,7 +79,7 @@ export function DanceForms() {
               <div className="flex-grow h-px bg-gradient-to-r from-white/10 to-transparent ml-4" />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {danceForms
                 .filter((dance) => dance.category === category.name)
                 .map((dance, idx) => (
@@ -74,9 +94,9 @@ export function DanceForms() {
                     <Link to={`/forms/${dance.slug}`} className="block h-full">
                       <div className="aspect-[4/3] overflow-hidden">
                         <img
-                          src={dance.image}
+                          src={`${config.imageKitUrl}/tr:w-350${dance.image}`}
                           alt={dance.title}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 object-[center_20%]"
                           referrerPolicy="no-referrer"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-60" />
