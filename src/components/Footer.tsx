@@ -116,10 +116,13 @@ export function Footer() {
               Get In Touch
             </h3>
             <ul className="space-y-4">
-              <li className="flex items-center gap-3 text-slate-400">
+              <a
+                href="tel:+919823014397"
+                className="flex items-center gap-3 text-slate-400"
+              >
                 <Phone className="text-purple-500 shrink-0" size={18} />
-                <span>+91 98230 12345</span>
-              </li>
+                <span>+919823014397</span>
+              </a>
             </ul>
             <a
               href="//gavn.in/?ref=dance-illusions"

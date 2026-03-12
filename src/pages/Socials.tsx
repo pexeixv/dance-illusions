@@ -1,24 +1,32 @@
-import { motion } from 'motion/react';
-import { Music, Users, Calendar, Star, ArrowRight, CheckCircle2 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { motion } from "motion/react";
+import {
+  Music,
+  Users,
+  Calendar,
+  Star,
+  ArrowRight,
+  CheckCircle2,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 const upcomingEvents = [
   {
-    title: 'Salsa & Bachata Night',
-    date: 'March 15, 2026',
-    time: '8:00 PM - 11:00 PM',
-    location: 'Flora Grande Hotel, Vasco',
-    image: 'https://images.unsplash.com/photo-1545128485-c400e7702796?q=80&w=1000&auto=format&fit=crop',
+    title: "Salsa & Bachata Night",
+    date: "March 15, 2026",
+    time: "8:00 PM - 11:00 PM",
+    location: "Flora Grande Hotel, Vasco",
+    image:
+      "https://images.unsplash.com/photo-1545128485-c400e7702796?q=80&w=1000&auto=format&fit=crop",
   },
 ];
 
 const galleryImages = [
-  'https://images.unsplash.com/photo-1547153760-18fc86324498?q=80&w=1000&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1516475429286-465d815a0df7?q=80&w=1000&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=1000&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1545128485-c400e7702796?q=80&w=1000&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1547153760-18fc86324498?q=80&w=1000&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1516475429286-465d815a0df7?q=80&w=1000&auto=format&fit=crop',
+  "https://images.unsplash.com/photo-1547153760-18fc86324498?q=80&w=1000&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1516475429286-465d815a0df7?q=80&w=1000&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=1000&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1545128485-c400e7702796?q=80&w=1000&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1547153760-18fc86324498?q=80&w=1000&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1516475429286-465d815a0df7?q=80&w=1000&auto=format&fit=crop",
 ];
 
 export function Socials() {
@@ -40,7 +48,9 @@ export function Socials() {
             transition={{ delay: 0.1 }}
             className="text-slate-400 text-lg"
           >
-            Experience the joy of social dancing in a relaxed, friendly environment. Practice your skills, meet new people, and have a blast!
+            Experience the joy of social dancing in a relaxed, friendly
+            environment. Practice your skills, meet new people, and have a
+            blast!
           </motion.p>
         </div>
 
@@ -52,18 +62,26 @@ export function Socials() {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <h2 className="text-4xl font-bold text-white">What are Social Dance Nights?</h2>
+            <h2 className="text-4xl font-bold text-white">
+              What are Social Dance Nights?
+            </h2>
             <p className="text-xl text-slate-400 leading-relaxed">
-              Social dance nights are community gatherings where students and dance enthusiasts come together to practice in a relaxed environment. It's not a class, but a chance to dance, socialize, and enjoy the music.
+              Social dance nights are community gatherings where students and
+              dance enthusiasts come together to practice in a relaxed
+              environment. It's not a class, but a chance to dance, socialize,
+              and enjoy the music.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {[
-                'Practice what you learned',
-                'Meet the dance community',
-                'Gain confidence on the floor',
-                'Fun and relaxed atmosphere',
+                "Practice what you learned",
+                "Meet the dance community",
+                "Gain confidence on the floor",
+                "Fun and relaxed atmosphere",
               ].map((item) => (
-                <div key={item} className="flex items-center gap-3 text-slate-300">
+                <div
+                  key={item}
+                  className="flex items-center gap-3 text-slate-300"
+                >
                   <CheckCircle2 size={20} className="text-purple-400" />
                   <span className="font-medium">{item}</span>
                 </div>
@@ -71,7 +89,7 @@ export function Socials() {
             </div>
             <div className="pt-4">
               <a
-                href="tel:+919823012345"
+                href="tel:+919823014397"
                 className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-10 py-4 rounded-2xl font-bold shadow-xl shadow-purple-500/20 hover:shadow-purple-500/40 hover:scale-105 transition-all active:scale-95 inline-flex items-center gap-2"
               >
                 Join Next Event
@@ -103,7 +121,10 @@ export function Socials() {
         <div className="mb-32">
           <div className="flex items-center justify-between mb-12">
             <h2 className="text-4xl font-bold text-white">Upcoming Events</h2>
-            <a href="tel:+919823012345" className="text-purple-400 font-bold hover:text-purple-300 transition-colors flex items-center gap-2">
+            <a
+              href="tel:+919823014397"
+              className="text-purple-400 font-bold hover:text-purple-300 transition-colors flex items-center gap-2"
+            >
               Inquire for More
               <ArrowRight size={20} />
             </a>
@@ -159,8 +180,12 @@ export function Socials() {
             ) : (
               <div className="col-span-full py-20 text-center glass-card border-dashed border-white/10">
                 <Calendar size={48} className="text-slate-600 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-white mb-2">No events soon</h3>
-                <p className="text-slate-400">Check back later for upcoming social dance nights!</p>
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  No events soon
+                </h3>
+                <p className="text-slate-400">
+                  Check back later for upcoming social dance nights!
+                </p>
               </div>
             )}
           </div>
@@ -168,7 +193,9 @@ export function Socials() {
 
         {/* Gallery Grid */}
         <div>
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">Moments to Remember</h2>
+          <h2 className="text-4xl font-bold text-white mb-12 text-center">
+            Moments to Remember
+          </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {galleryImages.map((image, idx) => (
               <motion.div

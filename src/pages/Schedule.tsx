@@ -223,7 +223,7 @@ export function Schedule() {
           </div>
 
           <a
-            href="tel:+919823012345"
+            href="tel:+919823014397"
             className="md:ml-auto bg-white text-slate-950 px-8 py-3 rounded-xl font-bold hover:bg-purple-50 transition-all active:scale-95 shrink-0"
           >
             Call to Inquire

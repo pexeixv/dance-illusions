@@ -282,7 +282,7 @@ export function Home() {
                   <ArrowRight size={20} />
                 </Link>
                 <a
-                  href="tel:+919823012345"
+                  href="tel:+919823014397"
                   className="bg-white/5 border border-white/10 backdrop-blur-md text-white px-8 py-4 rounded-2xl font-bold hover:bg-white/10 transition-all active:scale-95 text-center "
                 >
                   Call to Join
@@ -577,7 +577,7 @@ export function Home() {
             </p>
             <div className="flex max-md:flex-col justify-center gap-4 pt-2">
               <a
-                href="tel:+919823012345"
+                href="tel:+919823014397"
                 className="bg-white text-slate-950 px-8 py-3.5 rounded-2xl font-bold text-base hover:bg-purple-50 transition-all active:scale-95"
               >
                 Call Now

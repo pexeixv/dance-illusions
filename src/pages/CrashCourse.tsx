@@ -1,26 +1,37 @@
-import { motion } from 'motion/react';
-import { CheckCircle2, ArrowRight, Star, Zap, Users, Trophy } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { motion } from "motion/react";
+import {
+  CheckCircle2,
+  ArrowRight,
+  Star,
+  Zap,
+  Users,
+  Trophy,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 const benefits = [
   {
-    title: 'Multi-Style Introduction',
-    description: 'Learn the basics of Waltz, Tango, Foxtrot, Cha Cha and Jive in one comprehensive course.',
+    title: "Multi-Style Introduction",
+    description:
+      "Learn the basics of Waltz, Tango, Foxtrot, Cha Cha and Jive in one comprehensive course.",
     icon: Zap,
   },
   {
-    title: 'No Partner Required',
-    description: 'Come alone or with a friend. We rotate partners to ensure everyone gets to dance.',
+    title: "No Partner Required",
+    description:
+      "Come alone or with a friend. We rotate partners to ensure everyone gets to dance.",
     icon: Users,
   },
   {
-    title: 'Expert Guidance',
-    description: 'Learn from Dr. Martin D\'Costa and our team of professional instructors.',
+    title: "Expert Guidance",
+    description:
+      "Learn from Dr. Martin D'Costa and our team of professional instructors.",
     icon: Star,
   },
   {
-    title: 'Certificate of Completion',
-    description: 'Receive a recognized certificate upon successfully completing the course.',
+    title: "Certificate of Completion",
+    description:
+      "Receive a recognized certificate upon successfully completing the course.",
     icon: Trophy,
   },
 ];
@@ -49,17 +60,22 @@ export function CrashCourse() {
             </h1>
 
             <p className="text-xl text-slate-400 leading-relaxed">
-              The crash course introduces beginners to multiple ballroom and Latin styles including Waltz, Tango, Foxtrot, Cha Cha and Jive. Perfect for those who want to jumpstart their dance journey.
+              The crash course introduces beginners to multiple ballroom and
+              Latin styles including Waltz, Tango, Foxtrot, Cha Cha and Jive.
+              Perfect for those who want to jumpstart their dance journey.
             </p>
 
             <ul className="space-y-4">
               {[
-                '8 Intensive Sessions',
-                '5 Different Dance Styles',
-                'Basic Technique & Musicality',
-                'Social Dance Etiquette',
+                "8 Intensive Sessions",
+                "5 Different Dance Styles",
+                "Basic Technique & Musicality",
+                "Social Dance Etiquette",
               ].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-slate-300">
+                <li
+                  key={item}
+                  className="flex items-center gap-3 text-slate-300"
+                >
                   <CheckCircle2 size={20} className="text-purple-400" />
                   <span className="font-medium">{item}</span>
                 </li>
@@ -68,7 +84,7 @@ export function CrashCourse() {
 
             <div className="pt-4">
               <a
-                href="tel:+919823012345"
+                href="tel:+919823014397"
                 className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-10 py-4 rounded-2xl font-bold shadow-xl shadow-purple-500/20 hover:shadow-purple-500/40 hover:scale-105 transition-all active:scale-95 inline-flex items-center gap-2"
               >
                 Enroll Now
@@ -109,7 +125,9 @@ export function CrashCourse() {
               <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-purple-400 group-hover:scale-110 transition-transform">
                 <benefit.icon size={28} />
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">{benefit.title}</h3>
+              <h3 className="text-xl font-bold text-white mb-4">
+                {benefit.title}
+              </h3>
               <p className="text-slate-400 leading-relaxed">
                 {benefit.description}
               </p>
@@ -119,15 +137,38 @@ export function CrashCourse() {
 
         {/* Dance Forms Learned */}
         <div className="mb-32">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">Dance Forms You'll Learn</h2>
+          <h2 className="text-4xl font-bold text-white mb-12 text-center">
+            Dance Forms You'll Learn
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { name: 'American Waltz', description: 'The elegant and flowing classic ballroom dance.' },
-              { name: 'Viennese Waltz', description: 'A faster, more rhythmic version of the traditional waltz.' },
-              { name: 'Social Cha Cha', description: 'A fun, cheeky, and energetic Latin dance.' },
-              { name: 'Social Jive', description: 'High-energy, fast-paced, and incredibly fun.' },
-              { name: 'Social Foxtrot', description: 'A smooth, progressive dance that is perfect for social events.' },
-              { name: 'Tango, Rumba & Bachata', description: 'If you\'re lucky, we might even dive into these passionate styles!' },
+              {
+                name: "American Waltz",
+                description: "The elegant and flowing classic ballroom dance.",
+              },
+              {
+                name: "Viennese Waltz",
+                description:
+                  "A faster, more rhythmic version of the traditional waltz.",
+              },
+              {
+                name: "Social Cha Cha",
+                description: "A fun, cheeky, and energetic Latin dance.",
+              },
+              {
+                name: "Social Jive",
+                description: "High-energy, fast-paced, and incredibly fun.",
+              },
+              {
+                name: "Social Foxtrot",
+                description:
+                  "A smooth, progressive dance that is perfect for social events.",
+              },
+              {
+                name: "Tango, Rumba & Bachata",
+                description:
+                  "If you're lucky, we might even dive into these passionate styles!",
+              },
             ].map((dance, idx) => (
               <motion.div
                 key={dance.name}
@@ -137,8 +178,12 @@ export function CrashCourse() {
                 viewport={{ once: true }}
                 className="glass-card p-8 border-white/5 hover:border-purple-500/30 transition-colors"
               >
-                <h3 className="text-xl font-bold text-white mb-3">{dance.name}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{dance.description}</p>
+                <h3 className="text-xl font-bold text-white mb-3">
+                  {dance.name}
+                </h3>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  {dance.description}
+                </p>
               </motion.div>
             ))}
           </div>

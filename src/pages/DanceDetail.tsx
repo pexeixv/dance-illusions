@@ -141,7 +141,7 @@ export function DanceDetail() {
                   </p>
                 </div>
                 <a
-                  href="tel:+919823012345"
+                  href="tel:+919823014397"
                   className="bg-white text-slate-950 px-6 py-2.5 rounded-xl font-bold hover:bg-purple-50 transition-all active:scale-95"
                 >
                   Call Now

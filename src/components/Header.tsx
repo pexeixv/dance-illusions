@@ -86,7 +86,7 @@ export function Header() {
         <div className="flex items-center gap-4">
           {/* Call Button */}
           <a
-            href="tel:+919823012345"
+            href="tel:+919823014397"
             className="sm:flex items-center gap-2 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-5 py-2.5 rounded-xl font-medium shadow-lg hover:brightness-110 transition-all active:scale-95"
           >
             <Phone size={18} />
@@ -131,7 +131,7 @@ export function Header() {
               })}
 
               <a
-                href="tel:+919823012345"
+                href="tel:+919823014397"
                 className="flex items-center justify-center gap-2 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white p-4 rounded-xl font-medium mt-4"
               >
                 <Phone size={20} />
