@@ -4,7 +4,7 @@ import { MapPin, Phone, Clock, ExternalLink } from 'lucide-react'
 export const locations = [
   {
     name: 'Vasco',
-    venue: 'Flora Grande Hotel (6th floor)',
+    venue: 'Flora Grande Hotel',
     address: 'Vasco da Gama, Goa 403802',
     schedule: 'Wednesdays & Saturdays',
     mapUrl: '/flora-grand.webp',
