@@ -1,14 +1,14 @@
-import { useParams, Link, Navigate } from "react-router-dom";
-import { motion } from "motion/react";
-import { ArrowLeft, Play, Calendar, MapPin, CheckCircle2 } from "lucide-react";
-import { danceForms } from "../data/danceForms";
+import { useParams, Link, Navigate } from 'react-router-dom'
+import { motion } from 'motion/react'
+import { ArrowLeft, Play, Calendar, MapPin, CheckCircle2 } from 'lucide-react'
+import { danceForms } from '../data/danceForms'
 
 export function DanceDetail() {
-  const { slug } = useParams<{ slug: string }>();
-  const dance = danceForms.find((d) => d.slug === slug);
+  const { slug } = useParams<{ slug: string }>()
+  const dance = danceForms.find((d) => d.slug === slug)
 
   if (!dance) {
-    return <Navigate to="/forms" replace />;
+    return <Navigate to="/forms" replace />
   }
 
   return (
@@ -18,10 +18,7 @@ export function DanceDetail() {
           to="/forms"
           className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors mb-12 group"
         >
-          <ArrowLeft
-            size={20}
-            className="group-hover:-translate-x-1 transition-transform"
-          />
+          <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
           Back to Dance Forms
         </Link>
 
@@ -42,9 +39,7 @@ export function DanceDetail() {
               {dance.title}
             </h1>
 
-            <p className="text-xl text-slate-400 leading-relaxed">
-              {dance.fullDescription}
-            </p>
+            <p className="text-xl text-slate-400 leading-relaxed">{dance.fullDescription}</p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
               <div className="glass-card p-6 border-purple-500/20">
@@ -60,9 +55,7 @@ export function DanceDetail() {
                 <div className="w-10 h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 mb-4">
                   <MapPin size={20} />
                 </div>
-                <h3 className="text-white font-bold mb-2">
-                  Multiple Locations
-                </h3>
+                <h3 className="text-white font-bold mb-2">Multiple Locations</h3>
                 <p className="text-slate-400 text-sm">
                   Join us in Margao, Fatorda, Porvorim, or Vasco.
                 </p>
@@ -70,26 +63,18 @@ export function DanceDetail() {
             </div>
 
             <div className="pt-8 space-y-4">
-              <h3 className="text-xl font-bold text-white">
-                What you'll learn:
-              </h3>
+              <h3 className="text-xl font-bold text-white">What you'll learn:</h3>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
-                  "Basic steps and footwork",
-                  "Proper posture and frame",
-                  "Rhythm and timing",
-                  "Leading and following",
-                  "Musicality and expression",
-                  "Social dance etiquette",
+                  'Basic steps and footwork',
+                  'Proper posture and frame',
+                  'Rhythm and timing',
+                  'Leading and following',
+                  'Musicality and expression',
+                  'Social dance etiquette',
                 ].map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-center gap-3 text-slate-300"
-                  >
-                    <CheckCircle2
-                      size={18}
-                      className="text-purple-400 shrink-0"
-                    />
+                  <li key={item} className="flex items-center gap-3 text-slate-300">
+                    <CheckCircle2 size={18} className="text-purple-400 shrink-0" />
                     {item}
                   </li>
                 ))}
@@ -129,16 +114,14 @@ export function DanceDetail() {
                 Watch Demo
               </h3>
               <p className="text-slate-400">
-                See our professional instructors demonstrate the beauty and
-                technique of {dance.title}. This video showcases the basic
-                patterns and the overall character of the dance.
+                See our professional instructors demonstrate the beauty and technique of{' '}
+                {dance.title}. This video showcases the basic patterns and the overall character of
+                the dance.
               </p>
               <div className="p-6 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between">
                 <div>
                   <p className="text-white font-bold">Ready to try it?</p>
-                  <p className="text-slate-400 text-sm">
-                    Join us for a session!
-                  </p>
+                  <p className="text-slate-400 text-sm">Join us for a session!</p>
                 </div>
                 <a
                   href="tel:+919823014397"
@@ -152,5 +135,5 @@ export function DanceDetail() {
         </div>
       </div>
     </div>
-  );
+  )
 }

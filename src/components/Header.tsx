@@ -1,51 +1,51 @@
-import { useState, useEffect } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
-import { Phone, Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { useState, useEffect } from 'react'
+import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Phone, Menu, X } from 'lucide-react'
+import { motion, AnimatePresence } from 'motion/react'
+import { clsx, type ClassValue } from 'clsx'
+import { twMerge } from 'tailwind-merge'
 
 function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+  return twMerge(clsx(inputs))
 }
 
 const navLinks = [
-  { name: "Dance Forms", href: "/forms" },
-  { name: "Schedule", href: "/schedule" },
-  { name: "Locations", href: "/locations" },
-  { name: "Crash Course", href: "/crash-course" },
-  { name: "Wedding Dance", href: "/wedding-dance" },
-  { name: "Socials", href: "/socials" },
-  { name: "Team", href: "/team" },
-];
+  { name: 'Dance Forms', href: '/forms' },
+  { name: 'Schedule', href: '/schedule' },
+  { name: 'Locations', href: '/locations' },
+  { name: 'Crash Course', href: '/crash-course' },
+  { name: 'Wedding Dance', href: '/wedding-dance' },
+  { name: 'Socials', href: '/socials' },
+  { name: 'Team', href: '/team' },
+]
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const location = useLocation()
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    const handleScroll = () => setIsScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [location]);
+    setIsMobileMenuOpen(false)
+  }, [location])
 
   const isActivePath = (href: string) => {
-    if (href === "/") return location.pathname === "/";
-    return location.pathname.startsWith(href);
-  };
+    if (href === '/') return location.pathname === '/'
+    return location.pathname.startsWith(href)
+  }
 
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b',
         isScrolled
-          ? "bg-black/60 backdrop-blur-xl border-white/10 py-3"
-          : "bg-transparent border-transparent py-5",
+          ? 'bg-black/60 backdrop-blur-xl border-white/10 py-3'
+          : 'bg-transparent border-transparent py-5'
       )}
     >
       <div className="container max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -63,22 +63,22 @@ export function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-6">
           {navLinks.map((link) => {
-            const isActive = isActivePath(link.href);
+            const isActive = isActivePath(link.href)
 
             return (
               <NavLink
                 key={link.name}
                 to={link.href}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-white relative",
+                  'text-sm font-medium transition-colors hover:text-white relative',
                   isActive
                     ? "text-white after:content-[''] after:block after:w-3 after:h-1 after:rounded-full after:left-1/2 after:-bottom-2 after:-translate-x-1/2 after:bg-white after:absolute"
-                    : "text-slate-400",
+                    : 'text-slate-400'
                 )}
               >
                 {link.name}
               </NavLink>
-            );
+            )
           })}
         </nav>
 
@@ -108,26 +108,26 @@ export function Header() {
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
+            animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             className="lg:hidden bg-slate-900/95 backdrop-blur-2xl border-b border-white/10 overflow-hidden"
           >
             <nav className="flex flex-col p-6 gap-4">
               {navLinks.map((link) => {
-                const isActive = isActivePath(link.href);
+                const isActive = isActivePath(link.href)
 
                 return (
                   <NavLink
                     key={link.name}
                     to={link.href}
                     className={cn(
-                      "text-lg font-medium py-2 border-b border-white/5",
-                      isActive ? "text-purple-400" : "text-slate-300",
+                      'text-lg font-medium py-2 border-b border-white/5',
+                      isActive ? 'text-purple-400' : 'text-slate-300'
                     )}
                   >
                     {link.name}
                   </NavLink>
-                );
+                )
               })}
 
               <a
@@ -142,5 +142,5 @@ export function Header() {
         )}
       </AnimatePresence>
     </header>
-  );
+  )
 }

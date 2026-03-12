@@ -1,24 +1,19 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  ScrollRestoration,
-} from "react-router-dom";
-import { Header } from "./components/Header";
-import { Footer } from "./components/Footer";
-import { Home } from "./pages/Home";
-import { DanceForms } from "./pages/DanceForms";
-import { DanceDetail } from "./pages/DanceDetail";
-import { Locations } from "./pages/Locations";
-import { Schedule } from "./pages/Schedule";
-import { CrashCourse } from "./pages/CrashCourse";
-import { Socials } from "./pages/Socials";
-import { WeddingDance } from "./pages/WeddingDance";
-import { Team } from "./pages/Team";
-import { PrivacyPolicy } from "./pages/PrivacyPolicy";
-import { TermsOfService } from "./pages/TermsOfService";
-import ScrollToTop from "./components/ScrollToTop";
-import TwSizeIndicator from "./components/TwSizeIndicator";
+import { BrowserRouter as Router, Routes, Route, ScrollRestoration } from 'react-router-dom'
+import { Header } from './components/Header'
+import { Footer } from './components/Footer'
+import { Home } from './pages/Home'
+import { DanceForms } from './pages/DanceForms'
+import { DanceDetail } from './pages/DanceDetail'
+import { Locations } from './pages/Locations'
+import { Schedule } from './pages/Schedule'
+import { CrashCourse } from './pages/CrashCourse'
+import { Socials } from './pages/Socials'
+import { WeddingDance } from './pages/WeddingDance'
+import { Team } from './pages/Team'
+import { PrivacyPolicy } from './pages/PrivacyPolicy'
+import { TermsOfService } from './pages/TermsOfService'
+import ScrollToTop from './components/ScrollToTop'
+import TwSizeIndicator from './components/TwSizeIndicator'
 
 export default function App() {
   return (
@@ -31,11 +26,11 @@ export default function App() {
           <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-violet-600/20 blur-[120px] animate-pulse-glow" />
           <div
             className="absolute top-[10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-fuchsia-600/20 blur-[120px] animate-pulse-glow"
-            style={{ animationDelay: "1s" }}
+            style={{ animationDelay: '1s' }}
           />
           <div
             className="absolute bottom-[-10%] left-[20%] w-[50%] h-[50%] rounded-full bg-cyan-600/15 blur-[120px] animate-pulse-glow"
-            style={{ animationDelay: "2s" }}
+            style={{ animationDelay: '2s' }}
           />
         </div>
 
@@ -60,5 +55,5 @@ export default function App() {
         </div>
       </div>
     </Router>
-  );
+  )
 }

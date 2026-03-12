@@ -1,40 +1,40 @@
-import { motion } from "motion/react";
-import { MapPin, Phone, Clock, ExternalLink } from "lucide-react";
+import { motion } from 'motion/react'
+import { MapPin, Phone, Clock, ExternalLink } from 'lucide-react'
 
 export const locations = [
   {
-    name: "Vasco",
-    venue: "Flora Grande Hotel (6th floor)",
-    address: "Vasco da Gama, Goa 403802",
-    schedule: "Wednesdays & Saturdays",
-    mapUrl: "/flora-grand.webp",
-    googleMapsUrl: "https://maps.google.com/?q=Flora+Grande+Hotel+Vasco+Goa",
+    name: 'Vasco',
+    venue: 'Flora Grande Hotel (6th floor)',
+    address: 'Vasco da Gama, Goa 403802',
+    schedule: 'Wednesdays & Saturdays',
+    mapUrl: '/flora-grand.webp',
+    googleMapsUrl: 'https://maps.google.com/?q=Flora+Grande+Hotel+Vasco+Goa',
   },
   {
-    name: "Margao",
-    venue: "Loyola School Hall",
-    address: "Margao, Goa 403601",
-    schedule: "Sundays",
-    mapUrl: "/loyola.webp",
-    googleMapsUrl: "https://maps.google.com/?q=Loyola+High+School+Margao+Goa",
+    name: 'Margao',
+    venue: 'Loyola School Hall',
+    address: 'Margao, Goa 403601',
+    schedule: 'Sundays',
+    mapUrl: '/loyola.webp',
+    googleMapsUrl: 'https://maps.google.com/?q=Loyola+High+School+Margao+Goa',
   },
   {
-    name: "Fatorda",
-    venue: "Rosary School Hall",
-    address: "Fatorda, Margao, Goa 403602",
-    schedule: "Mondays & Thursdays",
-    mapUrl: "/rosary.webp",
-    googleMapsUrl: "https://maps.google.com/?q=Rosary+School+Fatorda+Goa",
+    name: 'Fatorda',
+    venue: 'Rosary School Hall',
+    address: 'Fatorda, Margao, Goa 403602',
+    schedule: 'Mondays & Thursdays',
+    mapUrl: '/rosary.webp',
+    googleMapsUrl: 'https://maps.google.com/?q=Rosary+School+Fatorda+Goa',
   },
   {
-    name: "Porvorim",
-    venue: "Clergy Home Hall",
-    address: "Porvorim, Goa 403521",
-    schedule: "Tuesdays & Fridays",
-    mapUrl: "/clergy-home.webp",
-    googleMapsUrl: "https://maps.google.com/?q=Clergy+Home+Porvorim+Goa",
+    name: 'Porvorim',
+    venue: 'Clergy Home Hall',
+    address: 'Porvorim, Goa 403521',
+    schedule: 'Tuesdays & Fridays',
+    mapUrl: '/clergy-home.webp',
+    googleMapsUrl: 'https://maps.google.com/?q=Clergy+Home+Porvorim+Goa',
   },
-];
+]
 
 export function Locations() {
   return (
@@ -54,8 +54,8 @@ export function Locations() {
             transition={{ delay: 0.1 }}
             className="text-slate-400 text-lg"
           >
-            We have multiple locations across Goa to make it convenient for you
-            to join our classes. Find the one nearest to you.
+            We have multiple locations across Goa to make it convenient for you to join our classes.
+            Find the one nearest to you.
           </motion.p>
         </div>
 
@@ -89,10 +89,7 @@ export function Locations() {
                       {location.venue}
                     </h3>
                     <div className="flex items-start gap-2 text-slate-400">
-                      <MapPin
-                        size={18}
-                        className="text-purple-500 shrink-0 mt-1"
-                      />
+                      <MapPin size={18} className="text-purple-500 shrink-0 mt-1" />
                       <span className="text-sm">{location.address}</span>
                     </div>
                   </div>
@@ -129,5 +126,5 @@ export function Locations() {
         </div>
       </div>
     </div>
-  );
+  )
 }

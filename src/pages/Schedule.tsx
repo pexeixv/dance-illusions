@@ -1,78 +1,68 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import {
-  Clock,
-  MapPin,
-  Calendar,
-  Info,
-  ExternalLink,
-  X,
-  Phone,
-} from "lucide-react";
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
-import { locations } from "./Locations";
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'motion/react'
+import { Clock, MapPin, Calendar, Info, ExternalLink, X, Phone } from 'lucide-react'
+import { clsx, type ClassValue } from 'clsx'
+import { twMerge } from 'tailwind-merge'
+import { locations } from './Locations'
 
 function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+  return twMerge(clsx(inputs))
 }
 
 const scheduleData = [
   {
-    day: "Monday",
-    location: "Fatorda",
-    time: "6:30 PM - 8:00 PM",
-    level: "Beginner",
-    dance: "Samba",
+    day: 'Monday',
+    location: 'Fatorda',
+    time: '6:30 PM - 8:00 PM',
+    level: 'Beginner',
+    dance: 'Samba',
   },
   {
-    day: "Tuesday",
-    location: "Porvorim",
-    time: "7:00 PM - 8:30 PM",
-    level: "Intermediate",
-    dance: "Cha cha",
+    day: 'Tuesday',
+    location: 'Porvorim',
+    time: '7:00 PM - 8:30 PM',
+    level: 'Intermediate',
+    dance: 'Cha cha',
   },
   {
-    day: "Wednesday",
-    location: "Vasco",
-    time: "6:30 PM - 8:00 PM",
-    level: "Intermediate",
-    dance: "Tango",
+    day: 'Wednesday',
+    location: 'Vasco',
+    time: '6:30 PM - 8:00 PM',
+    level: 'Intermediate',
+    dance: 'Tango',
   },
   {
-    day: "Thursday",
-    location: "Fatorda",
-    time: "6:30 PM - 8:00 PM",
-    level: "Beginner",
-    dance: "Samba",
+    day: 'Thursday',
+    location: 'Fatorda',
+    time: '6:30 PM - 8:00 PM',
+    level: 'Beginner',
+    dance: 'Samba',
   },
   {
-    day: "Friday",
-    location: "Porvorim",
-    time: "7:00 PM - 8:30 PM",
-    level: "Beginner",
-    dance: "Cha cha",
+    day: 'Friday',
+    location: 'Porvorim',
+    time: '7:00 PM - 8:30 PM',
+    level: 'Beginner',
+    dance: 'Cha cha',
   },
   {
-    day: "Saturday",
-    location: "Vasco",
-    time: "5:00 PM - 6:30 PM",
-    level: "Intermediate",
-    dance: "Tango",
+    day: 'Saturday',
+    location: 'Vasco',
+    time: '5:00 PM - 6:30 PM',
+    level: 'Intermediate',
+    dance: 'Tango',
   },
   {
-    day: "Sunday",
-    location: "Margao",
-    time: "10:30 AM - 1:00 PM",
-    level: "Beginner",
-    dance: "Crash Course",
+    day: 'Sunday',
+    location: 'Margao',
+    time: '10:30 AM - 1:00 PM',
+    level: 'Beginner',
+    dance: 'Crash Course',
   },
-];
+]
 
 export function Schedule() {
-  const [selectedLocation, setSelectedLocation] = useState<
-    (typeof locations)[0] | null
-  >(null);
+  const [selectedLocation, setSelectedLocation] = useState<(typeof locations)[0] | null>(null)
 
   return (
     <div className="pt-32 pb-24">
@@ -93,8 +83,8 @@ export function Schedule() {
             transition={{ delay: 0.1 }}
             className="text-slate-400 text-lg max-w-xl mx-auto"
           >
-            Find the perfect time and location to start your dance journey. We
-            offer classes across multiple locations in Goa.
+            Find the perfect time and location to start your dance journey. We offer classes across
+            multiple locations in Goa.
           </motion.p>
         </div>
 
@@ -152,10 +142,8 @@ export function Schedule() {
                     <td className="px-8 py-6">
                       <button
                         onClick={() => {
-                          const loc = locations.find(
-                            (l) => l.name === item.location,
-                          );
-                          if (loc) setSelectedLocation(loc);
+                          const loc = locations.find((l) => l.name === item.location)
+                          if (loc) setSelectedLocation(loc)
                         }}
                         className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors font-bold group/loc"
                       >
@@ -179,23 +167,21 @@ export function Schedule() {
 
                     {/* Dance */}
                     <td className="px-8 py-6">
-                      <span className="text-white font-medium whitespace-nowrap">
-                        {item.dance}
-                      </span>
+                      <span className="text-white font-medium whitespace-nowrap">{item.dance}</span>
                     </td>
 
                     {/* Level */}
                     <td className="px-8 py-6">
                       <span
                         className={cn(
-                          "px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest border",
-                          item.level === "Beginner"
-                            ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
-                            : item.level === "Intermediate"
-                              ? "bg-amber-500/10 text-amber-400 border-amber-500/20"
-                              : item.level === "Advanced"
-                                ? "bg-rose-500/10 text-rose-400 border-rose-500/20"
-                                : "bg-sky-500/10 text-sky-400 border-sky-500/20",
+                          'px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest border',
+                          item.level === 'Beginner'
+                            ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
+                            : item.level === 'Intermediate'
+                              ? 'bg-amber-500/10 text-amber-400 border-amber-500/20'
+                              : item.level === 'Advanced'
+                                ? 'bg-rose-500/10 text-rose-400 border-rose-500/20'
+                                : 'bg-sky-500/10 text-sky-400 border-sky-500/20'
                         )}
                       >
                         {item.level}
@@ -217,8 +203,8 @@ export function Schedule() {
           <div className="space-y-1 text-center md:text-left">
             <h3 className="text-white font-bold text-lg">Important Note:</h3>
             <p className="text-slate-400">
-              Please arrive 10 minutes before the class starts. Wear comfortable
-              clothing and appropriate dance shoes.
+              Please arrive 10 minutes before the class starts. Wear comfortable clothing and
+              appropriate dance shoes.
             </p>
           </div>
 
@@ -266,25 +252,16 @@ export function Schedule() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent" />
                   <div className="absolute bottom-6 left-6 text-white">
-                    <h2 className="text-3xl font-bold">
-                      {selectedLocation.name}
-                    </h2>
+                    <h2 className="text-3xl font-bold">{selectedLocation.name}</h2>
                   </div>
                 </div>
 
                 <div className="p-8 space-y-6">
                   <div className="space-y-2">
-                    <h3 className="text-xl font-bold text-white">
-                      {selectedLocation.venue}
-                    </h3>
+                    <h3 className="text-xl font-bold text-white">{selectedLocation.venue}</h3>
                     <div className="flex items-start gap-2 text-slate-400">
-                      <MapPin
-                        size={18}
-                        className="text-purple-500 shrink-0 mt-1"
-                      />
-                      <span className="text-sm">
-                        {selectedLocation.address}
-                      </span>
+                      <MapPin size={18} className="text-purple-500 shrink-0 mt-1" />
+                      <span className="text-sm">{selectedLocation.address}</span>
                     </div>
                   </div>
 
@@ -297,9 +274,7 @@ export function Schedule() {
                         <p className="text-slate-500 uppercase text-[10px] font-bold tracking-widest">
                           Schedule
                         </p>
-                        <p className="font-medium">
-                          {selectedLocation.schedule}
-                        </p>
+                        <p className="font-medium">{selectedLocation.schedule}</p>
                       </div>
                     </div>
                   </div>
@@ -322,5 +297,5 @@ export function Schedule() {
         )}
       </AnimatePresence>
     </div>
-  );
+  )
 }

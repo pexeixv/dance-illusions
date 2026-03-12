@@ -1,49 +1,49 @@
-import { Link, useLocation } from "react-router-dom";
-import { motion } from "motion/react";
-import { ArrowRight, Music, Star, Heart } from "lucide-react";
-import { danceForms } from "../data/danceForms";
-import { config } from "../config";
-import { useEffect } from "react";
+import { Link, useLocation } from 'react-router-dom'
+import { motion } from 'motion/react'
+import { ArrowRight, Music, Star, Heart } from 'lucide-react'
+import { danceForms } from '../data/danceForms'
+import { config } from '../config'
+import { useEffect } from 'react'
 
 const categories = [
   {
-    name: "Latin",
+    name: 'Latin',
     icon: Music,
-    slug: "latin",
-    color: "text-purple-400",
-    glow: "shadow-purple-500/20",
+    slug: 'latin',
+    color: 'text-purple-400',
+    glow: 'shadow-purple-500/20',
   },
   {
-    name: "Ballroom",
+    name: 'Ballroom',
     icon: Star,
-    slug: "ballroom",
-    color: "text-cyan-400",
-    glow: "shadow-cyan-500/20",
+    slug: 'ballroom',
+    color: 'text-cyan-400',
+    glow: 'shadow-cyan-500/20',
   },
   {
-    name: "Social",
+    name: 'Social',
     icon: Heart,
-    slug: "social",
-    color: "text-pink-400",
-    glow: "shadow-pink-500/20",
+    slug: 'social',
+    color: 'text-pink-400',
+    glow: 'shadow-pink-500/20',
   },
-];
+]
 
 export function DanceForms() {
-  const location = useLocation();
+  const location = useLocation()
 
   useEffect(() => {
     if (location.hash) {
-      const id = location.hash.replace("#", "");
-      const element = document.getElementById(id);
+      const id = location.hash.replace('#', '')
+      const element = document.getElementById(id)
 
       if (element) {
         setTimeout(() => {
-          element.scrollIntoView({ behavior: "smooth" });
-        }, 100); // small delay so layout finishes
+          element.scrollIntoView({ behavior: 'smooth' })
+        }, 100) // small delay so layout finishes
       }
     }
-  }, [location]);
+  }, [location])
 
   return (
     <div className="pt-32 pb-24">
@@ -62,8 +62,8 @@ export function DanceForms() {
             transition={{ delay: 0.1 }}
             className="text-slate-400 text-lg"
           >
-            From the passionate rhythms of Latin to the elegant flow of
-            Ballroom, discover the perfect dance style for you.
+            From the passionate rhythms of Latin to the elegant flow of Ballroom, discover the
+            perfect dance style for you.
           </motion.p>
         </div>
 
@@ -105,9 +105,7 @@ export function DanceForms() {
                         <h3 className="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">
                           {dance.title}
                         </h3>
-                        <p className="text-slate-400 text-sm line-clamp-2">
-                          {dance.description}
-                        </p>
+                        <p className="text-slate-400 text-sm line-clamp-2">{dance.description}</p>
                         <div className="inline-flex items-center gap-2 text-white font-bold text-sm group-hover:text-purple-400 transition-colors">
                           Learn More
                           <ArrowRight size={16} />
@@ -121,5 +119,5 @@ export function DanceForms() {
         ))}
       </div>
     </div>
-  );
+  )
 }

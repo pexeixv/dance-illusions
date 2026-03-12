@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion } from 'motion/react'
 
 export function PrivacyPolicy() {
   return (
@@ -12,42 +12,36 @@ export function PrivacyPolicy() {
           <h1 className="text-4xl font-bold text-white">Privacy Policy</h1>
           <div className="space-y-6 text-slate-400 leading-relaxed">
             <p>
-              At Dance Illusions Goa, we are committed to protecting your
-              privacy. This Privacy Policy explains how we collect, use, and
-              safeguard your personal information.
+              At Dance Illusions Goa, we are committed to protecting your privacy. This Privacy
+              Policy explains how we collect, use, and safeguard your personal information.
             </p>
 
-            <h2 className="text-2xl font-bold text-white">
-              Information We Collect
-            </h2>
+            <h2 className="text-2xl font-bold text-white">Information We Collect</h2>
             <p>
-              We may collect personal information such as your name, email
-              address, and phone number when you contact us or enroll in our
-              classes.
+              We may collect personal information such as your name, email address, and phone number
+              when you contact us or enroll in our classes.
             </p>
 
-            <h2 className="text-2xl font-bold text-white">
-              How We Use Your Information
-            </h2>
+            <h2 className="text-2xl font-bold text-white">How We Use Your Information</h2>
             <p>
-              We use your information to provide our services, communicate with
-              you about classes and events, and improve our offerings.
+              We use your information to provide our services, communicate with you about classes
+              and events, and improve our offerings.
             </p>
 
             <h2 className="text-2xl font-bold text-white">Data Security</h2>
             <p>
-              We implement reasonable security measures to protect your personal
-              information from unauthorized access or disclosure.
+              We implement reasonable security measures to protect your personal information from
+              unauthorized access or disclosure.
             </p>
 
             <h2 className="text-2xl font-bold text-white">Contact Us</h2>
             <p>
-              If you have any questions about this Privacy Policy, please
-              contact us at +919823014397.
+              If you have any questions about this Privacy Policy, please contact us at
+              +919823014397.
             </p>
           </div>
         </motion.div>
       </div>
     </div>
-  );
+  )
 }

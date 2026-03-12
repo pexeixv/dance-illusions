@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 import {
   Instagram,
   Facebook,
@@ -8,7 +8,7 @@ import {
   Mail,
   CodeIcon,
   CodeXmlIcon,
-} from "lucide-react";
+} from 'lucide-react'
 
 export function Footer() {
   return (
@@ -29,9 +29,8 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-slate-400 leading-relaxed max-w-xs">
-              Goa's premier Ballroom & Latin dance school. Professional
-              instruction, vibrant community, and unforgettable social dance
-              experiences.
+              Goa's premier Ballroom & Latin dance school. Professional instruction, vibrant
+              community, and unforgettable social dance experiences.
             </p>
             <div className="flex items-center gap-4">
               <a
@@ -57,49 +56,32 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold text-lg mb-6">
-              Quick Links
-            </h3>
+            <h3 className="text-white font-semibold text-lg mb-6">Quick Links</h3>
             <ul className="space-y-4 grid sm:grid-cols-2 md:grid-cols-1">
-              {[
-                "About Us",
-                "Dance Forms",
-                "Schedule",
-                "Locations",
-                "Crash Course",
-                "Team",
-              ].map((item) => (
-                <li key={item}>
-                  <Link
-                    to={`/${item.toLowerCase().replace(" ", "-")}`}
-                    className="text-slate-400 hover:text-white transition-colors flex items-center gap-2 group"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-purple-500/50 group-hover:bg-purple-500 transition-all" />
-                    {item}
-                  </Link>
-                </li>
-              ))}
+              {['About Us', 'Dance Forms', 'Schedule', 'Locations', 'Crash Course', 'Team'].map(
+                (item) => (
+                  <li key={item}>
+                    <Link
+                      to={`/${item.toLowerCase().replace(' ', '-')}`}
+                      className="text-slate-400 hover:text-white transition-colors flex items-center gap-2 group"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-purple-500/50 group-hover:bg-purple-500 transition-all" />
+                      {item}
+                    </Link>
+                  </li>
+                )
+              )}
             </ul>
           </div>
 
           {/* Dance Forms */}
           <div>
-            <h3 className="text-white font-semibold text-lg mb-6">
-              Dance Forms
-            </h3>
+            <h3 className="text-white font-semibold text-lg mb-6">Dance Forms</h3>
             <ul className="space-y-4 grid sm:grid-cols-2 md:grid-cols-1">
-              {[
-                "Rumba",
-                "Cha Cha",
-                "Samba",
-                "Waltz",
-                "Tango",
-                "Salsa",
-                "Bachata",
-              ].map((item) => (
+              {['Rumba', 'Cha Cha', 'Samba', 'Waltz', 'Tango', 'Salsa', 'Bachata'].map((item) => (
                 <li key={item}>
                   <Link
-                    to={`/forms/${item.toLowerCase().replace(" ", "-")}`}
+                    to={`/forms/${item.toLowerCase().replace(' ', '-')}`}
                     className="text-slate-400 hover:text-white transition-colors flex items-center gap-2 group"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-cyan-500/50 group-hover:bg-cyan-500 transition-all" />
@@ -112,14 +94,9 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-white font-semibold text-lg mb-6">
-              Get In Touch
-            </h3>
+            <h3 className="text-white font-semibold text-lg mb-6">Get In Touch</h3>
             <ul className="space-y-4">
-              <a
-                href="tel:+919823014397"
-                className="flex items-center gap-3 text-slate-400"
-              >
+              <a href="tel:+919823014397" className="flex items-center gap-3 text-slate-400">
                 <Phone className="text-purple-500 shrink-0" size={18} />
                 <span>+919823014397</span>
               </a>
@@ -129,7 +106,7 @@ export function Footer() {
               target="_blank"
               className="text-white font-semibold text-lg mb-6 mt-8 flex flex-wrap items-center gap-2 group"
             >
-              <CodeXmlIcon className="shrink-0" size={18} /> by{" "}
+              <CodeXmlIcon className="shrink-0" size={18} /> by{' '}
               <span className="transition-colors underline decoration-transparent group-hover:decoration-purple-500 group-hover:text-purple-500 underline-offset-2">
                 Gavin Pereira
               </span>
@@ -138,26 +115,17 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
-          <p>
-            © {new Date().getFullYear()} Dance Illusions Goa. All rights
-            reserved.
-          </p>
+          <p>© {new Date().getFullYear()} Dance Illusions Goa. All rights reserved.</p>
           <div className="flex items-center gap-8">
-            <Link
-              to="/privacy-policy"
-              className="hover:text-white transition-colors"
-            >
+            <Link to="/privacy-policy" className="hover:text-white transition-colors">
               Privacy Policy
             </Link>
-            <Link
-              to="/terms-of-service"
-              className="hover:text-white transition-colors"
-            >
+            <Link to="/terms-of-service" className="hover:text-white transition-colors">
               Terms of Service
             </Link>
           </div>
         </div>
       </div>
     </footer>
-  );
+  )
 }

@@ -1,45 +1,35 @@
-import { motion } from "motion/react";
-import {
-  Heart,
-  Star,
-  Music,
-  CheckCircle2,
-  ArrowRight,
-  Calendar,
-  Phone,
-} from "lucide-react";
-import { Link } from "react-router-dom";
+import { motion } from 'motion/react'
+import { Heart, Star, Music, CheckCircle2, ArrowRight, Calendar, Phone } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 const features = [
   {
-    title: "Personalized Choreography",
-    description:
-      "We create a unique dance that reflects your personality and style as a couple.",
+    title: 'Personalized Choreography',
+    description: 'We create a unique dance that reflects your personality and style as a couple.',
     icon: Heart,
-    color: "text-pink-400",
+    color: 'text-pink-400',
   },
   {
-    title: "Song Selection Help",
+    title: 'Song Selection Help',
     description:
-      "Not sure what to dance to? We can help you choose the perfect song for your first dance.",
+      'Not sure what to dance to? We can help you choose the perfect song for your first dance.',
     icon: Music,
-    color: "text-purple-400",
+    color: 'text-purple-400',
   },
   {
-    title: "Confidence Building",
-    description:
-      "Our instructors will help you feel comfortable and confident on the dance floor.",
+    title: 'Confidence Building',
+    description: 'Our instructors will help you feel comfortable and confident on the dance floor.',
     icon: Star,
-    color: "text-amber-400",
+    color: 'text-amber-400',
   },
   {
-    title: "Flexible Scheduling",
+    title: 'Flexible Scheduling',
     description:
-      "We offer private lessons at times that work for your busy wedding planning schedule.",
+      'We offer private lessons at times that work for your busy wedding planning schedule.',
     icon: Calendar,
-    color: "text-cyan-400",
+    color: 'text-cyan-400',
   },
-];
+]
 
 export function WeddingDance() {
   return (
@@ -66,11 +56,10 @@ export function WeddingDance() {
             </h1>
 
             <p className="text-xl text-slate-400 leading-relaxed">
-              Your first dance as a married couple is a moment you'll cherish
-              forever. Our expert instructors will help you create a beautiful,
-              personalized choreography that will leave your guests in awe. We
-              specialize in making even the most nervous beginners look like
-              pros on their big day.
+              Your first dance as a married couple is a moment you'll cherish forever. Our expert
+              instructors will help you create a beautiful, personalized choreography that will
+              leave your guests in awe. We specialize in making even the most nervous beginners look
+              like pros on their big day.
             </p>
 
             <div className="pt-4 flex flex-wrap gap-4">
@@ -117,12 +106,12 @@ export function WeddingDance() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
-                title: "Romantic Waltz First Dance",
-                url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                title: 'Romantic Waltz First Dance',
+                url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
               },
               {
-                title: "Energetic Latin Fusion",
-                url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                title: 'Energetic Latin Fusion',
+                url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
               },
             ].map((video, idx) => (
               <motion.div
@@ -142,9 +131,7 @@ export function WeddingDance() {
                     allowFullScreen
                   />
                 </div>
-                <h3 className="text-xl font-bold text-white text-center">
-                  {video.title}
-                </h3>
+                <h3 className="text-xl font-bold text-white text-center">{video.title}</h3>
               </motion.div>
             ))}
           </div>
@@ -166,62 +153,56 @@ export function WeddingDance() {
               >
                 <feature.icon size={28} />
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">
-                {feature.title}
-              </h3>
-              <p className="text-slate-400 leading-relaxed">
-                {feature.description}
-              </p>
+              <h3 className="text-xl font-bold text-white mb-4">{feature.title}</h3>
+              <p className="text-slate-400 leading-relaxed">{feature.description}</p>
             </motion.div>
           ))}
         </div>
 
         {/* Packages Section */}
         <div className="mb-32 hidden">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">
-            Our Wedding Packages
-          </h2>
+          <h2 className="text-4xl font-bold text-white mb-12 text-center">Our Wedding Packages</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                name: "Essential",
-                price: "₹15,000",
-                lessons: "5 Private Lessons",
+                name: 'Essential',
+                price: '₹15,000',
+                lessons: '5 Private Lessons',
                 features: [
-                  "Basic Choreography",
-                  "Song Selection Help",
-                  "Confidence Building",
-                  "Final Rehearsal",
+                  'Basic Choreography',
+                  'Song Selection Help',
+                  'Confidence Building',
+                  'Final Rehearsal',
                 ],
-                color: "border-slate-500/20",
+                color: 'border-slate-500/20',
               },
               {
-                name: "Premium",
-                price: "₹25,000",
-                lessons: "10 Private Lessons",
+                name: 'Premium',
+                price: '₹25,000',
+                lessons: '10 Private Lessons',
                 features: [
-                  "Full Custom Choreography",
-                  "Song Selection Help",
-                  "Confidence Building",
-                  "Final Rehearsal",
-                  "Video Recording",
+                  'Full Custom Choreography',
+                  'Song Selection Help',
+                  'Confidence Building',
+                  'Final Rehearsal',
+                  'Video Recording',
                 ],
-                color: "border-purple-500/50 shadow-purple-500/20",
+                color: 'border-purple-500/50 shadow-purple-500/20',
                 popular: true,
               },
               {
-                name: "Ultimate",
-                price: "₹40,000",
-                lessons: "15 Private Lessons",
+                name: 'Ultimate',
+                price: '₹40,000',
+                lessons: '15 Private Lessons',
                 features: [
-                  "Full Custom Choreography",
-                  "Song Selection Help",
-                  "Confidence Building",
-                  "Final Rehearsal",
-                  "Video Recording",
-                  "Family Dance Help",
+                  'Full Custom Choreography',
+                  'Song Selection Help',
+                  'Confidence Building',
+                  'Final Rehearsal',
+                  'Video Recording',
+                  'Family Dance Help',
                 ],
-                color: "border-pink-500/20",
+                color: 'border-pink-500/20',
               },
             ].map((pkg, idx) => (
               <motion.div
@@ -238,22 +219,14 @@ export function WeddingDance() {
                   </div>
                 )}
                 <div className="mb-8">
-                  <h3 className="text-2xl font-bold text-white mb-2">
-                    {pkg.name}
-                  </h3>
+                  <h3 className="text-2xl font-bold text-white mb-2">{pkg.name}</h3>
                   <p className="text-slate-400 text-sm mb-4">{pkg.lessons}</p>
                   <p className="text-4xl font-bold text-white">{pkg.price}</p>
                 </div>
                 <ul className="space-y-4 mb-10 flex-grow">
                   {pkg.features.map((feature) => (
-                    <li
-                      key={feature}
-                      className="flex items-center gap-3 text-slate-300"
-                    >
-                      <CheckCircle2
-                        size={18}
-                        className="text-purple-400 shrink-0"
-                      />
+                    <li key={feature} className="flex items-center gap-3 text-slate-300">
+                      <CheckCircle2 size={18} className="text-purple-400 shrink-0" />
                       {feature}
                     </li>
                   ))}
@@ -262,8 +235,8 @@ export function WeddingDance() {
                   href="tel:+919823014397"
                   className={`w-full py-4 rounded-2xl font-bold text-center transition-all active:scale-95 ${
                     pkg.popular
-                      ? "bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white shadow-xl shadow-purple-500/20 hover:shadow-purple-500/40"
-                      : "bg-white/5 border border-white/10 text-white hover:bg-white/10"
+                      ? 'bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white shadow-xl shadow-purple-500/20 hover:shadow-purple-500/40'
+                      : 'bg-white/5 border border-white/10 text-white hover:bg-white/10'
                   }`}
                 >
                   Choose {pkg.name}
@@ -274,5 +247,5 @@ export function WeddingDance() {
         </div>
       </div>
     </div>
-  );
+  )
 }
