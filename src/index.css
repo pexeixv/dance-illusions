@@ -26,6 +26,10 @@
 }
 
 @layer utilities {
+  button,
+  a {
+    cursor: pointer;
+  }
   .neon-glow-purple {
     box-shadow:
       0 0 20px rgba(139, 92, 246, 0.3),

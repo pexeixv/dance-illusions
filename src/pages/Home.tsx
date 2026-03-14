@@ -305,7 +305,7 @@ export function Home() {
                     ))}
                   </div>
                   <p className="text-sm text-slate-400 mt-1">
-                    <span className="text-white font-bold">500+</span> Happy Students
+                    <span className="text-white font-bold">20,000+</span> Happy Students
                   </p>
                 </div>
               </div>

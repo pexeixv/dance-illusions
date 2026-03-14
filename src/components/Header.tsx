@@ -16,7 +16,6 @@ const navLinks = [
   { name: 'Crash Course', href: '/crash-course' },
   { name: 'Wedding Dance', href: '/wedding-dance' },
   { name: 'Socials', href: '/socials' },
-  { name: 'Team', href: '/team' },
 ]
 
 export function Header() {
@@ -55,10 +54,9 @@ export function Header() {
             <span className="text-white font-bold text-lg md:text-xl">DI</span>
           </div>
 
-          <img src="/logo.svg" alt="Dance Illusions Logo" className="size-9" />
-
-          <span className="text-white font-display font-bold text-lg lg:text-xl tracking-tight">
-            Dance <span className="text-gradient-primary">Illusions</span>
+          <span className="text-white font-display font-bold sm:text-lg lg:text-xl tracking-tight flex items-center gap-1 ml-3">
+            Dance <img src="/logo.svg" alt="Dance Illusions Logo" className="size-8 lg:size-9" />
+            Illusions
           </span>
         </Link>
 
@@ -85,7 +83,7 @@ export function Header() {
         </nav>
 
         {/* Right Side */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-1 lg:gap-4">
           {/* Call Button */}
           <a
             href="tel:+919823014397"

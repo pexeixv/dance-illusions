@@ -24,9 +24,10 @@ export function Footer() {
               <div className="hidden w-10 h-10 rounded-lg bg-gradient-to-br from-violet-600 to-fuchsia-600 flex items-center justify-center shadow-lg">
                 <span className="text-white font-bold text-xl">DI</span>
               </div>
-              <img src="/logo.svg" alt="Dance Illusions Logo" className="size-12" />
-              <span className="text-white font-display font-bold text-xl tracking-tight">
-                Dance <span className="text-gradient-primary">Illusions</span>
+
+              <span className="text-white font-display font-bold text-xl tracking-tight flex items-center gap-1 ml-3">
+                Dance <img src="/logo.svg" alt="Dance Illusions Logo" className="size-12" />{' '}
+                Illusions
               </span>
             </Link>
             <p className="text-slate-400 leading-relaxed max-w-xs">
@@ -63,19 +64,17 @@ export function Footer() {
           <div>
             <h3 className="text-white font-semibold text-lg mb-6">Quick Links</h3>
             <ul className="space-y-4 grid sm:grid-cols-2 md:grid-cols-1">
-              {['About Us', 'Dance Forms', 'Schedule', 'Locations', 'Crash Course', 'Team'].map(
-                (item) => (
-                  <li key={item}>
-                    <Link
-                      to={`/${item.toLowerCase().replace(' ', '-')}`}
-                      className="text-slate-400 hover:text-white transition-colors flex items-center gap-2 group"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-purple-500/50 group-hover:bg-purple-500 transition-all" />
-                      {item}
-                    </Link>
-                  </li>
-                )
-              )}
+              {['About Us', 'Dance Forms', 'Schedule', 'Locations', 'Crash Course'].map((item) => (
+                <li key={item}>
+                  <Link
+                    to={`/${item.toLowerCase().replace(' ', '-')}`}
+                    className="text-slate-400 hover:text-white transition-colors flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-purple-500/50 group-hover:bg-purple-500 transition-all" />
+                    {item}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
