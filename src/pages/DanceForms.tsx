@@ -94,7 +94,7 @@ export function DanceForms() {
                     <Link to={`/forms/${dance.slug}`} className="block h-full">
                       <div className="aspect-[4/3] overflow-hidden">
                         <img
-                          src={`${config.imageKitUrl}/tr:w-350${dance.image}`}
+                          src={`${imageKitUrl}/tr:w-350${dance.image}`}
                           alt={dance.title}
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 object-[center_20%]"
                           referrerPolicy="no-referrer"
