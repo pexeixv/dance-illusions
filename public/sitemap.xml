@@ -47,7 +47,7 @@
         <priority>0.2</priority>
     </url>
 
-    <!-- Dance Forms — Latin -->
+    <!-- Dance Forms - Latin -->
     <url>
         <loc>https://di.gavn.in/forms/rumba</loc>
         <changefreq>monthly</changefreq>
@@ -74,7 +74,7 @@
         <priority>0.7</priority>
     </url>
 
-    <!-- Dance Forms — Ballroom -->
+    <!-- Dance Forms - Ballroom -->
     <url>
         <loc>https://di.gavn.in/forms/american-waltz</loc>
         <changefreq>monthly</changefreq>
