@@ -1,0 +1,13 @@
+/* TEAM */
+Founder & Lead Instructor: Dr. Martin D'Costa
+Role: President, Goa DanceSport Association
+Location: Goa, India
+
+/* SITE */
+Last update: 2025
+Language: English
+Doctype: HTML5
+IDE: VS Code
+
+/* THANKS */
+Built with React + Vite
