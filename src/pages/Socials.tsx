@@ -1,6 +1,7 @@
 import { motion } from 'motion/react'
 import { Music, Users, Calendar, Star, ArrowRight, CheckCircle2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import Seo, { SITE_URL } from '@/components/Seo'
 
 const upcomingEvents = [
   {
@@ -25,6 +26,11 @@ const galleryImages = [
 export function Socials() {
   return (
     <div className="pt-32 pb-24">
+      <Seo
+        title="Social Dance Events in Goa"
+        description="Join Dance Illusions Goa's social dance nights - a fun, welcoming space to practice Ballroom & Latin dancing with fellow dancers across Goa."
+        canonical={SITE_URL + '/socials'}
+      />
       <div className="container max-w-7xl mx-auto px-6">
         {/* Hero Section */}
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">

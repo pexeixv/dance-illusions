@@ -4,6 +4,7 @@ import { Clock, MapPin, Calendar, Info, ExternalLink, X, Phone } from 'lucide-re
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { locations } from './Locations'
+import Seo, { SITE_URL } from '@/components/Seo'
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -66,6 +67,11 @@ export function Schedule() {
 
   return (
     <div className="pt-32 pb-24">
+      <Seo
+        title="Dance Class Schedule & Timings"
+        description="View the latest Dance Illusions Goa class schedule - batch timings for Ballroom & Latin dance classes across Margao, Vasco and Panjim."
+        canonical={SITE_URL + '/schedule'}
+      />
       <div className="container max-w-7xl mx-auto px-6">
         {/* Title */}
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">

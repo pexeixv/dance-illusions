@@ -2,6 +2,7 @@ import { useParams, Link, Navigate } from 'react-router-dom'
 import { motion } from 'motion/react'
 import { ArrowLeft, Play, Calendar, MapPin, CheckCircle2 } from 'lucide-react'
 import { danceForms } from '../data/danceForms'
+import Seo, { SITE_URL } from '@/components/Seo'
 
 export function DanceDetail() {
   const { slug } = useParams<{ slug: string }>()
@@ -13,6 +14,22 @@ export function DanceDetail() {
 
   return (
     <div className="pt-32 pb-24">
+      <Seo
+        title={`${dance.title} Dance Classes in Goa`}
+        description={`Learn ${dance.title} at Dance Illusions Goa. ${dance.description || 'Expert-led classes for all levels in Margao, Vasco and Panjim.'}`}
+        canonical={SITE_URL + '/dance-forms/' + dance.slug}
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'Course',
+          name: `${dance.title} Dance Class`,
+          description: dance.description,
+          provider: {
+            '@type': 'Organization',
+            name: 'Dance Illusions Goa',
+            url: SITE_URL,
+          },
+        }}
+      />
       <div className="container max-w-7xl mx-auto px-6">
         <Link
           to="/forms"

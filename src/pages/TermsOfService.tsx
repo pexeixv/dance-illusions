@@ -1,8 +1,15 @@
+import Seo, { SITE_URL } from '@/components/Seo'
 import { motion } from 'motion/react'
 
 export function TermsOfService() {
   return (
     <div className="pt-32 pb-24">
+      <Seo
+        title="Terms of Service"
+        description="Read the Terms of Service for Dance Illusions Goa (di.gavn.in)."
+        canonical={SITE_URL + '/terms-of-service'}
+        noIndex={true}
+      />
       <div className="container max-w-4xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

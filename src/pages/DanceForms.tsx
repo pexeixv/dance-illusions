@@ -4,6 +4,7 @@ import { ArrowRight, Music, Star, Heart } from 'lucide-react'
 import { danceForms } from '../data/danceForms'
 import { imageKitUrl } from '@/config'
 import { useEffect } from 'react'
+import Seo, { SITE_URL } from '@/components/Seo'
 
 const categories = [
   {
@@ -47,6 +48,26 @@ export function DanceForms() {
 
   return (
     <div className="pt-32 pb-24">
+      <Seo
+        title="Dance Forms - Waltz, Salsa, Tango, Jive & More"
+        description="Explore all dance forms taught at Dance Illusions Goa - Waltz, Viennese Waltz, Tango, Foxtrot, Salsa, Jive, Cha Cha Cha, Samba and more."
+        canonical={SITE_URL + '/dance-forms'}
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'ItemList',
+          name: 'Dance Forms at Dance Illusions Goa',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Waltz' },
+            { '@type': 'ListItem', position: 2, name: 'Viennese Waltz' },
+            { '@type': 'ListItem', position: 3, name: 'Tango' },
+            { '@type': 'ListItem', position: 4, name: 'Foxtrot' },
+            { '@type': 'ListItem', position: 5, name: 'Salsa' },
+            { '@type': 'ListItem', position: 6, name: 'Jive' },
+            { '@type': 'ListItem', position: 7, name: 'Cha Cha Cha' },
+            { '@type': 'ListItem', position: 8, name: 'Samba' },
+          ],
+        }}
+      />
       <div className="container max-w-7xl mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
           <motion.h1

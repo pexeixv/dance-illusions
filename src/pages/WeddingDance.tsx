@@ -1,6 +1,7 @@
 import { motion } from 'motion/react'
 import { Heart, Star, Music, CheckCircle2, ArrowRight, Calendar, Phone } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import Seo, { SITE_URL } from '@/components/Seo'
 
 const features = [
   {
@@ -34,6 +35,23 @@ const features = [
 export function WeddingDance() {
   return (
     <div className="pt-32 pb-24">
+      <Seo
+        title="Wedding Dance Classes in Goa"
+        description="Make your first dance unforgettable. Dance Illusions Goa offers personalised wedding dance choreography and couple classes for your special day."
+        canonical={SITE_URL + '/wedding-dance'}
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          name: 'Wedding Dance Classes',
+          provider: {
+            '@type': 'Organization',
+            name: 'Dance Illusions Goa',
+            url: SITE_URL,
+          },
+          description: 'Personalised wedding dance choreography and couple classes in Goa.',
+          areaServed: 'Goa, India',
+        }}
+      />
       <div className="container max-w-7xl mx-auto px-6">
         {/* Hero Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">

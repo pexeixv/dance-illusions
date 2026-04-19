@@ -1,5 +1,6 @@
 import { motion } from 'motion/react'
 import { MapPin, Phone, Clock, ExternalLink } from 'lucide-react'
+import Seo, { SITE_URL } from '@/components/Seo'
 
 export const locations = [
   {
@@ -39,6 +40,21 @@ export const locations = [
 export function Locations() {
   return (
     <div className="pt-32 pb-24">
+      <Seo
+        title="Dance Class Locations in Goa"
+        description="Dance Illusions Goa has centres in Margao, Vasco da Gama and Panjim. Find the batch timings and address closest to you."
+        canonical={SITE_URL + '/locations'}
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'ItemList',
+          name: 'Dance Illusions Goa Locations',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Margao - B M Hall' },
+            { '@type': 'ListItem', position: 2, name: 'Vasco da Gama' },
+            { '@type': 'ListItem', position: 3, name: 'Panjim' },
+          ],
+        }}
+      />
       <div className="container max-w-7xl mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
           <motion.h1

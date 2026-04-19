@@ -106,7 +106,7 @@ export function Footer() {
               </a>
             </ul>
             <a
-              href="//gavn.in/?ref=dance-illusions"
+              href={`//gavn.in/?ref=${window.location.hostname}`}
               target="_blank"
               className="text-white font-semibold text-lg mb-6 mt-8 flex flex-wrap items-center gap-2 group"
             >

@@ -1,6 +1,6 @@
 import { motion } from 'motion/react'
 import { CheckCircle2, ArrowRight, Star, Zap, Users, Trophy } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import Seo, { SITE_URL } from '@/components/Seo'
 
 const benefits = [
   {
@@ -30,6 +30,28 @@ const benefits = [
 export function CrashCourse() {
   return (
     <div className="pt-32 pb-24">
+      <Seo
+        title="Ballroom Dance Crash Course in Goa"
+        description="Short on time? Join Dance Illusions Goa's intensive crash course and learn the basics of Ballroom & Latin dancing in just a few sessions. Batches in Margao, Vasco & Panjim."
+        canonical={SITE_URL + '/crash-course'}
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'Course',
+          name: 'Ballroom Dance Crash Course',
+          description:
+            'Intensive short-format ballroom and Latin dance course for beginners in Goa.',
+          provider: {
+            '@type': 'Organization',
+            name: 'Dance Illusions Goa',
+            url: SITE_URL,
+          },
+          hasCourseInstance: {
+            '@type': 'CourseInstance',
+            courseMode: 'In-person',
+            location: 'Margao, Vasco, Panjim - Goa, India',
+          },
+        }}
+      />
       <div className="container max-w-7xl mx-auto px-6">
         {/* Hero Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
