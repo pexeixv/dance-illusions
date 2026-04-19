@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async'
 
 export const SITE_URL = 'https://di.gavn.in'
 const SITE_NAME = 'Dance Illusions Goa'
-const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og.jpg`
 const TWITTER_HANDLE = '@'
 
 // ─────────────────────────────────────────────────────────────
