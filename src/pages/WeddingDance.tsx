@@ -125,11 +125,11 @@ export function WeddingDance() {
             {[
               {
                 title: 'Romantic Waltz First Dance',
-                url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+                url: '',
               },
               {
                 title: 'Energetic Latin Fusion',
-                url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+                url: '',
               },
             ].map((video, idx) => (
               <motion.div
@@ -141,6 +141,9 @@ export function WeddingDance() {
                 className="space-y-4"
               >
                 <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl aspect-video">
+                  <div className="absolute inset-0 pointer-none: grid place-items-center -z-10">
+                    [VIDEO COMING SOON]
+                  </div>
                   <iframe
                     src={video.url}
                     title={video.title}

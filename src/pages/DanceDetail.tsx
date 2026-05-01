@@ -115,6 +115,9 @@ export function DanceDetail() {
             className="space-y-8"
           >
             <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl aspect-video group">
+              <div className="absolute inset-0 pointer-none: grid place-items-center -z-10">
+                [VIDEO COMING SOON]
+              </div>
               <iframe
                 src={dance.videoUrl}
                 title={dance.title}
