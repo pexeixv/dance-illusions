@@ -1,6 +1,8 @@
 export const imageKitUrl = 'https://ik.imagekit.io/gavin/di'
-
 import { Star, Award, Music, MapPin } from 'lucide-react'
+const startYear = 2006
+const currentYear = new Date().getFullYear()
+const yearsOfExperience = currentYear - startYear
 
 export const features = [
   {
@@ -11,9 +13,8 @@ export const features = [
     color: 'from-violet-500 to-purple-500',
   },
   {
-    title: '18+ Years of Experience',
-    description:
-      'Learn ballroom and Latin dance from instructors with over 18 years of teaching and competition experience.',
+    title: `${yearsOfExperience} Years of Experience`,
+    description: `Learn ballroom and Latin dance from instructors with ${yearsOfExperience} years of teaching and competition experience.`,
     icon: Award,
     color: 'from-cyan-500 to-sky-500',
   },
