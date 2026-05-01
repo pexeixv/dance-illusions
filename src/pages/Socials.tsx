@@ -181,7 +181,7 @@ export function Socials() {
         </div>
 
         {/* Gallery Grid */}
-        <div>
+        <div className="hidden">
           <h2 className="text-4xl font-bold text-white mb-12 text-center">Moments to Remember</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {galleryImages.map((image, idx) => (

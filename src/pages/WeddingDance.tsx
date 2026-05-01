@@ -2,6 +2,7 @@ import { motion } from 'motion/react'
 import { Heart, Star, Music, CheckCircle2, ArrowRight, Calendar, Phone } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import Seo, { SITE_URL } from '@/components/Seo'
+import { imageKitUrl } from '@/config'
 
 const features = [
   {
@@ -106,7 +107,7 @@ export function WeddingDance() {
             <div className="absolute inset-0 bg-pink-600/20 blur-[100px] rounded-full" />
             <div className="relative z-10 rounded-3xl overflow-hidden border border-white/10 shadow-2xl aspect-[4/5]">
               <img
-                src="https://images.unsplash.com/photo-1728713351269-79d2e63926f2?q=80&w=1000&auto=format&fit=crop"
+                src={`${imageKitUrl}/wedding/couple.jpg?w=800&h=1000&fit=crop`}
                 alt="Wedding Dance"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"

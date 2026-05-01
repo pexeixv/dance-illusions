@@ -1,6 +1,8 @@
 import { motion } from 'motion/react'
 import { CheckCircle2, ArrowRight, Star, Zap, Users, Trophy } from 'lucide-react'
 import Seo, { SITE_URL } from '@/components/Seo'
+import { image } from 'motion/react-client'
+import { imageKitUrl } from '@/config'
 
 const benefits = [
   {
@@ -111,7 +113,7 @@ export function CrashCourse() {
             <div className="absolute inset-0 bg-purple-600/20 blur-[100px] rounded-full" />
             <div className="relative z-10 rounded-3xl overflow-hidden border border-white/10 shadow-2xl aspect-[4/5]">
               <img
-                src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=1000&auto=format&fit=crop"
+                src={`${imageKitUrl}/crash/group.jpg?w=1200&h=600&fit=crop`}
                 alt="Dance Class"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
