@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'motion/react'
 import { ArrowRight, Music, Star } from 'lucide-react'
+import { imageKitUrl } from '@/config'
+
+const students = ['/ahren.jpg', '/danica.jpg', '/swizel.jpg', '/pex.jpg']
 
 export function HeroSection() {
   return (
@@ -48,14 +51,14 @@ export function HeroSection() {
 
             <div className="flex items-center gap-8 pt-8 border-t border-white/5">
               <div className="flex -space-x-3">
-                {[1, 2, 3, 4].map((i) => (
+                {students.map((student, i) => (
                   <div
                     key={i}
                     className="w-12 h-12 rounded-full border-2 border-slate-950 bg-slate-800 overflow-hidden"
                   >
                     <img
-                      src={`https://i.pravatar.cc/150?u=${i}`}
-                      alt="Student"
+                      src={`${imageKitUrl}/testimonials${student}?tr=w-48,h-48,fo-auto`}
+                      alt={student}
                       referrerPolicy="no-referrer"
                     />
                   </div>
