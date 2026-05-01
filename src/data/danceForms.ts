@@ -17,7 +17,7 @@ export const danceForms: DanceForm[] = [
     fullDescription:
       'The Rumba is often called the dance of love. Slow, expressive, and deeply rhythmic, it teaches dancers control, timing, and emotional storytelling through movement. It is characterized by its sensual hip movements and romantic character.',
     videoUrl: '',
-    image: '/rumba.jpeg',
+    image: '/forms/rumba.jpeg',
   },
   {
     slug: 'cha-cha',
@@ -27,7 +27,7 @@ export const danceForms: DanceForm[] = [
     fullDescription:
       'Cha Cha is playful, energetic and rhythmic. Known for its syncopated steps and lively character, it is one of the most popular Latin dances worldwide. It is a derivative of the Mambo and has a distinct "one, two, three, cha-cha-cha" rhythm.',
     videoUrl: '',
-    image: '/chacha.jpeg',
+    image: '/forms/chacha.jpeg',
   },
   {
     slug: 'samba',
@@ -37,7 +37,7 @@ export const danceForms: DanceForm[] = [
     fullDescription:
       'Samba is the festive spirit of Brazil. High energy and bouncing rhythm, it is a dance of celebration. It is characterized by its rapid steps and swaying hip movements, often performed to the upbeat sounds of Brazilian music.',
     videoUrl: '',
-    image: '/samba.jpeg',
+    image: '/forms/samba.jpeg',
   },
   {
     slug: 'international-jive',
@@ -47,7 +47,7 @@ export const danceForms: DanceForm[] = [
     fullDescription:
       'International Jive is fast-paced and energetic. Kicks, flicks, and high-octane fun, it is a dance of pure joy. It is a derivative of the swing dances and is known for its fast tempo and athletic movements.',
     videoUrl: '',
-    image: '/international-jive.jpeg',
+    image: '/forms/international-jive.jpeg',
   },
   {
     slug: 'american-waltz',
@@ -57,7 +57,7 @@ export const danceForms: DanceForm[] = [
     fullDescription:
       'The American Waltz is elegant and graceful. Smooth, flowing movements across the floor, it is a dance of sophistication. It is characterized by its rise and fall movements and its romantic, sweeping character.',
     videoUrl: '',
-    image: '/american-waltz.jpeg',
+    image: '/forms/american-waltz.jpeg',
   },
   {
     slug: 'viennese-waltz',
@@ -67,7 +67,7 @@ export const danceForms: DanceForm[] = [
     fullDescription:
       'The Viennese Waltz is fast and whirling. A classic dance of the European ballrooms, it is a dance of elegance and speed. It is characterized by its continuous turning movements and its dramatic, sweeping character.',
     videoUrl: '',
-    image: '/viennese-waltz.jpeg',
+    image: '/forms/viennese-waltz.jpeg',
   },
   {
     slug: 'tango',
@@ -77,7 +77,7 @@ export const danceForms: DanceForm[] = [
     fullDescription:
       'The Tango is passionate and dramatic. Sharp movements and intense connection, it is a dance of power and emotion. It is characterized by its staccato movements and its intense, focused character.',
     videoUrl: '',
-    image: '/tango.jpeg',
+    image: '/forms/tango.jpeg',
   },
   {
     slug: 'foxtrot',
@@ -87,7 +87,7 @@ export const danceForms: DanceForm[] = [
     fullDescription:
       'The Foxtrot is smooth and sophisticated. A classic social dance of the big band era, it is a dance of elegance and ease. It is characterized by its long, flowing steps and its relaxed, conversational character.',
     videoUrl: '',
-    image: '/foxtrot.jpeg',
+    image: '/forms/foxtrot.jpeg',
   },
   {
     slug: 'salsa',
@@ -97,7 +97,7 @@ export const danceForms: DanceForm[] = [
     fullDescription:
       'Salsa is a vibrant social dance with roots in Cuban and Caribbean traditions. It focuses on rhythm, connection, and improvisation. It is one of the most popular social dances worldwide and is known for its infectious energy.',
     videoUrl: '',
-    image: '/salsa.jpeg',
+    image: '/forms/salsa.jpeg',
   },
   {
     slug: 'bachata',
@@ -107,7 +107,7 @@ export const danceForms: DanceForm[] = [
     fullDescription:
       'Bachata is sensual and melodic. A romantic dance from the Dominican Republic, it is a dance of intimacy and connection. It is characterized by its soft hip movements and its romantic, melodic character.',
     videoUrl: '',
-    image: '/bachata.jpeg',
+    image: '/forms/bachata.jpeg',
   },
   {
     slug: 'social-jive',
@@ -117,7 +117,7 @@ export const danceForms: DanceForm[] = [
     fullDescription:
       'Social Jive is fun and accessible. A popular social dance for all occasions, it is a dance of pure joy. It is a simplified version of the swing dances and is known for its upbeat tempo and easy-to-learn movements.',
     videoUrl: '',
-    image: '/social-jive.jpeg',
+    image: '/forms/social-jive.jpeg',
   },
   {
     slug: 'quickstep',
@@ -127,7 +127,7 @@ export const danceForms: DanceForm[] = [
     fullDescription:
       'Quickstep is a fast and powerful ballroom dance. It is light-hearted and energetic, featuring hops, skips, and rapid footwork. It evolved from the Foxtrot and is known for its joyful, athletic character.',
     videoUrl: '',
-    image: '/quickstep.jpeg',
+    image: '/forms/quickstep.jpeg',
   },
   {
     slug: 'paso-doble',
@@ -137,7 +137,7 @@ export const danceForms: DanceForm[] = [
     fullDescription:
       'Paso Doble is a theatrical Latin dance that mimics the drama of a Spanish bullfight. The leader represents the matador, and the follower represents the cape. It is characterized by its powerful, sharp movements and proud posture.',
     videoUrl: '',
-    image: '/paso-doble.jpeg',
+    image: '/forms/paso-doble.jpeg',
   },
   {
     slug: 'merengue',
@@ -147,7 +147,7 @@ export const danceForms: DanceForm[] = [
     fullDescription:
       'Merengue is the heartbeat of the Dominican Republic. It is a simple, rhythmic dance that is incredibly fun and easy to learn. It is characterized by its marching-like steps and swaying hip movements.',
     videoUrl: '',
-    image: '/merengue.jpeg',
+    image: '/forms/merengue.jpeg',
   },
   {
     slug: 'kizomba',
@@ -157,6 +157,6 @@ export const danceForms: DanceForm[] = [
     fullDescription:
       'Kizomba is often called the African Tango. It is a smooth, grounded dance from Angola that emphasizes a deep connection between partners. It is characterized by its slow, sensual movements and intricate footwork.',
     videoUrl: '',
-    image: '/kizomba.jpeg',
+    image: '/forms/kizomba.jpeg',
   },
 ]

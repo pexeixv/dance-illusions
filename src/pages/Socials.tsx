@@ -2,6 +2,7 @@ import { motion } from 'motion/react'
 import { Music, Users, Calendar, Star, ArrowRight, CheckCircle2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import Seo, { SITE_URL } from '@/components/Seo'
+import { imageKitUrl } from '@/config'
 
 const upcomingEvents = [
   {
@@ -39,7 +40,7 @@ export function Socials() {
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl lg:text-7xl font-bold text-white"
           >
-            Social Dance <span className="text-gradient-primary">Nights</span>
+            Dance <span className="text-gradient-primary">Socials</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -99,7 +100,7 @@ export function Socials() {
             <div className="absolute inset-0 bg-cyan-600/20 blur-[100px] rounded-full" />
             <div className="relative z-10 rounded-3xl overflow-hidden border border-white/10 shadow-2xl aspect-video">
               <img
-                src="https://images.unsplash.com/photo-1545128485-c400e7702796?q=80&w=1000&auto=format&fit=crop"
+                src={`${imageKitUrl}/socials/group.jpg?tr=w-1200,h-675,fo-auto`}
                 alt="Social Dance Night"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
@@ -110,7 +111,7 @@ export function Socials() {
         </div>
 
         {/* Upcoming Events */}
-        <div className="mb-32">
+        <div className="mb-32 hidden">
           <div className="flex items-center justify-between mb-12">
             <h2 className="text-4xl font-bold text-white">Upcoming Events</h2>
             <a

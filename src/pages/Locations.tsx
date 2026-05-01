@@ -1,6 +1,7 @@
 import { motion } from 'motion/react'
 import { MapPin, Phone, Clock, ExternalLink } from 'lucide-react'
 import Seo, { SITE_URL } from '@/components/Seo'
+import { imageKitUrl } from '@/config'
 
 export const locations = [
   {
@@ -8,7 +9,7 @@ export const locations = [
     venue: 'Flora Grande Hotel',
     address: 'Vasco da Gama, Goa 403802',
     schedule: 'Wednesdays & Saturdays',
-    mapUrl: '/flora-grand.webp',
+    image: '/locations/flora-grand.jpg',
     googleMapsUrl: 'https://maps.google.com/?q=Flora+Grande+Hotel+Vasco+Goa',
   },
   {
@@ -16,7 +17,7 @@ export const locations = [
     venue: 'Loyola School Hall',
     address: 'Margao, Goa 403601',
     schedule: 'Sundays',
-    mapUrl: '/loyola.webp',
+    image: '/locations/loyola.png',
     googleMapsUrl: 'https://maps.google.com/?q=Loyola+High+School+Margao+Goa',
   },
   {
@@ -24,7 +25,7 @@ export const locations = [
     venue: 'Rosary School Hall',
     address: 'Fatorda, Margao, Goa 403602',
     schedule: 'Mondays & Thursdays',
-    mapUrl: '/rosary.webp',
+    image: '/locations/rosary.png',
     googleMapsUrl: 'https://maps.google.com/?q=Rosary+School+Fatorda+Goa',
   },
   {
@@ -32,7 +33,7 @@ export const locations = [
     venue: 'Clergy Home Hall',
     address: 'Porvorim, Goa 403521',
     schedule: 'Tuesdays & Fridays',
-    mapUrl: '/clergy-home.webp',
+    image: '/locations/clergy-home.png',
     googleMapsUrl: 'https://maps.google.com/?q=Clergy+Home+Porvorim+Goa',
   },
 ]
@@ -88,7 +89,7 @@ export function Locations() {
               <div className="grid grid-cols-1 lg:grid-cols-2 h-full">
                 <div className="aspect-square lg:aspect-auto relative overflow-hidden">
                   <img
-                    src={location.mapUrl}
+                    src={`${imageKitUrl}${location.image}?w=600&h=400&fit=crop`}
                     alt={location.name}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     referrerPolicy="no-referrer"
