@@ -9,14 +9,14 @@ export function HeroSection() {
   return (
     <section className="relative pt-28 pb-24 lg:pt-40 lg:py-24 overflow-hidden">
       <div className="container max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="flex max-lg:flex-col-reverse gap-16 items-center justify-between">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="space-y-8"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
+            <div className="items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md hidden">
               <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
               <span className="text-xs font-semibold text-slate-300 uppercase tracking-widest">
                 Ballroom & Latin Dance School
@@ -81,17 +81,23 @@ export function HeroSection() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: 'easeOut' }}
-            className="relative"
+            className="relative max-lg:w-full"
           >
             {/* Stage Platform Glow */}
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[120%] h-[100px] bg-purple-600/30 blur-[60px] rounded-[100%] pointer-events-none" />
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[80%] h-[40px] bg-cyan-400/20 blur-[30px] rounded-[100%] pointer-events-none" />
 
-            <div className="relative z-10 rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-purple-500/20 lg:aspect-4/5 group max-lg:max-h-100 flex flex-col items-center justify-center">
+            <div className="relative z-10 rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-purple-500/20 lg:aspect-4/5 group flex flex-col items-center justify-center">
+              <img
+                src={`${imageKitUrl}/home/hero-potrait.jpg?tr=,fo-auto`}
+                alt="Professional Dancers"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110  lg:max-w-[500px] lg:hidden relative"
+                referrerPolicy="no-referrer"
+              />
               <img
                 src={`${imageKitUrl}/home/hero.jpg?tr=w-800,h-1000,fo-auto`}
                 alt="Professional Dancers"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 lg:max-w-[500px] max-lg:hidden relative"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60" />
