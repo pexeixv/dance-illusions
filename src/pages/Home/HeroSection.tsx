@@ -89,7 +89,7 @@ export function HeroSection() {
 
             <div className="relative z-10 rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-purple-500/20 lg:aspect-4/5 group max-lg:max-h-100 flex flex-col items-center justify-center">
               <img
-                src="/hero.jpg"
+                src={`${imageKitUrl}/home/hero.jpg?tr=w-800,h-1000,fo-auto`}
                 alt="Professional Dancers"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 referrerPolicy="no-referrer"
