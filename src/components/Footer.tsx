@@ -119,7 +119,7 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
-          <p>© {new Date().getFullYear()} Dance Illusions Goa. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Dance Illusions Goa. All rights reserved.</p>
           <div className="flex items-center gap-8">
             <Link to="/privacy-policy" className="hover:text-white transition-colors">
               Privacy Policy
