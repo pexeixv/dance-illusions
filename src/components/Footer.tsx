@@ -110,7 +110,8 @@ export function Footer() {
             </a>
             <h3 className="text-white font-semibold text-lg mb-2 mt-8">Developed by</h3>
             <a
-              href={`//gavn.in/?ref=${window.location.hostname}`}
+              target="_blank"
+              href={`${import.meta.env.VITE_DEVELOPER_URL}?ref=${window.location.hostname}`}
               className=" items-center gap-3 text-slate-400 hover:text-purple-500 transition-all underline decoration-transparent hover:decoration-inherit duration-300 inline-block"
             >
               Gavin Pereira

@@ -1,4 +1,4 @@
-export const imageKitUrl = 'https://ik.imagekit.io/gavin/di'
+export const imageKitUrl = import.meta.env.VITE_IMAGEKIT_URL
 import { Star, Award, Music, MapPin } from 'lucide-react'
 const startYear = 2006
 const currentYear = new Date().getFullYear()
