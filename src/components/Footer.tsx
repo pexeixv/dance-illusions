@@ -98,22 +98,22 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-white font-semibold text-lg mb-6">Get In Touch</h3>
-            <ul className="space-y-4">
-              <a href="tel:+919823014397" className="flex items-center gap-3 text-slate-400">
-                <Phone className="text-purple-500 shrink-0" size={18} />
-                <span>+919823014397</span>
-              </a>
-            </ul>
+            <h3 className="text-white font-semibold text-lg mb-2">Get In Touch</h3>
+            <a
+              href="tel:+919823014397"
+              className="inline-flex items-center gap-3 text-slate-400 group"
+            >
+              <Phone className="text-purple-500 shrink-0" size={18} />
+              <span className="group-hover:text-purple-500 underline decoration-transparent group-hover:decoration-inherit">
+                +919823014397
+              </span>
+            </a>
+            <h3 className="text-white font-semibold text-lg mb-2 mt-8">Developed by</h3>
             <a
               href={`//gavn.in/?ref=${window.location.hostname}`}
-              target="_blank"
-              className="text-white font-semibold text-lg mb-6 mt-8 flex flex-wrap items-center gap-2 group"
+              className=" items-center gap-3 text-slate-400 hover:text-purple-500 transition-all underline decoration-transparent hover:decoration-inherit duration-300 inline-block"
             >
-              <CodeXmlIcon className="shrink-0" size={18} /> by{' '}
-              <span className="transition-colors underline decoration-transparent group-hover:decoration-purple-500 group-hover:text-purple-500 underline-offset-2">
-                Gavin Pereira
-              </span>
+              Gavin Pereira
             </a>
           </div>
         </div>
