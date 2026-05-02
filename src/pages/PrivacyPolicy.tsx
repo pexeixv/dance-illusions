@@ -6,7 +6,7 @@ export function PrivacyPolicy() {
     <div className="pt-32 pb-24">
       <Seo
         title="Privacy Policy"
-        description="Read the Privacy Policy for Dance Illusions Goa (di.gavn.in)."
+        description="Read the Privacy Policy for Dance Illusions Goa (danceillusions.in)."
         canonical={SITE_URL + '/privacy-policy'}
         noIndex={true}
       />

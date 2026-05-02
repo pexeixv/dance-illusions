@@ -22,10 +22,10 @@ Dance Illusions Goa is a professional dance academy offering classes in Internat
 
 ## Key Pages
 
-- Homepage: https://di.gavn.in/
-- Dance Forms: https://di.gavn.in/forms
-- Locations: https://di.gavn.in/locations
-- Schedule: https://di.gavn.in/schedule
-- Crash Course: https://di.gavn.in/crash-course
-- Wedding Dance: https://di.gavn.in/wedding-dance
-- Social Events: https://di.gavn.in/socials
+- Homepage: https://danceillusions.in/
+- Dance Forms: https://danceillusions.in/forms
+- Locations: https://danceillusions.in/locations
+- Schedule: https://danceillusions.in/schedule
+- Crash Course: https://danceillusions.in/crash-course
+- Wedding Dance: https://danceillusions.in/wedding-dance
+- Social Events: https://danceillusions.in/socials

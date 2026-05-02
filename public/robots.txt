@@ -4,4 +4,4 @@ Allow: /
 Disallow: /privacy-policy
 Disallow: /terms-of-service
 
-Sitemap: https://di.gavn.in/sitemap.xml
+Sitemap: https://danceillusions.in/sitemap.xml

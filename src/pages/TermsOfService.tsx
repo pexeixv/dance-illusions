@@ -6,7 +6,7 @@ export function TermsOfService() {
     <div className="pt-32 pb-24">
       <Seo
         title="Terms of Service"
-        description="Read the Terms of Service for Dance Illusions Goa (di.gavn.in)."
+        description="Read the Terms of Service for Dance Illusions Goa (danceillusions.in)."
         canonical={SITE_URL + '/terms-of-service'}
         noIndex={true}
       />
