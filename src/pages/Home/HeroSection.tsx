@@ -89,15 +89,15 @@ export function HeroSection() {
 
             <div className="relative z-10 rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-purple-500/20 lg:aspect-4/5 group flex flex-col items-center justify-center">
               <img
-                src={`${imageKitUrl}/home/hero-potrait.jpg?tr=,fo-auto`}
+                src={`${imageKitUrl}/home/better-hero.jpg?tr=,fo-auto`}
                 alt="Professional Dancers"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110  lg:max-w-[500px] lg:hidden relative"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105  lg:max-w-[500px] lg:hidden relative"
                 referrerPolicy="no-referrer"
               />
               <img
-                src={`${imageKitUrl}/home/hero.jpg?tr=w-800,h-1000,fo-auto`}
+                src={`${imageKitUrl}/home/better-hero.jpg?tr=w-800,h-1000,fo-auto`}
                 alt="Professional Dancers"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 lg:max-w-[500px] max-lg:hidden relative"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 lg:max-w-[500px] max-lg:hidden relative"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60" />
