@@ -38,19 +38,19 @@ export const danceCategories = [
   {
     title: 'Latin',
     dances: ['Rumba', 'Cha Cha', 'Samba', 'International Jive'],
-    image: '/latin.jpeg',
+    image: '/forms/latin.jpeg',
     slug: 'latin',
   },
   {
     title: 'Ballroom',
     dances: ['American Waltz', 'Viennese Waltz', 'Tango', 'Foxtrot'],
-    image: '/ballroom.jpeg',
+    image: '/forms/ballroom.jpeg',
     slug: 'ballroom',
   },
   {
     title: 'Social',
     dances: ['Salsa', 'Bachata', 'Social Jive'],
-    image: '/social.jpeg',
+    image: '/forms/social.jpeg',
     slug: 'social',
   },
 ]
