@@ -1,39 +1,45 @@
 import { motion } from 'motion/react'
-import { MapPin, Phone, Clock, ExternalLink } from 'lucide-react'
+import { MapPin, Clock, ExternalLink } from 'lucide-react'
 import Seo, { SITE_URL } from '@/components/Seo'
 import { imageKitUrl } from '@/config'
+import type { Location } from '@/types'
+import { LocationName } from '@/types'
 
-export const locations = [
+export const locations: Location[] = [
   {
-    name: 'Vasco',
+    name: LocationName.VASCO,
     venue: 'Flora Grande Hotel',
     address: 'Vasco da Gama, Goa 403802',
     schedule: 'Wednesdays & Saturdays',
     image: '/locations/flora-grand.jpg',
+    mapUrl: 'https://maps.google.com/maps?q=Flora+Grande+Hotel+Vasco+Goa&output=embed',
     googleMapsUrl: 'https://maps.google.com/?q=Flora+Grande+Hotel+Vasco+Goa',
   },
   {
-    name: 'Margao',
+    name: LocationName.MARGAO,
     venue: 'Loyola School Hall',
     address: 'Margao, Goa 403601',
     schedule: 'Sundays',
     image: '/locations/loyola.png',
+    mapUrl: 'https://maps.google.com/maps?q=Loyola+High+School+Margao+Goa&output=embed',
     googleMapsUrl: 'https://maps.google.com/?q=Loyola+High+School+Margao+Goa',
   },
   {
-    name: 'Fatorda',
+    name: LocationName.MARGAO,
     venue: 'Rosary School Hall',
     address: 'Fatorda, Margao, Goa 403602',
     schedule: 'Mondays & Thursdays',
     image: '/locations/rosary.png',
+    mapUrl: 'https://maps.google.com/maps?q=Rosary+School+Fatorda+Goa&output=embed',
     googleMapsUrl: 'https://maps.google.com/?q=Rosary+School+Fatorda+Goa',
   },
   {
-    name: 'Porvorim',
+    name: LocationName.PORVORIM,
     venue: 'Clergy Home Hall',
     address: 'Porvorim, Goa 403521',
     schedule: 'Tuesdays & Fridays',
     image: '/locations/clergy-home.png',
+    mapUrl: 'https://maps.google.com/maps?q=Clergy+Home+Porvorim+Goa&output=embed',
     googleMapsUrl: 'https://maps.google.com/?q=Clergy+Home+Porvorim+Goa',
   },
 ]

@@ -1,14 +1,5 @@
 import { Link } from 'react-router-dom'
-import {
-  Instagram,
-  Facebook,
-  Youtube,
-  MapPin,
-  Phone,
-  Mail,
-  CodeIcon,
-  CodeXmlIcon,
-} from 'lucide-react'
+import { Instagram, Facebook, Youtube, Phone } from 'lucide-react'
 
 export function Footer() {
   return (

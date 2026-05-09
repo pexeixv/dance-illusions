@@ -5,25 +5,18 @@ import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { locations } from './Locations'
 import Seo, { SITE_URL } from '@/components/Seo'
+import { getLevelColorClass } from '@/utils/styling'
+import type { ScheduleItem, Location } from '@/types'
+import { DanceLevel, DayOfWeek, LocationName } from '@/types'
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-type Level = 'Beginner' | 'Intermediate' | 'Advanced' | 'All Levels'
-
-type ScheduleItem = {
-  day: string
-  location: string
-  time: string
-  level: Level[]
-  dance: string
-}
-
-type ScheduleTableProps = {
+interface ScheduleTableProps {
   title: string
   data: ScheduleItem[]
-  onLocationClick: (locationName: string) => void
+  onLocationClick: (locationName: LocationName) => void
 }
 
 const currentScheduleLabel = 'April, May 2026'
@@ -31,90 +24,90 @@ const nextScheduleLabel = 'June, July 2026'
 
 const currentSchedule: ScheduleItem[] = [
   {
-    day: 'Monday',
-    location: 'Margao',
+    day: DayOfWeek.MONDAY,
+    location: LocationName.MARGAO,
     time: '7:00 PM - 9:00 PM',
-    level: ['Beginner', 'Intermediate'],
+    level: [DanceLevel.BEGINNER, DanceLevel.INTERMEDIATE],
     dance: 'Rumba',
   },
   {
-    day: 'Tuesday',
-    location: 'Porvorim',
+    day: DayOfWeek.TUESDAY,
+    location: LocationName.PORVORIM,
     time: '7:00 PM - 9:00 PM',
-    level: ['Beginner', 'Intermediate'],
+    level: [DanceLevel.BEGINNER, DanceLevel.INTERMEDIATE],
     dance: 'Salsa',
   },
   {
-    day: 'Wednesday',
-    location: 'Vasco',
+    day: DayOfWeek.WEDNESDAY,
+    location: LocationName.VASCO,
     time: '7:00 PM - 9:00 PM',
-    level: ['Beginner', 'Intermediate'],
+    level: [DanceLevel.BEGINNER, DanceLevel.INTERMEDIATE],
     dance: 'Cha Cha',
   },
   {
-    day: 'Thursday',
-    location: 'Margao',
+    day: DayOfWeek.THURSDAY,
+    location: LocationName.MARGAO,
     time: '7:00 PM - 9:00 PM',
-    level: ['Beginner', 'Intermediate'],
+    level: [DanceLevel.BEGINNER, DanceLevel.INTERMEDIATE],
     dance: 'Rumba',
   },
   {
-    day: 'Friday',
-    location: 'Porvorim',
+    day: DayOfWeek.FRIDAY,
+    location: LocationName.PORVORIM,
     time: '7:00 PM - 9:00 PM',
-    level: ['Beginner', 'Intermediate'],
+    level: [DanceLevel.BEGINNER, DanceLevel.INTERMEDIATE],
     dance: 'Salsa',
   },
   {
-    day: 'Saturday',
-    location: 'Vasco',
+    day: DayOfWeek.SATURDAY,
+    location: LocationName.VASCO,
     time: '7:00 PM - 9:00 PM',
-    level: ['Beginner', 'Intermediate'],
+    level: [DanceLevel.BEGINNER, DanceLevel.INTERMEDIATE],
     dance: 'Cha Cha',
   },
 ]
 
 const nextSchedule: ScheduleItem[] = [
   {
-    day: 'Monday',
-    location: 'Margao',
+    day: DayOfWeek.MONDAY,
+    location: LocationName.MARGAO,
     time: '7:00 PM - 9:00 PM',
-    level: ['Beginner', 'Intermediate'],
+    level: [DanceLevel.BEGINNER, DanceLevel.INTERMEDIATE],
     dance: 'Bachata',
   },
   {
-    day: 'Tuesday',
-    location: 'Porvorim',
+    day: DayOfWeek.TUESDAY,
+    location: LocationName.PORVORIM,
     time: '7:00 PM - 9:00 PM',
-    level: ['Beginner', 'Intermediate'],
+    level: [DanceLevel.BEGINNER, DanceLevel.INTERMEDIATE],
     dance: 'International Jive',
   },
   {
-    day: 'Wednesday',
-    location: 'Vasco',
+    day: DayOfWeek.WEDNESDAY,
+    location: LocationName.VASCO,
     time: '7:00 PM - 9:00 PM',
-    level: ['Beginner', 'Intermediate'],
+    level: [DanceLevel.BEGINNER, DanceLevel.INTERMEDIATE],
     dance: 'Salsa',
   },
   {
-    day: 'Thursday',
-    location: 'Margao',
+    day: DayOfWeek.THURSDAY,
+    location: LocationName.MARGAO,
     time: '7:00 PM - 9:00 PM',
-    level: ['Beginner', 'Intermediate'],
+    level: [DanceLevel.BEGINNER, DanceLevel.INTERMEDIATE],
     dance: 'Bachata',
   },
   {
-    day: 'Friday',
-    location: 'Porvorim',
+    day: DayOfWeek.FRIDAY,
+    location: LocationName.PORVORIM,
     time: '7:00 PM - 9:00 PM',
-    level: ['Beginner', 'Intermediate'],
+    level: [DanceLevel.BEGINNER, DanceLevel.INTERMEDIATE],
     dance: 'International Jive',
   },
   {
-    day: 'Saturday',
-    location: 'Vasco',
+    day: DayOfWeek.SATURDAY,
+    location: LocationName.VASCO,
     time: '7:00 PM - 9:00 PM',
-    level: ['Beginner', 'Intermediate'],
+    level: [DanceLevel.BEGINNER, DanceLevel.INTERMEDIATE],
     dance: 'Salsa',
   },
 ]
@@ -216,10 +209,7 @@ function ScheduleTable({ title, data, onLocationClick }: ScheduleTableProps) {
                         key={i}
                         className={cn(
                           'inline-block px-3 py-1 rounded-full text-xs font-medium',
-                          lvl === 'Beginner' && 'bg-green-500/20 text-green-400',
-                          lvl === 'Intermediate' && 'bg-yellow-500/20 text-yellow-400',
-                          lvl === 'Advanced' && 'bg-red-500/20 text-red-400',
-                          lvl === 'All Levels' && 'bg-blue-500/20 text-blue-400'
+                          getLevelColorClass(lvl)
                         )}
                       >
                         {lvl}
@@ -237,9 +227,9 @@ function ScheduleTable({ title, data, onLocationClick }: ScheduleTableProps) {
 }
 
 export function Schedule() {
-  const [selectedLocation, setSelectedLocation] = useState<(typeof locations)[0] | null>(null)
+  const [selectedLocation, setSelectedLocation] = useState<Location | null>(null)
 
-  const handleLocationClick = (locationName: string) => {
+  const handleLocationClick = (locationName: LocationName) => {
     const loc = locations.find((l) => l.name === locationName)
 
     if (loc) {

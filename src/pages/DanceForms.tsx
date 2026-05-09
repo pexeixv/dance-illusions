@@ -1,28 +1,38 @@
 import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'motion/react'
 import { ArrowRight, Music, Star, Heart } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import { danceForms } from '../data/danceForms'
 import { imageKitUrl } from '@/config'
 import { useEffect } from 'react'
 import Seo, { SITE_URL } from '@/components/Seo'
+import { DanceCategoryType } from '@/types'
 
-const categories = [
+interface CategoryInfo {
+  category: DanceCategoryType
+  icon: LucideIcon
+  slug: string
+  color: string
+  glow: string
+}
+
+const categories: CategoryInfo[] = [
   {
-    name: 'Latin',
+    category: DanceCategoryType.LATIN,
     icon: Music,
     slug: 'latin',
     color: 'text-purple-400',
     glow: 'shadow-purple-500/20',
   },
   {
-    name: 'Ballroom',
+    category: DanceCategoryType.BALLROOM,
     icon: Star,
     slug: 'ballroom',
     color: 'text-cyan-400',
     glow: 'shadow-cyan-500/20',
   },
   {
-    name: 'Social',
+    category: DanceCategoryType.SOCIAL,
     icon: Heart,
     slug: 'social',
     color: 'text-pink-400',
@@ -89,20 +99,20 @@ export function DanceForms() {
         </div>
 
         {categories.map((category) => (
-          <div key={category.name} className="mb-24" id={category.slug}>
+          <div key={category.category} className="mb-24" id={category.slug}>
             <div className="flex items-center gap-4 mb-12">
               <div
                 className={`p-3 rounded-2xl bg-white/5 border border-white/10 ${category.color}`}
               >
                 <category.icon size={32} />
               </div>
-              <h2 className="text-4xl font-bold text-white">{category.name}</h2>
+              <h2 className="text-4xl font-bold text-white">{category.category}</h2>
               <div className="flex-grow h-px bg-gradient-to-r from-white/10 to-transparent ml-4" />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {danceForms
-                .filter((dance) => dance.category === category.name)
+                .filter((dance) => dance.category === category.category)
                 .map((dance, idx) => (
                   <motion.div
                     key={dance.slug}

@@ -1,10 +1,13 @@
-export const imageKitUrl = import.meta.env.VITE_IMAGEKIT_URL
 import { Star, Award, Music, MapPin } from 'lucide-react'
+import type { Feature, Testimonial, FAQ, DanceCategory } from '@/types'
+import { DanceCategoryType } from '@/types'
+
+export const imageKitUrl = import.meta.env.VITE_IMAGEKIT_URL
 const startYear = 2006
 const currentYear = new Date().getFullYear()
 const yearsOfExperience = currentYear - startYear
 
-export const features = [
+export const features: Feature[] = [
   {
     title: 'Beginner-Friendly Classes',
     description:
@@ -34,28 +37,28 @@ export const features = [
   },
 ]
 
-export const danceCategories = [
+export const danceCategories: DanceCategory[] = [
   {
-    title: 'Latin',
+    title: DanceCategoryType.LATIN,
     dances: ['Rumba', 'Cha Cha', 'Samba', 'International Jive'],
     image: '/forms/latin.jpeg',
     slug: 'latin',
   },
   {
-    title: 'Ballroom',
+    title: DanceCategoryType.BALLROOM,
     dances: ['American Waltz', 'Viennese Waltz', 'Tango', 'Foxtrot'],
     image: '/forms/ballroom.jpeg',
     slug: 'ballroom',
   },
   {
-    title: 'Social',
+    title: DanceCategoryType.SOCIAL,
     dances: ['Salsa', 'Bachata', 'Social Jive'],
     image: '/forms/social.jpeg',
     slug: 'social',
   },
 ]
 
-export const testimonials = [
+export const testimonials: Testimonial[] = [
   {
     name: 'Poonam Tanwar Kochhar',
     text: 'I was born with two left feet, but Dr. Martin and Flossy helped me find my rhythm and now I look forward to every class. Their love, passion, and enthusiasm for dancing rubs off on their students, making the classes so enjoyable.',
@@ -272,7 +275,7 @@ export const testimonials = [
     avatar: '',
   },
 ]
-export const faqs = [
+export const faqs: FAQ[] = [
   {
     question: 'Do I need a partner to join classes?',
     answer:
