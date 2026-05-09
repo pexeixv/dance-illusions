@@ -14,7 +14,8 @@ const navLinks = [
   { name: 'Schedule', href: '/schedule' },
   { name: 'Locations', href: '/locations' },
   { name: 'Crash Course', href: '/crash-course' },
-  { name: 'Wedding Dance', href: '/wedding-dance' },
+  { name: 'Weddings', href: '/wedding-dance' },
+  { name: 'Gallery', href: '/gallery' },
   { name: 'Socials', href: '/socials' },
 ]
 
