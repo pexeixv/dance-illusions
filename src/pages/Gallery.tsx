@@ -79,6 +79,11 @@ const galleryImages = [
   '/gallery/IMG-20260509-WA0071.jpg',
   '/gallery/IMG-20260509-WA0035.jpg',
   '/gallery/IMG-20260509-WA0072.jpg',
+  '/gallery/IMG-20260510-WA0035.jpg',
+  '/gallery/IMG-20260510-WA0036.jpg',
+  '/gallery/IMG-20260510-WA0037.jpg',
+  '/gallery/IMG-20260510-WA0034.jpg',
+  '/gallery/IMG-20260510-WA0033.jpg',
 ]
 
 interface GalleryImage {
