@@ -49,7 +49,7 @@ export default function App() {
               <Route path="/wedding-dance" element={<WeddingDance />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
-              <Route path="*" element={<></><h1 className="text-5xl font-bold text-center">404</h1> </>} />
+              <Route path="*" element={<><h1 className="text-5xl font-bold text-center">404</h1> </>} />
             </Routes>
           </main>
           <Footer />
