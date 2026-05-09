@@ -71,7 +71,7 @@ export function HeroSection() {
                   ))}
                 </div>
                 <p className="text-sm text-slate-400 mt-1">
-                  <span className="text-white font-bold">20,000+</span> Happy Students
+                  <span className="text-white font-bold">10,000+</span> Happy Students
                 </p>
               </div>
             </div>
