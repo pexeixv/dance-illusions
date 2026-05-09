@@ -14,6 +14,7 @@ import { PrivacyPolicy } from './pages/PrivacyPolicy'
 import { TermsOfService } from './pages/TermsOfService'
 import ScrollToTop from './components/ScrollToTop'
 import TwSizeIndicator from './components/TwSizeIndicator'
+import NotFound from './pages/NotFound'
 
 export default function App() {
   return (
@@ -49,7 +50,7 @@ export default function App() {
               <Route path="/wedding-dance" element={<WeddingDance />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
-              <Route path="*" element={<><h1 className="text-5xl font-bold text-center">404</h1> </>} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
           <Footer />
