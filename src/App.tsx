@@ -8,6 +8,7 @@ import { Locations } from './pages/Locations'
 import { Schedule } from './pages/Schedule'
 import { CrashCourse } from './pages/CrashCourse'
 import { Socials } from './pages/Socials'
+import { Gallery } from './pages/Gallery'
 import { WeddingDance } from './pages/WeddingDance'
 import { PrivacyPolicy } from './pages/PrivacyPolicy'
 import { TermsOfService } from './pages/TermsOfService'
@@ -44,6 +45,7 @@ export default function App() {
               <Route path="/schedule" element={<Schedule />} />
               <Route path="/crash-course" element={<CrashCourse />} />
               <Route path="/socials" element={<Socials />} />
+              <Route path="/gallery" element={<Gallery />} />
               <Route path="/wedding-dance" element={<WeddingDance />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
