@@ -8,11 +8,13 @@ import { Locations } from './pages/Locations'
 import { Schedule } from './pages/Schedule'
 import { CrashCourse } from './pages/CrashCourse'
 import { Socials } from './pages/Socials'
+import { Gallery } from './pages/Gallery'
 import { WeddingDance } from './pages/WeddingDance'
 import { PrivacyPolicy } from './pages/PrivacyPolicy'
 import { TermsOfService } from './pages/TermsOfService'
 import ScrollToTop from './components/ScrollToTop'
 import TwSizeIndicator from './components/TwSizeIndicator'
+import NotFound from './pages/NotFound'
 
 export default function App() {
   return (
@@ -44,9 +46,11 @@ export default function App() {
               <Route path="/schedule" element={<Schedule />} />
               <Route path="/crash-course" element={<CrashCourse />} />
               <Route path="/socials" element={<Socials />} />
+              <Route path="/gallery" element={<Gallery />} />
               <Route path="/wedding-dance" element={<WeddingDance />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
           <Footer />

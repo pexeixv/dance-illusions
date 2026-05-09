@@ -87,3 +87,23 @@
 .group:hover .animate-marquee {
   animation-play-state: paused;
 }
+
+/* Masonry Grid */
+.masonry-grid {
+  display: flex;
+  width: auto;
+  gap: 1.5rem;
+}
+
+.masonry-grid-column {
+  padding-left: 0;
+  background-clip: padding-box;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.masonry-item {
+  break-inside: avoid;
+  min-height: 200px;
+}
