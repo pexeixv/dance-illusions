@@ -4,7 +4,7 @@ import Seo, { SITE_URL } from '@/components/Seo'
 import { imageKitUrl } from '@/config'
 import ImageCarousel from '@/components/ImageCarousel'
 
-const galleryImages = const images = [
+const galleryImages = [
   "/gallery/IMG-20260508-WA0006.jpg",
   "/gallery/IMG-20260509-WA0036.jpg",
   "/gallery/IMG-20260509-WA0000.jpg",
