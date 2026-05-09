@@ -9,6 +9,7 @@ import {
   CodeIcon,
   CodeXmlIcon,
 } from 'lucide-react'
+import { navLinks } from './Header'
 
 export function Footer() {
   return (
@@ -64,14 +65,14 @@ export function Footer() {
           <div>
             <h3 className="text-white font-semibold text-lg mb-6">Quick Links</h3>
             <ul className="space-y-4 grid sm:grid-cols-2 md:grid-cols-1">
-              {['Forms', 'Schedule', 'Locations', 'Crash Course'].map((item) => (
-                <li key={item}>
+              {navLinks.map((link) => (
+                <li key={link.name}>
                   <Link
-                    to={`/${item.toLowerCase().replace(' ', '-')}`}
+                    to={link.href}
                     className="text-slate-400 hover:text-white transition-colors flex items-center gap-2 group"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-purple-500/50 group-hover:bg-purple-500 transition-all" />
-                    {item}
+                    {link.name}
                   </Link>
                 </li>
               ))}
@@ -82,7 +83,16 @@ export function Footer() {
           <div>
             <h3 className="text-white font-semibold text-lg mb-6">Dance Forms</h3>
             <ul className="space-y-4 grid sm:grid-cols-2 md:grid-cols-1">
-              {['Rumba', 'Cha Cha', 'Samba', 'Waltz', 'Tango', 'Salsa', 'Bachata'].map((item) => (
+              {[
+                'Rumba',
+                'Cha Cha',
+                'Samba',
+                'American Waltz',
+                'Social Jive',
+                'Salsa',
+                'Bachata',
+                'Foxtrot',
+              ].map((item) => (
                 <li key={item}>
                   <Link
                     to={`/forms/${item.toLowerCase().replace(' ', '-')}`}
