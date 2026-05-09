@@ -82,7 +82,7 @@ const galleryImages = [
 ];
   
 
-export function Socials() {
+export function Gallery() {
 
   <div className="pt-32 pb-24">
       <Seo
