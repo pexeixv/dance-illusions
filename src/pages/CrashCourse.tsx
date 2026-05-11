@@ -33,9 +33,14 @@ export function CrashCourse() {
   return (
     <div className="pt-32 pb-24">
       <Seo
-        title="Ballroom Dance Crash Course in Goa"
-        description="Short on time? Join Dance Illusions Goa's intensive crash course and learn the basics of Ballroom & Latin dancing in just a few sessions. Batches in Margao, Vasco & Panjim."
+        title="Ballroom & Latin Dance Crash Course in Goa | Quick Learning"
+        description="Intensive crash course for beginners! Learn basics of Waltz, Tango, Foxtrot, Cha Cha & Jive at Dance Illusions Goa. No partner required, all levels welcome."
         canonical={SITE_URL + '/crash-course'}
+        keywords="crash course goa, ballroom dance beginners, intensive dance course, learn dance fast, quick dance learning"
+        breadcrumbs={[
+          { name: 'Home', url: SITE_URL },
+          { name: 'Crash Course', url: `${SITE_URL}/crash-course` },
+        ]}
         schema={{
           '@context': 'https://schema.org',
           '@type': 'Course',

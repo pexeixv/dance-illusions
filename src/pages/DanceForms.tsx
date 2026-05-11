@@ -49,9 +49,14 @@ export function DanceForms() {
   return (
     <div className="pt-32 pb-24">
       <Seo
-        title="Dance Forms - Waltz, Salsa, Tango, Jive & More"
-        description="Explore all dance forms taught at Dance Illusions Goa - Waltz, Viennese Waltz, Tango, Foxtrot, Salsa, Jive, Cha Cha Cha, Samba and more."
-        canonical={SITE_URL + '/dance-forms'}
+        title="Dance Forms - Ballroom, Latin, Salsa, Tango, Jive Classes"
+        description="Explore all dance forms at Dance Illusions Goa. Learn Waltz, Viennese Waltz, Tango, Foxtrot, Salsa, Jive, Cha Cha Cha, Samba, Bachata and more."
+        canonical={SITE_URL + '/forms'}
+        keywords="dance forms goa, ballroom dance classes, latin dance classes india, salsa classes goa, tango dance, jive dance, cha cha dance, bachata dance classes"
+        breadcrumbs={[
+          { name: 'Home', url: SITE_URL },
+          { name: 'Dance Forms', url: `${SITE_URL}/forms` },
+        ]}
         schema={{
           '@context': 'https://schema.org',
           '@type': 'ItemList',
@@ -116,9 +121,10 @@ export function DanceForms() {
                       <div className="aspect-[4/3] overflow-hidden">
                         <img
                           src={`${imageKitUrl}/tr:w-350${dance.image}`}
-                          alt={dance.title}
+                          alt={`${dance.title} dance class - ${dance.category} dancing at Dance Illusions Goa`}
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 object-[center_20%]"
                           referrerPolicy="no-referrer"
+                          loading="lazy"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-60" />
                       </div>

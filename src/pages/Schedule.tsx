@@ -5,6 +5,7 @@ import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { locations } from './Locations'
 import Seo, { SITE_URL } from '@/components/Seo'
+import { imageKitUrl } from '@/config'
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -250,9 +251,14 @@ export function Schedule() {
   return (
     <div className="pt-32 pb-24">
       <Seo
-        title="Dance Class Schedule & Timings"
-        description="View the latest Dance Illusions Goa class schedule - batch timings for Ballroom & Latin dance classes across Margao, Vasco and Panjim."
+        title="Dance Class Schedule & Timings in Goa | Batch Timing"
+        description="View Dance Illusions Goa class schedule & batch timings for Ballroom & Latin dance classes across Margao, Vasco, Fatorda & Porvorim locations."
         canonical={SITE_URL + '/schedule'}
+        keywords="dance class schedule goa, dance timings, ballroom classes timing, salsa class schedule, batch timings goa"
+        breadcrumbs={[
+          { name: 'Home', url: SITE_URL },
+          { name: 'Schedule', url: `${SITE_URL}/schedule` },
+        ]}
       />
 
       <div className="container max-w-7xl mx-auto px-6">
@@ -321,10 +327,11 @@ export function Schedule() {
               <div className="grid grid-cols-1 md:grid-cols-2">
                 <div className="aspect-square md:aspect-auto relative overflow-hidden">
                   <img
-                    src={selectedLocation.mapUrl}
+                    src={`${imageKitUrl}${selectedLocation.image}?w=600&h=600&fit=crop`}
                     alt={selectedLocation.name}
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
+                    loading="lazy"
                   />
 
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent" />

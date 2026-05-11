@@ -29,9 +29,14 @@ export function Socials() {
   return (
     <div className="pt-32 pb-24">
       <Seo
-        title="Social Dance Events in Goa"
-        description="Join Dance Illusions Goa's social dance nights - a fun, welcoming space to practice Ballroom & Latin dancing with fellow dancers across Goa."
+        title="Social Dance Events & Nights in Goa | Dance Socials"
+        description="Join Dance Illusions Goa's social dance nights - fun, welcoming space to practice Ballroom & Latin dancing with fellow dancers. Salsa, Bachata, Jive socials in Goa."
         canonical={SITE_URL + '/socials'}
+        keywords="dance socials goa, salsa socials, bachata night, dance events goa, latin dance party, ballroom dance socials"
+        breadcrumbs={[
+          { name: 'Home', url: SITE_URL },
+          { name: 'Socials', url: `${SITE_URL}/socials` },
+        ]}
       />
       <div className="container max-w-7xl mx-auto px-6">
         {/* Hero Section */}

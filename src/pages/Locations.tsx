@@ -42,17 +42,23 @@ export function Locations() {
   return (
     <div className="pt-32 pb-24">
       <Seo
-        title="Dance Class Locations in Goa"
-        description="Dance Illusions Goa has centres in Margao, Vasco da Gama and Panjim. Find the batch timings and address closest to you."
+        title="Dance Class Locations in Goa | Margao, Vasco, Fatorda, Porvorim"
+        description="Dance Illusions Goa has centres in Margao, Vasco, Fatorda & Porvorim. Find batch timings, class schedules and directions to the location closest to you."
         canonical={SITE_URL + '/locations'}
+        keywords="dance classes goa locations, ballroom classes margao, latin dance vasco, dance studio fatorda, porvorim dance classes"
+        breadcrumbs={[
+          { name: 'Home', url: SITE_URL },
+          { name: 'Locations', url: `${SITE_URL}/locations` },
+        ]}
         schema={{
           '@context': 'https://schema.org',
           '@type': 'ItemList',
           name: 'Dance Illusions Goa Locations',
           itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Margao - B M Hall' },
-            { '@type': 'ListItem', position: 2, name: 'Vasco da Gama' },
-            { '@type': 'ListItem', position: 3, name: 'Panjim' },
+            { '@type': 'ListItem', position: 1, name: 'Margao - Loyola School Hall' },
+            { '@type': 'ListItem', position: 2, name: 'Vasco da Gama - Flora Grande Hotel' },
+            { '@type': 'ListItem', position: 3, name: 'Fatorda - Rosary School Hall' },
+            { '@type': 'ListItem', position: 4, name: 'Porvorim - Clergy Home Hall' },
           ],
         }}
       />
@@ -90,9 +96,10 @@ export function Locations() {
                 <div className="aspect-square lg:aspect-auto relative overflow-hidden">
                   <img
                     src={`${imageKitUrl}${location.image}?w=600&h=400&fit=crop`}
-                    alt={location.name}
+                    alt={`${location.name} - Dance Illusions dance classes at ${location.venue}`}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     referrerPolicy="no-referrer"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-slate-950/40 to-transparent" />
                   <div className="absolute top-6 left-6 bg-white/10 backdrop-blur-xl border border-white/10 px-4 py-2 rounded-xl text-white font-bold text-lg">

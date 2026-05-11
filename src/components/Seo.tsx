@@ -17,6 +17,8 @@ type SeoProps = {
   ogType?: 'website' | 'article'
   noIndex?: boolean
   schema?: Record<string, unknown> | null
+  breadcrumbs?: Array<{ name: string; url: string }>
+  keywords?: string
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -31,16 +33,32 @@ export default function Seo({
   ogType = 'website',
   noIndex = false,
   schema = null,
+  keywords,
+  breadcrumbs,
 }: SeoProps) {
   const fullTitle = title
     ? `${title} | ${SITE_NAME}`
     : `${SITE_NAME} - India's Premier Ballroom & Latin Dance School in Goa`
+
+  const breadcrumbSchema = breadcrumbs
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbs.map((item, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: item.name,
+          item: item.url,
+        })),
+      }
+    : null
 
   return (
     <Helmet>
       {/* Primary */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
+      {keywords && <meta name="keywords" content={keywords} />}
       {canonical && <link rel="canonical" href={canonical} />}
       {noIndex && <meta name="robots" content="noindex, nofollow" />}
 
@@ -64,6 +82,7 @@ export default function Seo({
 
       {/* JSON-LD */}
       {schema && <script type="application/ld+json">{JSON.stringify(schema)}</script>}
+      {breadcrumbSchema && <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>}
     </Helmet>
   )
 }

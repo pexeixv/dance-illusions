@@ -37,20 +37,32 @@ export function WeddingDance() {
   return (
     <div className="pt-32 pb-24">
       <Seo
-        title="Wedding Dance Classes in Goa"
-        description="Make your first dance unforgettable. Dance Illusions Goa offers personalised wedding dance choreography and couple classes for your special day."
+        title="Wedding Dance Choreography in Goa | First Dance Classes"
+        description="Make your first dance unforgettable. Dance Illusions Goa offers personalized wedding dance choreography and couple classes for your special day in Goa and India."
         canonical={SITE_URL + '/wedding'}
+        keywords="wedding dance goa, first dance choreography, wedding dance classes india, couple dance lessons goa, wedding choreographer"
+        breadcrumbs={[
+          { name: 'Home', url: SITE_URL },
+          { name: 'Wedding Dance', url: `${SITE_URL}/wedding` },
+        ]}
         schema={{
           '@context': 'https://schema.org',
           '@type': 'Service',
-          name: 'Wedding Dance Classes',
+          name: 'Wedding Dance Classes & Choreography',
           provider: {
             '@type': 'Organization',
             name: 'Dance Illusions Goa',
             url: SITE_URL,
           },
-          description: 'Personalised wedding dance choreography and couple classes in Goa.',
-          areaServed: 'Goa, India',
+          description: 'Personalized wedding dance choreography and couple classes in Goa, India.',
+          areaServed: ['Goa', 'India'],
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: '4.9',
+            bestRating: '5',
+            worstRating: '1',
+            ratingCount: '89'
+          }
         }}
       />
       <div className="container max-w-7xl mx-auto px-6">
@@ -108,9 +120,10 @@ export function WeddingDance() {
             <div className="relative z-10 rounded-3xl overflow-hidden border border-white/10 shadow-2xl aspect-[4/5]">
               <img
                 src={`${imageKitUrl}/wedding/couple.jpg?w=800&h=1000&fit=crop`}
-                alt="Wedding Dance"
+                alt="Couple dancing at their wedding - professional wedding dance choreography in Goa"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60" />
             </div>

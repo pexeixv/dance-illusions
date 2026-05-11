@@ -208,9 +208,14 @@ export function Gallery() {
   return (
     <div className="pt-32 pb-24">
       <Seo
-        title="Dance Illusions Gallery"
-        description="Blast from the past. 20 years of memories from Dance Illusions. Browse our gallery of unforgettable dance events, socials and celebrations."
+        title="Dance Events Gallery | Dance Illusions Goa Photos"
+        description="Browse Dance Illusions Goa's gallery of 20 years of dance events, socials, dance celebrations and unforgettable moments from our dance community in Goa."
         canonical={SITE_URL + '/gallery'}
+        keywords="dance gallery goa, dance events photos, dance socials, ballroom events, latin dance community, dance celebrations"
+        breadcrumbs={[
+          { name: 'Home', url: SITE_URL },
+          { name: 'Gallery', url: `${SITE_URL}/gallery` },
+        ]}
       />
 
       <div className="container px-6 mx-auto max-w-7xl">
