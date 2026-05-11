@@ -5,7 +5,7 @@ import { ChevronDown, ArrowRight } from 'lucide-react'
 
 export function UpcomingClassesPopup() {
   const [isVisible, setIsVisible] = useState(false)
-  const [isCollapsed, setIsCollapsed] = useState(false)
+  const [isCollapsed, setIsCollapsed] = useState(() => window.innerWidth < 768)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,12 +27,12 @@ export function UpcomingClassesPopup() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.95 }}
           transition={{ duration: 0.4, ease: 'easeOut' }}
-          className="fixed bottom-6 right-6 z-40 max-w-sm"
+          className="fixed z-40 max-w-sm bottom-6 right-6"
         >
-          <div className="bg-slate-900/95 backdrop-blur-xl border border-purple-500/30 rounded-2xl shadow-2xl shadow-purple-500/20 overflow-hidden">
+          <div className="overflow-hidden border shadow-2xl bg-slate-900/95 backdrop-blur-xl border-purple-500/30 rounded-2xl shadow-purple-500/20">
             {/* Header */}
             <div
-              className="bg-gradient-to-r from-purple-600/30 to-fuchsia-600/30 gap-4 px-6 py-4 flex items-center justify-between cursor-pointer hover:bg-gradient-to-r hover:from-purple-600/40 hover:to-fuchsia-600/40 transition-all"
+              className="flex items-center justify-between gap-4 px-3 py-2 md:px-6 md:py-4 transition-all cursor-pointer bg-gradient-to-r from-purple-600/30 to-fuchsia-600/30 hover:bg-gradient-to-r hover:from-purple-600/40 hover:to-fuchsia-600/40"
               onClick={() => setIsCollapsed(!isCollapsed)}
             >
               <div className="flex items-center gap-3">
@@ -59,7 +59,7 @@ export function UpcomingClassesPopup() {
                   <div className="p-6 space-y-4">
                     <div>
                       <p className="text-sm font-semibold text-slate-200">June-July 2026</p>
-                      <p className="text-slate-400 text-sm mt-2">
+                      <p className="mt-2 text-sm text-slate-400">
                         As the monsoon rhythms roll in, step into a season of movement and magic
                         with our exciting June-July sessions! Whether you're a beginner taking your
                         very first steps or a dancer looking to sharpen your skills, we've got the
@@ -67,11 +67,11 @@ export function UpcomingClassesPopup() {
                       </p>
                     </div>
 
-                    <div className="bg-white/5 border border-white/10 rounded-lg p-3 space-y-2">
-                      <p className="text-xs font-semibold text-purple-300 uppercase tracking-wide">
+                    <div className="p-3 space-y-2 border rounded-lg bg-white/5 border-white/10">
+                      <p className="text-xs font-semibold tracking-wide text-purple-300 uppercase">
                         What's New This Season
                       </p>
-                      <ul className="text-xs text-slate-400 space-y-1 list-disc list-inside">
+                      <ul className="space-y-1 text-xs list-disc list-inside text-slate-400">
                         <li>
                           <span className="font-bold text-white">Margao</span> Bachata
                         </li>
@@ -86,7 +86,7 @@ export function UpcomingClassesPopup() {
 
                     <Link
                       to="/schedule"
-                      className="w-full bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white px-4 py-3 rounded-xl font-semibold shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 hover:scale-105 transition-all active:scale-95 flex items-center justify-center gap-2 text-sm"
+                      className="flex items-center justify-center w-full gap-2 px-4 py-3 text-sm font-semibold text-white transition-all shadow-lg bg-gradient-to-r from-purple-600 to-fuchsia-600 rounded-xl shadow-purple-500/20 hover:shadow-purple-500/40 hover:scale-105 active:scale-95"
                     >
                       Check Full Schedule
                       <ArrowRight size={16} />
