@@ -1,20 +1,39 @@
-import { BrowserRouter as Router, Routes, Route, ScrollRestoration } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  ScrollRestoration,
+} from 'react-router-dom'
+import { lazy, Suspense } from 'react'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
-import { Home } from './pages/Home'
-import { DanceForms } from './pages/DanceForms'
-import { DanceDetail } from './pages/DanceDetail'
-import { Locations } from './pages/Locations'
-import { Schedule } from './pages/Schedule'
-import { CrashCourse } from './pages/CrashCourse'
-import { Socials } from './pages/Socials'
-import { Gallery } from './pages/Gallery'
-import { WeddingDance } from './pages/WeddingDance'
-import { PrivacyPolicy } from './pages/PrivacyPolicy'
-import { TermsOfService } from './pages/TermsOfService'
+import { PageSkeleton } from './components/PageSkeleton'
 import ScrollToTop from './components/ScrollToTop'
 import TwSizeIndicator from './components/TwSizeIndicator'
-import NotFound from './pages/NotFound'
+
+// Lazy load all route pages for code splitting
+const Home = lazy(() => import('./pages/Home').then((m) => ({ default: m.Home })))
+const DanceForms = lazy(() => import('./pages/DanceForms').then((m) => ({ default: m.DanceForms })))
+const DanceDetail = lazy(() =>
+  import('./pages/DanceDetail').then((m) => ({ default: m.DanceDetail }))
+)
+const Locations = lazy(() => import('./pages/Locations').then((m) => ({ default: m.Locations })))
+const Schedule = lazy(() => import('./pages/Schedule').then((m) => ({ default: m.Schedule })))
+const CrashCourse = lazy(() =>
+  import('./pages/CrashCourse').then((m) => ({ default: m.CrashCourse }))
+)
+const Socials = lazy(() => import('./pages/Socials').then((m) => ({ default: m.Socials })))
+const Gallery = lazy(() => import('./pages/Gallery').then((m) => ({ default: m.Gallery })))
+const WeddingDance = lazy(() =>
+  import('./pages/WeddingDance').then((m) => ({ default: m.WeddingDance }))
+)
+const PrivacyPolicy = lazy(() =>
+  import('./pages/PrivacyPolicy').then((m) => ({ default: m.PrivacyPolicy }))
+)
+const TermsOfService = lazy(() =>
+  import('./pages/TermsOfService').then((m) => ({ default: m.TermsOfService }))
+)
+const NotFound = lazy(() => import('./pages/NotFound').then((m) => ({ default: m.default })))
 
 export default function App() {
   return (
@@ -38,20 +57,22 @@ export default function App() {
         <div className="relative z-10 flex flex-col min-h-screen">
           <Header />
           <main className="flex-grow">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/forms" element={<DanceForms />} />
-              <Route path="/forms/:slug" element={<DanceDetail />} />
-              <Route path="/locations" element={<Locations />} />
-              <Route path="/schedule" element={<Schedule />} />
-              <Route path="/crash-course" element={<CrashCourse />} />
-              <Route path="/socials" element={<Socials />} />
-              <Route path="/gallery" element={<Gallery />} />
-              <Route path="/wedding" element={<WeddingDance />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="/terms-of-service" element={<TermsOfService />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+            <Suspense fallback={<PageSkeleton />}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/forms" element={<DanceForms />} />
+                <Route path="/forms/:slug" element={<DanceDetail />} />
+                <Route path="/locations" element={<Locations />} />
+                <Route path="/schedule" element={<Schedule />} />
+                <Route path="/crash-course" element={<CrashCourse />} />
+                <Route path="/socials" element={<Socials />} />
+                <Route path="/gallery" element={<Gallery />} />
+                <Route path="/wedding" element={<WeddingDance />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/terms-of-service" element={<TermsOfService />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
           </main>
           <Footer />
         </div>
