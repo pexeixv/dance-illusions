@@ -47,7 +47,7 @@ export default function App() {
               <Route path="/crash-course" element={<CrashCourse />} />
               <Route path="/socials" element={<Socials />} />
               <Route path="/gallery" element={<Gallery />} />
-              <Route path="/wedding-dance" element={<WeddingDance />} />
+              <Route path="/wedding" element={<WeddingDance />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
               <Route path="*" element={<NotFound />} />

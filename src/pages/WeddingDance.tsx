@@ -39,7 +39,7 @@ export function WeddingDance() {
       <Seo
         title="Wedding Dance Classes in Goa"
         description="Make your first dance unforgettable. Dance Illusions Goa offers personalised wedding dance choreography and couple classes for your special day."
-        canonical={SITE_URL + '/wedding-dance'}
+        canonical={SITE_URL + '/wedding'}
         schema={{
           '@context': 'https://schema.org',
           '@type': 'Service',

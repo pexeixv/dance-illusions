@@ -14,7 +14,7 @@ export const navLinks = [
   { name: 'Schedule', href: '/schedule' },
   { name: 'Locations', href: '/locations' },
   { name: 'Crash Course', href: '/crash-course' },
-  { name: 'Weddings', href: '/wedding-dance' },
+  { name: 'Weddings', href: '/wedding' },
   { name: 'Gallery', href: '/gallery' },
   { name: 'Socials', href: '/socials' },
 ]
