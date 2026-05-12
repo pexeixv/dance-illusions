@@ -1,7 +1,7 @@
 import { motion } from 'motion/react'
 import { CheckCircle2, ArrowRight, Star, Zap, Users, Trophy } from 'lucide-react'
 import Seo, { SITE_URL } from '@/components/Seo'
-import { image } from 'motion/react-client'
+import { Link } from 'react-router-dom'
 import { imageKitUrl } from '@/config'
 
 const benefits = [
@@ -26,6 +26,39 @@ const benefits = [
     title: 'Certificate of Completion',
     description: 'Receive a recognized certificate upon successfully completing the course.',
     icon: Trophy,
+  },
+]
+
+const crashCourseForms = [
+  {
+    name: 'American Waltz',
+    description: 'The elegant and flowing classic ballroom dance.',
+    link: '/forms/american-waltz',
+  },
+  {
+    name: 'Viennese Waltz',
+    description: 'A faster, more rhythmic version of the traditional waltz.',
+    link: '/forms/viennese-waltz',
+  },
+  {
+    name: 'Social Cha Cha',
+    description: 'A fun, cheeky, and energetic Latin dance.',
+    link: '/forms/cha-cha',
+  },
+  {
+    name: 'Social Jive',
+    description: 'High-energy, fast-paced, and incredibly fun.',
+    link: '/forms/social-jive',
+  },
+  {
+    name: 'Social Foxtrot',
+    description: 'A smooth, progressive dance that is perfect for social events.',
+    link: '/forms/foxtrot',
+  },
+  {
+    name: 'Tango, Rumba & Bachata',
+    description: "If you're lucky, we might even dive into these passionate styles!",
+    link: '/forms',
   },
 ]
 
@@ -154,42 +187,24 @@ export function CrashCourse() {
             Dance Forms You'll Learn
           </h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                name: 'American Waltz',
-                description: 'The elegant and flowing classic ballroom dance.',
-              },
-              {
-                name: 'Viennese Waltz',
-                description: 'A faster, more rhythmic version of the traditional waltz.',
-              },
-              {
-                name: 'Social Cha Cha',
-                description: 'A fun, cheeky, and energetic Latin dance.',
-              },
-              {
-                name: 'Social Jive',
-                description: 'High-energy, fast-paced, and incredibly fun.',
-              },
-              {
-                name: 'Social Foxtrot',
-                description: 'A smooth, progressive dance that is perfect for social events.',
-              },
-              {
-                name: 'Tango, Rumba & Bachata',
-                description: "If you're lucky, we might even dive into these passionate styles!",
-              },
-            ].map((dance, idx) => (
+            {crashCourseForms.map((dance, idx) => (
               <motion.div
                 key={dance.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
                 viewport={{ once: true }}
-                className="p-8 transition-colors glass-card border-white/5 hover:border-purple-500/30"
+                className="flex flex-col p-8 transition-colors glass-card border-white/5 hover:border-purple-500/30 group"
               >
                 <h3 className="mb-3 text-xl font-bold text-white">{dance.name}</h3>
-                <p className="text-sm leading-relaxed text-slate-400">{dance.description}</p>
+                <p className="mb-4 text-sm leading-relaxed text-slate-400">{dance.description}</p>
+                <Link
+                  to={dance.link}
+                  className="inline-flex items-center gap-2 mt-auto text-sm font-bold text-white underline transition-colors w-fit group-hover:text-purple-400 decoration-transparent hover:decoration-inherit"
+                >
+                  Know More
+                  <ArrowRight size={16} />
+                </Link>
               </motion.div>
             ))}
           </div>
