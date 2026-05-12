@@ -1,9 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  ScrollRestoration,
-} from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, ScrollRestoration } from 'react-router-dom'
 import { lazy, Suspense } from 'react'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
@@ -27,11 +22,8 @@ const Gallery = lazy(() => import('./pages/Gallery').then((m) => ({ default: m.G
 const WeddingDance = lazy(() =>
   import('./pages/WeddingDance').then((m) => ({ default: m.WeddingDance }))
 )
-const PrivacyPolicy = lazy(() =>
-  import('./pages/PrivacyPolicy').then((m) => ({ default: m.PrivacyPolicy }))
-)
-const TermsOfService = lazy(() =>
-  import('./pages/TermsOfService').then((m) => ({ default: m.TermsOfService }))
+const LegalPage = lazy(() =>
+  import('./pages/Legal/LegalPage').then((m) => ({ default: m.LegalPage }))
 )
 const NotFound = lazy(() => import('./pages/NotFound').then((m) => ({ default: m.default })))
 
@@ -68,8 +60,8 @@ export default function App() {
                 <Route path="/socials" element={<Socials />} />
                 <Route path="/gallery" element={<Gallery />} />
                 <Route path="/wedding" element={<WeddingDance />} />
-                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                <Route path="/terms-of-service" element={<TermsOfService />} />
+                <Route path="/privacy-policy" element={<LegalPage type="privacy-policy" />} />
+                <Route path="/terms-of-service" element={<LegalPage type="terms-of-service" />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>

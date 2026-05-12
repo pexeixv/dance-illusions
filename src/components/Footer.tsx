@@ -126,6 +126,13 @@ export function Footer() {
             >
               Gavin Pereira
             </a>
+            <a
+              target="_blank"
+              className="hidden"
+              href={`//devific.in/?ref=${window.location.hostname}`}
+            >
+              Devific
+            </a>
           </div>
         </div>
 
