@@ -59,27 +59,27 @@ export function CrashCourse() {
           },
         }}
       />
-      <div className="container max-w-7xl mx-auto px-6">
+      <div className="container px-6 mx-auto max-w-7xl">
         {/* Hero Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
+        <div className="grid items-center grid-cols-1 gap-16 mb-32 lg:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             className="space-y-8"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
-              <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
-              <span className="text-xs font-semibold text-slate-300 uppercase tracking-widest">
+            <div className="inline-flex items-center gap-2 px-4 py-2 border rounded-full bg-white/5 border-white/10 backdrop-blur-md">
+              <span className="w-2 h-2 bg-purple-500 rounded-full animate-pulse" />
+              <span className="text-xs font-semibold tracking-widest uppercase text-slate-300">
                 Intensive Beginner Program
               </span>
             </div>
 
-            <h1 className="text-5xl lg:text-7xl font-bold tracking-tight text-white leading-tight">
+            <h1 className="text-5xl font-bold leading-tight tracking-tight text-white lg:text-7xl">
               Beginner <br />
               <span className="text-gradient-primary">Crash Course</span>
             </h1>
 
-            <p className="text-xl text-slate-400 leading-relaxed">
+            <p className="text-xl leading-relaxed text-slate-400">
               The crash course introduces beginners to multiple ballroom and Latin styles including
               Waltz, Tango, Foxtrot, Cha Cha and Jive. Perfect for those who want to jumpstart their
               dance journey.
@@ -87,8 +87,8 @@ export function CrashCourse() {
 
             <ul className="space-y-4">
               {[
-                '8 Intensive Sessions',
-                '5 Different Dance Styles',
+                '5 Intensive Sessions',
+                '5+ Different Dance Styles',
                 'Basic Technique & Musicality',
                 'Social Dance Etiquette',
               ].map((item) => (
@@ -102,7 +102,7 @@ export function CrashCourse() {
             <div className="pt-4">
               <a
                 href="tel:+919823014397"
-                className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-10 py-4 rounded-2xl font-bold shadow-xl shadow-purple-500/20 hover:shadow-purple-500/40 hover:scale-105 transition-all active:scale-95 inline-flex items-center gap-2"
+                className="inline-flex items-center gap-2 px-10 py-4 font-bold text-white transition-all shadow-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 rounded-2xl shadow-purple-500/20 hover:shadow-purple-500/40 hover:scale-105 active:scale-95"
               >
                 Enroll Now
                 <ArrowRight size={20} />
@@ -120,7 +120,7 @@ export function CrashCourse() {
               <img
                 src={`${imageKitUrl}/crash/group.jpg?w=1200&h=600&fit=crop`}
                 alt="Dance Class"
-                className="w-full h-full object-cover"
+                className="object-cover w-full h-full"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60" />
@@ -129,7 +129,7 @@ export function CrashCourse() {
         </div>
 
         {/* Benefits Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-32">
+        <div className="grid grid-cols-1 gap-8 mb-32 md:grid-cols-2 lg:grid-cols-4">
           {benefits.map((benefit, idx) => (
             <motion.div
               key={benefit.title}
@@ -137,23 +137,23 @@ export function CrashCourse() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1 }}
               viewport={{ once: true }}
-              className="glass-card p-8 group hover:shadow-purple-500/20"
+              className="p-8 glass-card group hover:shadow-purple-500/20"
             >
-              <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-purple-400 group-hover:scale-110 transition-transform">
+              <div className="flex items-center justify-center mb-6 text-purple-400 transition-transform border w-14 h-14 rounded-2xl bg-white/5 border-white/10 group-hover:scale-110">
                 <benefit.icon size={28} />
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">{benefit.title}</h3>
-              <p className="text-slate-400 leading-relaxed">{benefit.description}</p>
+              <h3 className="mb-4 text-xl font-bold text-white">{benefit.title}</h3>
+              <p className="leading-relaxed text-slate-400">{benefit.description}</p>
             </motion.div>
           ))}
         </div>
 
         {/* Dance Forms Learned */}
         <div className="mb-32">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">
+          <h2 className="mb-12 text-4xl font-bold text-center text-white">
             Dance Forms You'll Learn
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 name: 'American Waltz',
@@ -186,10 +186,10 @@ export function CrashCourse() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
                 viewport={{ once: true }}
-                className="glass-card p-8 border-white/5 hover:border-purple-500/30 transition-colors"
+                className="p-8 transition-colors glass-card border-white/5 hover:border-purple-500/30"
               >
-                <h3 className="text-xl font-bold text-white mb-3">{dance.name}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{dance.description}</p>
+                <h3 className="mb-3 text-xl font-bold text-white">{dance.name}</h3>
+                <p className="text-sm leading-relaxed text-slate-400">{dance.description}</p>
               </motion.div>
             ))}
           </div>
