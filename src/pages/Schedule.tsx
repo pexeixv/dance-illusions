@@ -132,105 +132,118 @@ function ScheduleTable({ title, data, onLocationClick }: ScheduleTableProps) {
 
       {/* Table */}
       <div className="glass-card overflow-hidden border-purple-500/20">
-        <div className="overflow-x-auto overflow-y-auto max-h-[600px]">
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="border-b border-white/10">
-                <th className="px-8 py-6 text-slate-300 font-bold uppercase tracking-wider text-sm sticky top-0 bg-slate-900/90 backdrop-blur z-20">
-                  Day
-                </th>
+        <div className="relative">
+          {/* Right edge fade hint for mobile */}
+          <div className="pointer-events-none absolute top-0 right-0 h-full w-10 bg-gradient-to-l from-slate-900/90 to-transparent z-10 md:hidden" />
 
-                <th className="px-8 py-6 text-slate-300 font-bold uppercase tracking-wider text-sm sticky top-0 bg-slate-900/90 backdrop-blur z-20">
-                  Location
-                </th>
+          <div
+            className="
+              overflow-x-auto
+              overflow-y-auto
+              overscroll-x-contain
+            "
+          >
+            <table className="w-full min-w-[680px] text-left border-collapse">
+              <thead>
+                <tr className="border-b border-white/10">
+                  <th className="px-4 md:px-8 py-6 text-slate-300 font-bold uppercase tracking-wider text-sm sticky top-0 bg-slate-900/90 backdrop-blur z-20">
+                    Day
+                  </th>
 
-                <th className="px-8 py-6 text-slate-300 font-bold uppercase tracking-wider text-sm sticky top-0 bg-slate-900/90 backdrop-blur z-20">
-                  Time
-                </th>
+                  <th className="px-4 md:px-8 py-6 text-slate-300 font-bold uppercase tracking-wider text-sm sticky top-0 bg-slate-900/90 backdrop-blur z-20">
+                    Location
+                  </th>
 
-                <th className="px-8 py-6 text-slate-300 font-bold uppercase tracking-wider text-sm sticky top-0 bg-slate-900/90 backdrop-blur z-20 whitespace-nowrap">
-                  Dance Form
-                </th>
+                  <th className="px-4 md:px-8 py-6 text-slate-300 font-bold uppercase tracking-wider text-sm sticky top-0 bg-slate-900/90 backdrop-blur z-20">
+                    Time
+                  </th>
 
-                <th className="px-8 py-6 text-slate-300 font-bold uppercase tracking-wider text-sm sticky top-0 bg-slate-900/90 backdrop-blur z-20">
-                  Level
-                </th>
-              </tr>
-            </thead>
+                  <th className="px-4 md:px-8 py-6 text-slate-300 font-bold uppercase tracking-wider text-sm sticky top-0 bg-slate-900/90 backdrop-blur z-20 whitespace-nowrap">
+                    Dance Form
+                  </th>
 
-            <tbody className="divide-y divide-white/5">
-              {data.map((item, idx) => (
-                <motion.tr
-                  key={idx}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: idx * 0.05 }}
-                  viewport={{ once: true }}
-                  className="group hover:bg-white/5 transition-colors cursor-default"
-                >
-                  {/* Day */}
-                  <td className="px-8 py-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform">
-                        <Calendar size={18} />
+                  <th className="px-4 md:px-8 py-6 text-slate-300 font-bold uppercase tracking-wider text-sm sticky top-0 bg-slate-900/90 backdrop-blur z-20">
+                    Level
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody className="divide-y divide-white/5">
+                {data.map((item, idx) => (
+                  <motion.tr
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.05 }}
+                    viewport={{ once: true }}
+                    className="group hover:bg-white/5 transition-colors cursor-default"
+                  >
+                    {/* Day */}
+                    <td className="px-4 md:px-8 py-6">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform shrink-0">
+                          <Calendar size={18} />
+                        </div>
+
+                        <span className="text-white font-bold whitespace-nowrap">{item.day}</span>
                       </div>
+                    </td>
 
-                      <span className="text-white font-bold">{item.day}</span>
-                    </div>
-                  </td>
-
-                  {/* Location */}
-                  <td className="px-8 py-6">
-                    <button
-                      onClick={() => onLocationClick(item.location)}
-                      className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors font-bold group/loc"
-                    >
-                      <MapPin
-                        size={16}
-                        className="text-cyan-400 group-hover/loc:scale-110 transition-transform"
-                      />
-
-                      <span className="border-b border-purple-400/30 group-hover:border-purple-300 transition-all">
-                        {item.location}
-                      </span>
-                    </button>
-                  </td>
-
-                  {/* Time */}
-                  <td className="px-8 py-6">
-                    <div className="flex items-center gap-2 text-slate-300">
-                      <Clock size={16} className="text-pink-400" />
-
-                      <span className="whitespace-nowrap">{item.time}</span>
-                    </div>
-                  </td>
-
-                  {/* Dance */}
-                  <td className="px-8 py-6">
-                    <span className="text-white font-medium whitespace-nowrap">{item.dance}</span>
-                  </td>
-
-                  {/* Level */}
-                  <td className="px-8 py-6 gap-2 flex flex-wrap">
-                    {item.level.map((lvl, i) => (
-                      <span
-                        key={i}
-                        className={cn(
-                          'inline-block px-3 py-1 rounded-full text-xs font-medium',
-                          lvl === 'Beginner' && 'bg-green-500/20 text-green-400',
-                          lvl === 'Intermediate' && 'bg-yellow-500/20 text-yellow-400',
-                          lvl === 'Advanced' && 'bg-red-500/20 text-red-400',
-                          lvl === 'All Levels' && 'bg-blue-500/20 text-blue-400'
-                        )}
+                    {/* Location */}
+                    <td className="px-4 md:px-8 py-6">
+                      <button
+                        onClick={() => onLocationClick(item.location)}
+                        className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors font-bold group/loc whitespace-nowrap"
                       >
-                        {lvl}
-                      </span>
-                    ))}
-                  </td>
-                </motion.tr>
-              ))}
-            </tbody>
-          </table>
+                        <MapPin
+                          size={16}
+                          className="text-cyan-400 group-hover/loc:scale-110 transition-transform shrink-0"
+                        />
+
+                        <span className="border-b border-purple-400/30 group-hover:border-purple-300 transition-all">
+                          {item.location}
+                        </span>
+                      </button>
+                    </td>
+
+                    {/* Time */}
+                    <td className="px-4 md:px-8 py-6">
+                      <div className="flex items-center gap-2 text-slate-300 whitespace-nowrap">
+                        <Clock size={16} className="text-pink-400 shrink-0" />
+
+                        <span>{item.time}</span>
+                      </div>
+                    </td>
+
+                    {/* Dance */}
+                    <td className="px-4 md:px-8 py-6">
+                      <span className="text-white font-medium whitespace-nowrap">{item.dance}</span>
+                    </td>
+
+                    {/* Level */}
+                    <td className="px-4 md:px-8 py-6">
+                      <div className="flex flex-wrap gap-2 min-w-[160px]">
+                        {item.level.map((lvl, i) => (
+                          <span
+                            key={i}
+                            className={cn(
+                              'inline-block px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap',
+                              lvl === 'Beginner' && 'bg-green-500/20 text-green-400',
+                              lvl === 'Intermediate' && 'bg-yellow-500/20 text-yellow-400',
+                              lvl === 'Advanced' && 'bg-red-500/20 text-red-400',
+                              lvl === 'All Levels' && 'bg-blue-500/20 text-blue-400'
+                            )}
+                          >
+                            {lvl}
+                          </span>
+                        ))}
+                      </div>
+                    </td>
+                  </motion.tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
