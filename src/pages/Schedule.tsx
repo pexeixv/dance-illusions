@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
-import { Clock, MapPin, Calendar, ExternalLink, X } from 'lucide-react'
+import { Clock, MapPin, ExternalLink, X } from 'lucide-react'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { locations } from './Locations'
 import Seo, { SITE_URL } from '@/components/Seo'
 import { imageKitUrl } from '@/config'
+import UpcomingClassesSection from './Home/UpcomingClassesSection'
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -19,6 +20,7 @@ type ScheduleItem = {
   time: string
   level: Level[]
   dance: string
+  starts?: string
 }
 
 type ScheduleTableProps = {
@@ -82,6 +84,7 @@ const nextSchedule: ScheduleItem[] = [
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
     dance: 'Bachata',
+    starts: '1 June 2026'
   },
   {
     day: 'Tuesday',
@@ -89,6 +92,7 @@ const nextSchedule: ScheduleItem[] = [
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
     dance: 'International Jive',
+    starts: '2 June 2026'
   },
   {
     day: 'Wednesday',
@@ -96,6 +100,7 @@ const nextSchedule: ScheduleItem[] = [
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
     dance: 'Salsa',
+    starts: '3 June 2026'
   },
   {
     day: 'Thursday',
@@ -103,6 +108,7 @@ const nextSchedule: ScheduleItem[] = [
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
     dance: 'Bachata',
+    starts: '1 June 2026'
   },
   {
     day: 'Friday',
@@ -110,6 +116,7 @@ const nextSchedule: ScheduleItem[] = [
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
     dance: 'International Jive',
+    starts: '2 June 2026'
   },
   {
     day: 'Saturday',
@@ -117,6 +124,7 @@ const nextSchedule: ScheduleItem[] = [
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
     dance: 'Salsa',
+    starts: '3 June 2026'
   },
 ]
 
@@ -181,11 +189,14 @@ function ScheduleTable({ title, data, onLocationClick }: ScheduleTableProps) {
                     {/* Day */}
                     <td className="px-4 md:px-8 py-6">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform shrink-0">
-                          <Calendar size={18} />
+                        <div className="flex flex-col">
+                          <span className="text-white font-bold whitespace-nowrap">{item.day}</span>
+                          {item.starts && (
+                            <span className="text-purple-400 text-xs font-medium mt-0.5 whitespace-nowrap">
+                              Starts {item.starts}
+                            </span>
+                          )}
                         </div>
-
-                        <span className="text-white font-bold whitespace-nowrap">{item.day}</span>
                       </div>
                     </td>
 
@@ -312,6 +323,8 @@ export function Schedule() {
         </div>
       </div>
 
+      <UpcomingClassesSection hideTitle />
+
       {/* Location Modal */}
       <AnimatePresence>
         {selectedLocation && (
@@ -398,6 +411,7 @@ export function Schedule() {
           </div>
         )}
       </AnimatePresence>
+      
     </div>
   )
 }

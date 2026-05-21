@@ -9,7 +9,11 @@ const posters = [
   `${imageKitUrl}/posters/june-jive.png`,
 ]
 
-function UpcomingClassesSection() {
+interface Props {
+  hideTitle?: boolean
+}
+
+function UpcomingClassesSection({ hideTitle = false }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const nextSlide = () => {
@@ -23,12 +27,14 @@ function UpcomingClassesSection() {
   return (
     <section className="py-24 relative">
       <div className="container max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white">
-            Upcoming {" "}
-            <span className="text-gradient-primary">Classes</span>
-          </h2>
-        </div>
+          {!hideTitle && (
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-white">
+              Upcoming {" "}
+              <span className="text-gradient-primary">Classes</span>
+            </h2>
+          </div>
+        )}
 
         {/* Desktop Grid */}
         <div className="hidden md:grid md:grid-cols-3 gap-8">
