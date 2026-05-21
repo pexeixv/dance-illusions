@@ -6,6 +6,7 @@ import { FAQSection } from './FAQSection'
 import { CTASection } from './CTASection'
 import { UpcomingClassesPopup } from '@/components/UpcomingClassesPopup'
 import Seo, { SITE_URL } from '@/components/Seo'
+import UpcomingClassesSection from './UpcomingClassesSection'
 
 export function Home() {
   return (
@@ -35,12 +36,13 @@ export function Home() {
           contactPoint: {
             '@type': 'ContactPoint',
             contactType: 'Customer Service',
-            telephone: '+919823014397'
+            telephone: '+919823014397',
           },
-          sameAs: ['https://www.facebook.com/danceillusions']
+          sameAs: ['https://www.facebook.com/danceillusions'],
         }}
       />
       <HeroSection />
+      <UpcomingClassesSection />
       <FeaturesSection />
       <DanceFormsSection />
       <TestimonialsSection />

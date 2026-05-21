@@ -9,7 +9,7 @@ function cn(...inputs: ClassValue[]) {
 
 export function FeaturesSection() {
   return (
-    <section className="py-24 max-lg:pt-4 relative">
+    <section className="max-lg:pt-4 relative">
       <div className="container max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, idx) => (

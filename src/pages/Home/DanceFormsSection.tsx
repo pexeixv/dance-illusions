@@ -9,7 +9,10 @@ export function DanceFormsSection() {
     <section className="py-24 relative bg-slate-900/30">
       <div className="container max-w-7xl mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white">Dance Forms</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-white">
+            Dance {" "}
+            <span className="text-gradient-primary"> Forms</span>
+          </h2>
           <p className="text-slate-400 text-lg max-w-xl mx-auto">
             Explore a wide range of dance styles from the elegance of Ballroom to the energy of
             Latin and Social dances.
