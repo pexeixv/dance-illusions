@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { imageKitUrl } from '@/config'
@@ -15,6 +15,38 @@ interface Props {
 
 function UpcomingClassesSection({ hideTitle = false }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [touchStart, setTouchStart] = useState<number | null>(null)
+  const [touchEnd, setTouchEnd] = useState<number | null>(null)
+
+  const minSwipeDistance = 50
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null)
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+
+  const onTouchMove = (e: React.TouchEvent) => setTouchEnd(e.targetTouches[0].clientX)
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
+    const distance = touchStart - touchEnd
+    const isLeftSwipe = distance > minSwipeDistance
+    const isRightSwipe = distance < -minSwipeDistance
+    
+    if (isLeftSwipe) {
+      nextSlide()
+    }
+    if (isRightSwipe) {
+      prevSlide()
+    }
+  }
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % posters.length)
+    }, 5000)
+    return () => clearInterval(timer)
+  }, [currentIndex])
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % posters.length)
@@ -59,7 +91,12 @@ function UpcomingClassesSection({ hideTitle = false }: Props) {
         {/* Mobile Carousel */}
         <div className="md:hidden relative flex flex-col items-center">
           <div className="w-full relative rounded-2xl overflow-hidden shadow-2xl glass-card bg-zinc-900/50">
-            <div className="relative aspect-[4/5] w-full overflow-hidden flex items-center justify-center">
+            <div 
+              className="relative aspect-[4/5] w-full overflow-hidden flex items-center justify-center touch-pan-y"
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
+            >
               <AnimatePresence mode="wait">
                 <motion.img
                   key={currentIndex}
