@@ -35,7 +35,7 @@ const nextScheduleLabel = 'June, July 2026'
 const currentSchedule: ScheduleItem[] = [
   {
     day: 'Monday',
-    location: 'Margao',
+    location: 'Fatorda',
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
     dance: 'Rumba',
@@ -56,7 +56,7 @@ const currentSchedule: ScheduleItem[] = [
   },
   {
     day: 'Thursday',
-    location: 'Margao',
+    location: 'Fatorda',
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
     dance: 'Rumba',
@@ -80,11 +80,11 @@ const currentSchedule: ScheduleItem[] = [
 const nextSchedule: ScheduleItem[] = [
   {
     day: 'Monday',
-    location: 'Margao',
+    location: 'Fatorda',
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
     dance: 'Bachata',
-    starts: '1 June 2026'
+    starts: '1 June 2026',
   },
   {
     day: 'Tuesday',
@@ -92,7 +92,7 @@ const nextSchedule: ScheduleItem[] = [
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
     dance: 'International Jive',
-    starts: '2 June 2026'
+    starts: '2 June 2026',
   },
   {
     day: 'Wednesday',
@@ -100,15 +100,15 @@ const nextSchedule: ScheduleItem[] = [
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
     dance: 'Salsa',
-    starts: '3 June 2026'
+    starts: '3 June 2026',
   },
   {
     day: 'Thursday',
-    location: 'Margao',
+    location: 'Fatorda',
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
     dance: 'Bachata',
-    starts: '1 June 2026'
+    starts: '1 June 2026',
   },
   {
     day: 'Friday',
@@ -116,7 +116,7 @@ const nextSchedule: ScheduleItem[] = [
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
     dance: 'International Jive',
-    starts: '2 June 2026'
+    starts: '2 June 2026',
   },
   {
     day: 'Saturday',
@@ -124,7 +124,7 @@ const nextSchedule: ScheduleItem[] = [
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
     dance: 'Salsa',
-    starts: '3 June 2026'
+    starts: '3 June 2026',
   },
 ]
 
@@ -411,7 +411,6 @@ export function Schedule() {
           </div>
         )}
       </AnimatePresence>
-      
     </div>
   )
 }
