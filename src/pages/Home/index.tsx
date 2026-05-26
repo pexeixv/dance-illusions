@@ -7,6 +7,7 @@ import { CTASection } from './CTASection'
 import { UpcomingClassesPopup } from '@/components/UpcomingClassesPopup'
 import Seo, { SITE_URL } from '@/components/Seo'
 import UpcomingClassesSection from './UpcomingClassesSection'
+import { phase, PhaseEnum } from '@/config'
 
 export function Home() {
   return (

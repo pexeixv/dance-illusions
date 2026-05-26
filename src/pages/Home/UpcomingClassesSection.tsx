@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { imageKitUrl } from '@/config'
+import { imageKitUrl, phase, PhaseEnum } from '@/config'
 
 const posters = [
   `${imageKitUrl}/posters/june-bachata.png`,
@@ -32,7 +32,7 @@ function UpcomingClassesSection({ hideTitle = false }: Props) {
     const distance = touchStart - touchEnd
     const isLeftSwipe = distance > minSwipeDistance
     const isRightSwipe = distance < -minSwipeDistance
-    
+
     if (isLeftSwipe) {
       nextSlide()
     }
@@ -56,15 +56,52 @@ function UpcomingClassesSection({ hideTitle = false }: Props) {
     setCurrentIndex((prev) => (prev - 1 + posters.length) % posters.length)
   }
 
+  const getTitle = () => {
+    switch (phase) {
+      case PhaseEnum.BATCH_ONGOING:
+        return 'Upcoming Classes'
+      case PhaseEnum.ADMISSIONS_OPEN:
+        return 'Enroll in Our Next Batch'
+      case PhaseEnum.COMING_SOON:
+        return 'Coming Soon'
+      case PhaseEnum.BREAK:
+        return null
+    }
+  }
+
+  const getDescription = () => {
+    switch (phase) {
+      case PhaseEnum.BATCH_ONGOING:
+        return null
+      case PhaseEnum.ADMISSIONS_OPEN:
+        return 'Secure your spot in our new batch starting June 1st'
+      case PhaseEnum.COMING_SOON:
+        return 'New batch launching soon. Register for early bird discounts!'
+      case PhaseEnum.BREAK:
+        return null
+    }
+  }
+
+  if (phase === PhaseEnum.BREAK) return null
+
+  const title = getTitle()
+  const description = getDescription()
+
   return (
     <section className="py-24 relative">
       <div className="container max-w-7xl mx-auto px-6">
-          {!hideTitle && (
+        {!hideTitle && title && (
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-white">
-              Upcoming {" "}
-              <span className="text-gradient-primary">Classes</span>
+              {title}
+              {phase === PhaseEnum.BATCH_ONGOING && (
+                <>
+                  {' '}
+                  <span className="text-gradient-primary">Classes</span>
+                </>
+              )}
             </h2>
+            {description && <p className="text-lg text-slate-300 mt-4">{description}</p>}
           </div>
         )}
 
@@ -91,7 +128,7 @@ function UpcomingClassesSection({ hideTitle = false }: Props) {
         {/* Mobile Carousel */}
         <div className="md:hidden relative flex flex-col items-center">
           <div className="w-full relative rounded-2xl overflow-hidden shadow-2xl glass-card bg-zinc-900/50">
-            <div 
+            <div
               className="relative aspect-[4/5] w-full overflow-hidden flex items-center justify-center touch-pan-y"
               onTouchStart={onTouchStart}
               onTouchMove={onTouchMove}
@@ -135,9 +172,7 @@ function UpcomingClassesSection({ hideTitle = false }: Props) {
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                  index === currentIndex
-                    ? 'bg-purple-500 w-8'
-                    : 'bg-white/20 hover:bg-white/40'
+                  index === currentIndex ? 'bg-purple-500 w-8' : 'bg-white/20 hover:bg-white/40'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />

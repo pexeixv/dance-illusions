@@ -4,22 +4,53 @@ const startYear = 2006
 const currentYear = new Date().getFullYear()
 const yearsOfExperience = currentYear - startYear
 
-// PHASE determines the operational state of the school
-// BATCH_ONGOING: Regular classes running, current schedule active
-// ADMISSIONS_OPEN: New batch enrollment is open, show CTA for new students
-// COMING_SOON: Break between batches, teasing upcoming batch
-// BREAK: No classes running, promote testimonials/content, accept future registrations
-export type Phase = 'BATCH_ONGOING' | 'ADMISSIONS_OPEN' | 'COMING_SOON' | 'BREAK'
+export enum PhaseEnum {
+  BATCH_ONGOING = 'BATCH_ONGOING',
+  ADMISSIONS_OPEN = 'ADMISSIONS_OPEN',
+  COMING_SOON = 'COMING_SOON',
+  BREAK = 'BREAK',
+}
 
-export const phase: Phase = 'BATCH_ONGOING'
+export const phase = PhaseEnum.BATCH_ONGOING
 
-/*
-PHASE EFFECTS ON SITE:
-- BATCH_ONGOING: Show current schedule, regular pricing, class finder, active enrollment
-- ADMISSIONS_OPEN: Highlight "Enroll Now" CTA, show batch start date, special intro offers
-- COMING_SOON: Display countdown to admissions, early bird signup, teaser content
-- BREAK: Hide schedule, show "Classes Resume [Date]", feature testimonials, accept registrations for next batch
-*/
+export const phaseConfig = {
+  [PhaseEnum.BATCH_ONGOING]: {
+    label: 'Classes Running',
+    resumeDate: null,
+    nextBatchDate: null,
+    showSchedule: true,
+    showUpcomingClasses: true,
+    ctaText: 'View Schedule',
+    ctaAction: 'schedule',
+  },
+  [PhaseEnum.ADMISSIONS_OPEN]: {
+    label: 'Enrollments Open',
+    resumeDate: null,
+    nextBatchDate: new Date('2026-06-01'),
+    showSchedule: true,
+    showUpcomingClasses: true,
+    ctaText: 'Enroll Now',
+    ctaAction: 'enroll',
+  },
+  [PhaseEnum.COMING_SOON]: {
+    label: 'New Batch Coming Soon',
+    resumeDate: null,
+    nextBatchDate: new Date('2026-06-01'),
+    showSchedule: false,
+    showUpcomingClasses: true,
+    ctaText: 'Register Early',
+    ctaAction: 'earlyBird',
+  },
+  [PhaseEnum.BREAK]: {
+    label: 'Break Between Batches',
+    resumeDate: new Date('2026-06-01'),
+    nextBatchDate: new Date('2026-06-01'),
+    showSchedule: false,
+    showUpcomingClasses: false,
+    ctaText: 'Save Your Spot',
+    ctaAction: 'register',
+  },
+}
 
 export const features = [
   {

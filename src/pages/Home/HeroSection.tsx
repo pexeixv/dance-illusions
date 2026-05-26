@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'motion/react'
 import { ArrowRight, Music, Star } from 'lucide-react'
-import { imageKitUrl } from '@/config'
+import { imageKitUrl, phase, PhaseEnum } from '@/config'
 
 const students = ['/ahren.jpg', '/danica.jpg', '/swizel.jpg', '/pex.jpg']
 
@@ -34,19 +34,55 @@ export function HeroSection() {
             </p>
 
             <div className="flex max-lg:flex-col gap-4 pt-4">
-              <Link
-                to="/schedule"
-                className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-8 py-4 rounded-2xl font-bold shadow-xl shadow-purple-500/20 hover:shadow-purple-500/40 hover:scale-105 transition-all active:scale-95 flex items-center gap-2 text-center justify-center"
-              >
-                View Schedule
-                <ArrowRight size={20} />
-              </Link>
-              <a
-                href="tel:+919823014397"
-                className="bg-white/5 border border-white/10 backdrop-blur-md text-white px-8 py-4 rounded-2xl font-bold hover:bg-white/10 transition-all active:scale-95 text-center"
-              >
-                Call to Join
-              </a>
+              {phase === PhaseEnum.BREAK ? (
+                <>
+                  <a
+                    href="tel:+919823014397"
+                    className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-8 py-4 rounded-2xl font-bold shadow-xl shadow-purple-500/20 hover:shadow-purple-500/40 hover:scale-105 transition-all active:scale-95 flex items-center gap-2 text-center justify-center"
+                  >
+                    Call to Register
+                    <ArrowRight size={20} />
+                  </a>
+                  <Link
+                    to="/dance-forms"
+                    className="bg-white/5 border border-white/10 backdrop-blur-md text-white px-8 py-4 rounded-2xl font-bold hover:bg-white/10 transition-all active:scale-95 text-center"
+                  >
+                    Learn More
+                  </Link>
+                </>
+              ) : phase === PhaseEnum.COMING_SOON ? (
+                <>
+                  <a
+                    href="tel:+919823014397"
+                    className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-8 py-4 rounded-2xl font-bold shadow-xl shadow-purple-500/20 hover:shadow-purple-500/40 hover:scale-105 transition-all active:scale-95 flex items-center gap-2 text-center justify-center"
+                  >
+                    Register Early
+                    <ArrowRight size={20} />
+                  </a>
+                  <Link
+                    to="/schedule"
+                    className="bg-white/5 border border-white/10 backdrop-blur-md text-white px-8 py-4 rounded-2xl font-bold hover:bg-white/10 transition-all active:scale-95 text-center"
+                  >
+                    See Coming Soon
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to="/schedule"
+                    className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-8 py-4 rounded-2xl font-bold shadow-xl shadow-purple-500/20 hover:shadow-purple-500/40 hover:scale-105 transition-all active:scale-95 flex items-center gap-2 text-center justify-center"
+                  >
+                    {phase === PhaseEnum.ADMISSIONS_OPEN ? 'Enroll Now' : 'View Schedule'}
+                    <ArrowRight size={20} />
+                  </Link>
+                  <a
+                    href="tel:+919823014397"
+                    className="bg-white/5 border border-white/10 backdrop-blur-md text-white px-8 py-4 rounded-2xl font-bold hover:bg-white/10 transition-all active:scale-95 text-center"
+                  >
+                    Call to Join
+                  </a>
+                </>
+              )}
             </div>
 
             <div className="flex items-center gap-8 pt-8 border-t border-white/5">

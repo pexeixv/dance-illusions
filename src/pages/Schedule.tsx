@@ -5,7 +5,7 @@ import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { locations } from './Locations'
 import Seo, { SITE_URL } from '@/components/Seo'
-import { imageKitUrl } from '@/config'
+import { imageKitUrl, phase, PhaseEnum, phaseConfig } from '@/config'
 import UpcomingClassesSection from './Home/UpcomingClassesSection'
 import { Link } from 'react-router-dom'
 import { getStartsLabel, slugify } from '@/utils/functions'
@@ -310,25 +310,75 @@ export function Schedule() {
             transition={{ delay: 0.1 }}
             className="text-slate-400 text-lg max-w-xl mx-auto"
           >
-            Find the perfect time and location to start your dance journey. We offer classes across
-            multiple locations in Goa.
+            {phase === PhaseEnum.BREAK ? (
+              <>
+                We're taking a brief break. New batch resumes on{' '}
+                <span className="text-purple-400 font-semibold">
+                  {phaseConfig[phase].resumeDate?.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </span>
+              </>
+            ) : phase === PhaseEnum.COMING_SOON ? (
+              <>
+                New batch launching soon! Schedule will be available on{' '}
+                <span className="text-purple-400 font-semibold">
+                  {phaseConfig[phase].nextBatchDate?.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </span>
+              </>
+            ) : (
+              'Find the perfect time and location to start your dance journey. We offer classes across multiple locations in Goa.'
+            )}
           </motion.p>
         </div>
 
         {/* Schedule Tables */}
-        <div className="space-y-16">
-          <ScheduleTable
-            title={currentScheduleLabel}
-            data={currentSchedule}
-            onLocationClick={handleLocationClick}
-          />
+        {phaseConfig[phase].showSchedule ? (
+          <div className="space-y-16">
+            <ScheduleTable
+              title={currentScheduleLabel}
+              data={currentSchedule}
+              onLocationClick={handleLocationClick}
+            />
 
-          <ScheduleTable
-            title={nextScheduleLabel}
-            data={nextSchedule}
-            onLocationClick={handleLocationClick}
-          />
-        </div>
+            <ScheduleTable
+              title={nextScheduleLabel}
+              data={nextSchedule}
+              onLocationClick={handleLocationClick}
+            />
+          </div>
+        ) : (
+          <div className="glass-card p-12 text-center space-y-4 border-purple-500/30">
+            <h2 className="text-2xl font-bold text-white">
+              {phase === PhaseEnum.BREAK ? 'Classes Are on Break' : 'Schedule Coming Soon'}
+            </h2>
+            <p className="text-slate-400 max-w-xl mx-auto">
+              {phase === PhaseEnum.BREAK
+                ? `We'll resume classes on ${phaseConfig[phase].resumeDate?.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}. Call us to register for the next batch!`
+                : `New batch schedule will be available on ${phaseConfig[phase].nextBatchDate?.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}`}
+            </p>
+            <a
+              href="tel:+919823014397"
+              className="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-xl font-bold hover:shadow-lg hover:shadow-purple-500/30 transition-all"
+            >
+              Call to Register
+            </a>
+          </div>
+        )}
       </div>
 
       <UpcomingClassesSection hideTitle />
