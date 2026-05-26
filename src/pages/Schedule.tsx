@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
-import { Clock, MapPin, ExternalLink, X } from 'lucide-react'
+import { Clock, MapPin, ExternalLink, X, ArrowUpRightIcon } from 'lucide-react'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { locations } from './Locations'
 import Seo, { SITE_URL } from '@/components/Seo'
 import { imageKitUrl } from '@/config'
 import UpcomingClassesSection from './Home/UpcomingClassesSection'
+import { Link } from 'react-router-dom'
+import { getStartsLabel, slugify } from '@/utils/functions'
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -193,7 +195,7 @@ function ScheduleTable({ title, data, onLocationClick }: ScheduleTableProps) {
                           <span className="text-white font-bold whitespace-nowrap">{item.day}</span>
                           {item.starts && (
                             <span className="text-purple-400 text-xs font-medium mt-0.5 whitespace-nowrap">
-                              Starts {item.starts}
+                              {getStartsLabel(item.starts)} {item.starts}
                             </span>
                           )}
                         </div>
@@ -228,7 +230,13 @@ function ScheduleTable({ title, data, onLocationClick }: ScheduleTableProps) {
 
                     {/* Dance */}
                     <td className="px-4 md:px-8 py-6">
-                      <span className="text-white font-medium whitespace-nowrap">{item.dance}</span>
+                      <Link
+                        to={`/forms/${slugify(item.dance)}`}
+                        className="text-white font-medium whitespace-nowrap flex gap-1 group/location w-fit"
+                      >
+                        {item.dance}
+                        <ArrowUpRightIcon className="text-xs group-hover/location:opacity-40 size-4 opacity-0" />
+                      </Link>
                     </td>
 
                     {/* Level */}
