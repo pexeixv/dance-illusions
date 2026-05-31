@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'motion/react'
 import { ArrowRight, X } from 'lucide-react'
-import { phase, PhaseEnum, phaseConfig } from '@/config'
+import { phase, phaseConfig } from '@/config'
 
 const upcomingClasses = [
   {
@@ -23,9 +23,10 @@ const upcomingClasses = [
 ]
 
 export function UpcomingClassesPopup() {
-  const [isOpen, setIsOpen] = useState(phase !== PhaseEnum.BREAK)
+  const config = phaseConfig[phase]
+  const [isOpen, setIsOpen] = useState(config.showPopup)
 
-  if (phase === PhaseEnum.BREAK) return null
+  if (!config.showPopup) return null
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -65,13 +66,9 @@ export function UpcomingClassesPopup() {
             {/* Header */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-gradient-to-r from-purple-600/20 to-fuchsia-600/20">
               <div>
-                <p className="text-sm font-medium text-purple-300">
-                  {phase === PhaseEnum.COMING_SOON ? 'Coming Soon' : 'June-July 2026'}
-                </p>
+                <p className="text-sm font-medium text-purple-300">{config.popup.subheader}</p>
 
-                <h3 className="mt-1 text-xl font-bold text-white">
-                  {phase === PhaseEnum.COMING_SOON ? 'New Batch Announcement' : 'Upcoming Classes'}
-                </h3>
+                <h3 className="mt-1 text-xl font-bold text-white">{config.popup.header}</h3>
               </div>
 
               <button
@@ -84,14 +81,10 @@ export function UpcomingClassesPopup() {
 
             {/* Body */}
             <div className="p-6 space-y-5">
-              <p className="text-sm leading-relaxed text-slate-400">
-                {phase === PhaseEnum.COMING_SOON
-                  ? 'Exciting news! Our new batch is launching soon. Register early to get exclusive early bird discounts and secure your spot in our most popular classes.'
-                  : "As the monsoon rhythms roll in, step into a season of movement and magic with our exciting June-July sessions! Whether you're a beginner taking your very first steps or a dancer looking to sharpen your skills, we've got the perfect class waiting for you."}
-              </p>
+              <p className="text-sm leading-relaxed text-slate-400">{config.popup.description}</p>
 
               <p className="text-xs font-semibold tracking-wide uppercase text-purple-300">
-                {phase === PhaseEnum.COMING_SOON ? 'Early Bird Benefits' : "What's New This Season"}
+                {config.popup.tableLabel}
               </p>
 
               <div className="overflow-hidden border rounded-2xl border-white/10">
@@ -130,7 +123,7 @@ export function UpcomingClassesPopup() {
                 onClick={() => setIsOpen(false)}
                 className="flex items-center justify-center w-full gap-2 px-4 py-3 text-sm font-semibold text-white transition-all shadow-lg bg-gradient-to-r from-purple-600 to-fuchsia-600 rounded-2xl shadow-purple-500/20 hover:shadow-purple-500/40 hover:scale-[1.02] active:scale-95"
               >
-                {phase === PhaseEnum.COMING_SOON ? 'Register Early' : 'Check Full Schedule'}
+                {config.popup.buttonText}
                 <ArrowRight size={16} />
               </Link>
             </div>

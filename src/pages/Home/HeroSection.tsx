@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'motion/react'
 import { ArrowRight, Music, Star } from 'lucide-react'
-import { imageKitUrl, phase, PhaseEnum } from '@/config'
+import { imageKitUrl, phase, phaseConfig } from '@/config'
 
 const students = ['/ahren.jpg', '/danica.jpg', '/swizel.jpg', '/pex.jpg']
 
 export function HeroSection() {
+  const config = phaseConfig[phase]
+
   return (
     <section className="relative pt-28 pb-24 lg:pt-40 lg:py-24 overflow-hidden">
       <div className="container max-w-7xl mx-auto px-6 relative z-10">
@@ -34,54 +36,37 @@ export function HeroSection() {
             </p>
 
             <div className="flex max-lg:flex-col gap-4 pt-4">
-              {phase === PhaseEnum.BREAK ? (
-                <>
-                  <a
-                    href="tel:+919823014397"
-                    className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-8 py-4 rounded-2xl font-bold shadow-xl shadow-purple-500/20 hover:shadow-purple-500/40 hover:scale-105 transition-all active:scale-95 flex items-center gap-2 text-center justify-center"
-                  >
-                    Call to Register
-                    <ArrowRight size={20} />
-                  </a>
-                  <Link
-                    to="/dance-forms"
-                    className="bg-white/5 border border-white/10 backdrop-blur-md text-white px-8 py-4 rounded-2xl font-bold hover:bg-white/10 transition-all active:scale-95 text-center"
-                  >
-                    Learn More
-                  </Link>
-                </>
-              ) : phase === PhaseEnum.COMING_SOON ? (
-                <>
-                  <a
-                    href="tel:+919823014397"
-                    className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-8 py-4 rounded-2xl font-bold shadow-xl shadow-purple-500/20 hover:shadow-purple-500/40 hover:scale-105 transition-all active:scale-95 flex items-center gap-2 text-center justify-center"
-                  >
-                    Register Early
-                    <ArrowRight size={20} />
-                  </a>
-                  <Link
-                    to="/schedule"
-                    className="bg-white/5 border border-white/10 backdrop-blur-md text-white px-8 py-4 rounded-2xl font-bold hover:bg-white/10 transition-all active:scale-95 text-center"
-                  >
-                    See Coming Soon
-                  </Link>
-                </>
+              {config.hero.primaryButton.href.startsWith('/') ? (
+                <Link
+                  to={config.hero.primaryButton.href}
+                  className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-8 py-4 rounded-2xl font-bold shadow-xl shadow-purple-500/20 hover:shadow-purple-500/40 hover:scale-105 transition-all active:scale-95 flex items-center gap-2 text-center justify-center"
+                >
+                  {config.hero.primaryButton.text}
+                  <ArrowRight size={20} />
+                </Link>
               ) : (
-                <>
-                  <Link
-                    to="/schedule"
-                    className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-8 py-4 rounded-2xl font-bold shadow-xl shadow-purple-500/20 hover:shadow-purple-500/40 hover:scale-105 transition-all active:scale-95 flex items-center gap-2 text-center justify-center"
-                  >
-                    {phase === PhaseEnum.ADMISSIONS_OPEN ? 'Enroll Now' : 'View Schedule'}
-                    <ArrowRight size={20} />
-                  </Link>
-                  <a
-                    href="tel:+919823014397"
-                    className="bg-white/5 border border-white/10 backdrop-blur-md text-white px-8 py-4 rounded-2xl font-bold hover:bg-white/10 transition-all active:scale-95 text-center"
-                  >
-                    Call to Join
-                  </a>
-                </>
+                <a
+                  href={config.hero.primaryButton.href}
+                  className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-8 py-4 rounded-2xl font-bold shadow-xl shadow-purple-500/20 hover:shadow-purple-500/40 hover:scale-105 transition-all active:scale-95 flex items-center gap-2 text-center justify-center"
+                >
+                  {config.hero.primaryButton.text}
+                  <ArrowRight size={20} />
+                </a>
+              )}
+              {config.hero.secondaryButton.href.startsWith('/') ? (
+                <Link
+                  to={config.hero.secondaryButton.href}
+                  className="bg-white/5 border border-white/10 backdrop-blur-md text-white px-8 py-4 rounded-2xl font-bold hover:bg-white/10 transition-all active:scale-95 text-center"
+                >
+                  {config.hero.secondaryButton.text}
+                </Link>
+              ) : (
+                <a
+                  href={config.hero.secondaryButton.href}
+                  className="bg-white/5 border border-white/10 backdrop-blur-md text-white px-8 py-4 rounded-2xl font-bold hover:bg-white/10 transition-all active:scale-95 text-center"
+                >
+                  {config.hero.secondaryButton.text}
+                </a>
               )}
             </div>
 

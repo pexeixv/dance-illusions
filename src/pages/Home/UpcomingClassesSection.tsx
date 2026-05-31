@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { imageKitUrl, phase, PhaseEnum } from '@/config'
+import { imageKitUrl, phase, PhaseEnum, phaseConfig } from '@/config'
 
 const posters = [
   `${imageKitUrl}/posters/june-bachata.png`,
@@ -17,6 +17,7 @@ function UpcomingClassesSection({ hideTitle = false }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [touchStart, setTouchStart] = useState<number | null>(null)
   const [touchEnd, setTouchEnd] = useState<number | null>(null)
+  const config = phaseConfig[phase]
 
   const minSwipeDistance = 50
 
@@ -56,36 +57,10 @@ function UpcomingClassesSection({ hideTitle = false }: Props) {
     setCurrentIndex((prev) => (prev - 1 + posters.length) % posters.length)
   }
 
-  const getTitle = () => {
-    switch (phase) {
-      case PhaseEnum.BATCH_ONGOING:
-        return 'Upcoming Classes'
-      case PhaseEnum.ADMISSIONS_OPEN:
-        return 'Enroll in Our Next Batch'
-      case PhaseEnum.COMING_SOON:
-        return 'Coming Soon'
-      case PhaseEnum.BREAK:
-        return null
-    }
-  }
+  if (!config.showUpcomingClasses || phase === PhaseEnum.BREAK) return null
 
-  const getDescription = () => {
-    switch (phase) {
-      case PhaseEnum.BATCH_ONGOING:
-        return null
-      case PhaseEnum.ADMISSIONS_OPEN:
-        return 'Secure your spot in our new batch starting June 1st'
-      case PhaseEnum.COMING_SOON:
-        return 'New batch launching soon. Register for early bird discounts!'
-      case PhaseEnum.BREAK:
-        return null
-    }
-  }
-
-  if (phase === PhaseEnum.BREAK) return null
-
-  const title = getTitle()
-  const description = getDescription()
+  const title = config.upcomingClasses.title
+  const description = config.upcomingClasses.description
 
   return (
     <section className="py-24 relative">

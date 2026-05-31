@@ -11,7 +11,7 @@ export enum PhaseEnum {
   BREAK = 'BREAK',
 }
 
-export const phase = PhaseEnum.BATCH_ONGOING
+export const phase = PhaseEnum.ADMISSIONS_OPEN
 
 export const phaseConfig = {
   [PhaseEnum.BATCH_ONGOING]: {
@@ -20,8 +20,34 @@ export const phaseConfig = {
     nextBatchDate: null,
     showSchedule: true,
     showUpcomingClasses: true,
-    ctaText: 'View Schedule',
-    ctaAction: 'schedule',
+    showPopup: true,
+    // CTA Section
+    cta: {
+      heading: 'Ready to take your first step?',
+      description:
+        "Join Goa's most prestigious dance academy today. Whether you're a beginner or an advanced dancer, we have the perfect class for you.",
+      primaryButton: { text: 'Call Now', href: 'tel:+919823014397' },
+      secondaryButton: { text: 'View Schedule', href: '/schedule' },
+    },
+    // Hero Section
+    hero: {
+      primaryButton: { text: 'View Schedule', href: '/schedule' },
+      secondaryButton: { text: 'Call to Join', href: 'tel:+919823014397' },
+    },
+    // Upcoming Classes Section
+    upcomingClasses: {
+      title: 'Upcoming Classes',
+      description: null,
+    },
+    // Popup
+    popup: {
+      header: 'Upcoming Classes',
+      subheader: 'June-July 2026',
+      description:
+        "As the monsoon rhythms roll in, step into a season of movement and magic with our exciting June-July sessions! Whether you're a beginner taking your very first steps or a dancer looking to sharpen your skills, we've got the perfect class waiting for you.",
+      tableLabel: "What's New This Season",
+      buttonText: 'Check Full Schedule',
+    },
   },
   [PhaseEnum.ADMISSIONS_OPEN]: {
     label: 'Enrollments Open',
@@ -29,8 +55,34 @@ export const phaseConfig = {
     nextBatchDate: new Date('2026-06-01'),
     showSchedule: true,
     showUpcomingClasses: true,
-    ctaText: 'Enroll Now',
-    ctaAction: 'enroll',
+    showPopup: true,
+    // CTA Section
+    cta: {
+      heading: 'Join our next batch and start dancing!',
+      description:
+        'Enroll in our new batch starting June 1st. Limited spots available—secure your seat today!',
+      primaryButton: { text: 'Call Now', href: 'tel:+919823014397' },
+      secondaryButton: { text: 'Enroll Now', href: '/schedule' },
+    },
+    // Hero Section
+    hero: {
+      primaryButton: { text: 'Enroll Now', href: '/schedule' },
+      secondaryButton: { text: 'Call to Join', href: 'tel:+919823014397' },
+    },
+    // Upcoming Classes Section
+    upcomingClasses: {
+      title: 'Enroll in Our Next Batch',
+      description: 'Secure your spot in our new batch starting June 1st',
+    },
+    // Popup
+    popup: {
+      header: 'Upcoming Classes',
+      subheader: 'June-July 2026',
+      description:
+        "As the monsoon rhythms roll in, step into a season of movement and magic with our exciting June-July sessions! Whether you're a beginner taking your very first steps or a dancer looking to sharpen your skills, we've got the perfect class waiting for you.",
+      tableLabel: "What's New This Season",
+      buttonText: 'Check Full Schedule',
+    },
   },
   [PhaseEnum.COMING_SOON]: {
     label: 'New Batch Coming Soon',
@@ -38,8 +90,34 @@ export const phaseConfig = {
     nextBatchDate: new Date('2026-06-01'),
     showSchedule: false,
     showUpcomingClasses: true,
-    ctaText: 'Register Early',
-    ctaAction: 'earlyBird',
+    showPopup: true,
+    // CTA Section
+    cta: {
+      heading: 'New batch coming soon!',
+      description:
+        'Our next batch is launching soon. Register early to get exclusive early bird discounts.',
+      primaryButton: { text: 'Call to Register', href: 'tel:+919823014397' },
+      secondaryButton: { text: 'Learn More', href: '/dance-forms' },
+    },
+    // Hero Section
+    hero: {
+      primaryButton: { text: 'Register Early', href: 'tel:+919823014397' },
+      secondaryButton: { text: 'See Coming Soon', href: '/schedule' },
+    },
+    // Upcoming Classes Section
+    upcomingClasses: {
+      title: 'Coming Soon',
+      description: 'New batch launching soon. Register for early bird discounts!',
+    },
+    // Popup
+    popup: {
+      header: 'New Batch Announcement',
+      subheader: 'Coming Soon',
+      description:
+        'Exciting news! Our new batch is launching soon. Register early to get exclusive early bird discounts and secure your spot in our most popular classes.',
+      tableLabel: 'Early Bird Benefits',
+      buttonText: 'Register Early',
+    },
   },
   [PhaseEnum.BREAK]: {
     label: 'Break Between Batches',
@@ -47,8 +125,33 @@ export const phaseConfig = {
     nextBatchDate: new Date('2026-06-01'),
     showSchedule: false,
     showUpcomingClasses: false,
-    ctaText: 'Save Your Spot',
-    ctaAction: 'register',
+    showPopup: false,
+    // CTA Section
+    cta: {
+      heading: 'Classes resume soon. Save your spot!',
+      description:
+        "We're taking a brief break, but our new batch is coming. Register now to reserve your spot.",
+      primaryButton: { text: 'Call to Register', href: 'tel:+919823014397' },
+      secondaryButton: { text: 'Learn More', href: '/dance-forms' },
+    },
+    // Hero Section
+    hero: {
+      primaryButton: { text: 'Call to Register', href: 'tel:+919823014397' },
+      secondaryButton: { text: 'Learn More', href: '/dance-forms' },
+    },
+    // Upcoming Classes Section
+    upcomingClasses: {
+      title: null,
+      description: null,
+    },
+    // Popup (hidden)
+    popup: {
+      header: '',
+      subheader: '',
+      description: '',
+      tableLabel: '',
+      buttonText: '',
+    },
   },
 }
 
