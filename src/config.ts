@@ -11,7 +11,7 @@ export enum PhaseEnum {
   BREAK = 'BREAK',
 }
 
-export const phase = PhaseEnum.ADMISSIONS_OPEN
+export const phase = PhaseEnum.BATCH_ONGOING
 
 export const phaseConfig = {
   [PhaseEnum.BATCH_ONGOING]: {

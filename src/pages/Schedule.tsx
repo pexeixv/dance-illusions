@@ -31,8 +31,8 @@ type ScheduleTableProps = {
   onLocationClick: (locationName: string) => void
 }
 
-const currentScheduleLabel = 'April, May 2026'
-const nextScheduleLabel = 'June, July 2026'
+const currentScheduleLabel = 'June, July 2026'
+const nextScheduleLabel = 'April, May 2026'
 
 const currentSchedule: ScheduleItem[] = [
   {
@@ -40,42 +40,48 @@ const currentSchedule: ScheduleItem[] = [
     location: 'Fatorda',
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
-    dance: 'Rumba',
+    dance: 'Bachata',
+    starts: '1 June 2026',
   },
   {
     day: 'Tuesday',
     location: 'Porvorim',
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
-    dance: 'Salsa',
+    dance: 'International Jive',
+    starts: '2 June 2026',
   },
   {
     day: 'Wednesday',
     location: 'Vasco',
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
-    dance: 'Cha Cha',
+    dance: 'Salsa',
+    starts: '3 June 2026',
   },
   {
     day: 'Thursday',
     location: 'Fatorda',
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
-    dance: 'Rumba',
+    dance: 'Bachata',
+    starts: '1 June 2026',
   },
   {
     day: 'Friday',
     location: 'Porvorim',
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
-    dance: 'Salsa',
+    dance: 'International Jive',
+    starts: '2 June 2026',
   },
   {
     day: 'Saturday',
     location: 'Vasco',
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
-    dance: 'Cha Cha',
+    dance: 'Salsa',
+    starts: '3 June 2026',
   },
 ]
 
@@ -85,48 +91,42 @@ const nextSchedule: ScheduleItem[] = [
     location: 'Fatorda',
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
-    dance: 'Bachata',
-    starts: '1 June 2026',
+    dance: 'Rumba',
   },
   {
     day: 'Tuesday',
     location: 'Porvorim',
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
-    dance: 'International Jive',
-    starts: '2 June 2026',
+    dance: 'Salsa',
   },
   {
     day: 'Wednesday',
     location: 'Vasco',
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
-    dance: 'Salsa',
-    starts: '3 June 2026',
+    dance: 'Cha Cha',
   },
   {
     day: 'Thursday',
     location: 'Fatorda',
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
-    dance: 'Bachata',
-    starts: '1 June 2026',
+    dance: 'Rumba',
   },
   {
     day: 'Friday',
     location: 'Porvorim',
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
-    dance: 'International Jive',
-    starts: '2 June 2026',
+    dance: 'Salsa',
   },
   {
     day: 'Saturday',
     location: 'Vasco',
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
-    dance: 'Salsa',
-    starts: '3 June 2026',
+    dance: 'Cha Cha',
   },
 ]
 
@@ -347,11 +347,11 @@ export function Schedule() {
               onLocationClick={handleLocationClick}
             />
 
-            <ScheduleTable
+            {/* <ScheduleTable
               title={nextScheduleLabel}
               data={nextSchedule}
               onLocationClick={handleLocationClick}
-            />
+            /> */}
           </div>
         ) : (
           <div className="glass-card p-12 text-center space-y-4 border-purple-500/30">
@@ -360,12 +360,17 @@ export function Schedule() {
             </h2>
             <p className="text-slate-400 max-w-xl mx-auto">
               {phase === PhaseEnum.BREAK
-                ? `We'll resume classes on ${phaseConfig[phase].resumeDate?.toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })}. Call us to register for the next batch!`
-                : `New batch schedule will be available on ${phaseConfig[phase].nextBatchDate?.toLocaleDateString('en-US', {
+                ? `We'll resume classes on ${phaseConfig[phase].resumeDate?.toLocaleDateString(
+                    'en-US',
+                    {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    }
+                  )}. Call us to register for the next batch!`
+                : `New batch schedule will be available on ${phaseConfig[
+                    phase
+                  ].nextBatchDate?.toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric',
