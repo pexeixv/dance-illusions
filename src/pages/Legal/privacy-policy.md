@@ -28,7 +28,3 @@ You have the right to access, update, or delete your personal information. Conta
 ## Changes to Privacy Policy
 
 We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated effective date.
-
-## Contact Us
-
-If you have any questions about this Privacy Policy, please contact us at info@danceillusions.in.
