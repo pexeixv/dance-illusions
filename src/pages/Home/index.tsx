@@ -12,7 +12,7 @@ import { phase, PhaseEnum } from '@/config'
 export function Home() {
   return (
     <div className="flex flex-col">
-      <UpcomingClassesPopup />
+      {/* <UpcomingClassesPopup /> */}
       <Seo
         title="Ballroom & Latin Dance Classes in Goa | Dance School India"
         description="Learn Ballroom, Latin, Salsa, Bachata & Jive at India's premier dance school in Goa. Expert instructors, flexible schedules. Margao, Vasco, Panjim locations."
