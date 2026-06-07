@@ -61,8 +61,8 @@ export function WeddingDance() {
             ratingValue: '4.9',
             bestRating: '5',
             worstRating: '1',
-            ratingCount: '89'
-          }
+            ratingCount: '89',
+          },
         }}
       />
       <div className="container max-w-7xl mx-auto px-6">
@@ -98,15 +98,8 @@ export function WeddingDance() {
                 href="tel:+919823014397"
                 className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-10 py-4 rounded-2xl font-bold shadow-xl shadow-purple-500/20 hover:shadow-purple-500/40 hover:scale-105 transition-all active:scale-95 inline-flex items-center gap-2"
               >
-                Book a Consultation
-                <ArrowRight size={20} />
-              </a>
-              <a
-                href="tel:+919823014397"
-                className="bg-white/5 border border-white/10 backdrop-blur-md text-white px-10 py-4 rounded-2xl font-bold hover:bg-white/10 transition-all active:scale-95 inline-flex items-center gap-2"
-              >
-                <Phone size={20} />
                 Call Now
+                <ArrowRight size={20} />
               </a>
             </div>
           </motion.div>
