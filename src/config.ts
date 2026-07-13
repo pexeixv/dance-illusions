@@ -42,9 +42,9 @@ export const phaseConfig = {
     // Popup
     popup: {
       header: 'Upcoming Classes',
-      subheader: 'June-July 2026',
+      subheader: 'August-September 2026',
       description:
-        "As the monsoon rhythms roll in, step into a season of movement and magic with our exciting June-July sessions! Whether you're a beginner taking your very first steps or a dancer looking to sharpen your skills, we've got the perfect class waiting for you.",
+        "As the monsoon rhythms roll in, step into a season of movement and magic with our exciting August-September sessions! Whether you're a beginner taking your very first steps or a dancer looking to sharpen your skills, we've got the perfect class waiting for you.",
       tableLabel: "What's New This Season",
       buttonText: 'Check Full Schedule',
     },
@@ -60,7 +60,7 @@ export const phaseConfig = {
     cta: {
       heading: 'Join our next batch and start dancing!',
       description:
-        'Enroll in our new batch starting June 1st. Limited spots available—secure your seat today!',
+        'Enroll in our new batch starting August 5th. Limited spots available—secure your seat today!',
       primaryButton: { text: 'Call Now', href: 'tel:+919823014397' },
       secondaryButton: { text: 'Enroll Now', href: '/schedule' },
     },
@@ -72,7 +72,7 @@ export const phaseConfig = {
     // Upcoming Classes Section
     upcomingClasses: {
       title: 'Enroll in Our Next Batch',
-      description: 'Secure your spot in our new batch starting June 1st',
+      description: 'Secure your spot in our new batch starting August 5th',
     },
     // Popup
     popup: {
