@@ -1,7 +1,7 @@
 import { motion } from 'motion/react'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import { features } from '@/config.ts'
+import { features } from '@/data/data'
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))

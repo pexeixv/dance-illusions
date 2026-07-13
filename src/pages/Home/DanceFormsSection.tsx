@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'motion/react'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { danceCategories } from '@/config.ts'
+import { danceCategories } from '@/data/data'
 import { imageKitUrl } from '@/config.ts'
 
 export function DanceFormsSection() {
@@ -10,8 +10,7 @@ export function DanceFormsSection() {
       <div className="container max-w-7xl mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
           <h2 className="text-4xl lg:text-5xl font-bold text-white">
-            Dance {" "}
-            <span className="text-gradient-primary"> Forms</span>
+            Dance <span className="text-gradient-primary"> Forms</span>
           </h2>
           <p className="text-slate-400 text-lg max-w-xl mx-auto">
             Explore a wide range of dance styles from the elegance of Ballroom to the energy of

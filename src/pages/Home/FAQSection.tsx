@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { Plus, Minus } from 'lucide-react'
-import { faqs } from '@/config.ts'
+import { faqs } from '@/data/data'
 
 interface AccordionItemProps {
   question: string

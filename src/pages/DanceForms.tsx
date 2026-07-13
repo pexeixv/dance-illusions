@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'motion/react'
 import { ArrowRight, Music, Star, Heart } from 'lucide-react'
-import { danceForms } from '../data/danceForms'
+import { danceForms } from '../data/data'
 import { imageKitUrl } from '@/config'
 import { useEffect } from 'react'
 import Seo, { SITE_URL } from '@/components/Seo'
