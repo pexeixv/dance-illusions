@@ -7,18 +7,18 @@ import { phase, phaseConfig } from '@/config'
 const upcomingClasses = [
   {
     city: 'Margao',
-    style: 'Bachata',
-    startDate: 'June 1',
+    style: "Int'l Jive",
+    startDate: 'August 6',
   },
   {
     city: 'Porvorim',
-    style: "Int'l Jive",
-    startDate: 'June 2',
+    style: 'Bachata',
+    startDate: 'August 7',
   },
   {
     city: 'Vasco',
-    style: 'Salsa',
-    startDate: 'June 3',
+    style: 'Samba',
+    startDate: 'August 5',
   },
 ]
 

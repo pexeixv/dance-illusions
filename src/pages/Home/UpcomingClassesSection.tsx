@@ -4,9 +4,9 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { imageKitUrl, phase, PhaseEnum, phaseConfig } from '@/config'
 
 const posters = [
-  `${imageKitUrl}/posters/june-bachata.png`,
-  `${imageKitUrl}/posters/june-salsa.png`,
-  `${imageKitUrl}/posters/june-jive.png`,
+  `${imageKitUrl}/posters/august-vasco.png`,
+  `${imageKitUrl}/posters/august-fatorda.png`,
+  `${imageKitUrl}/posters/august-porvorim.png`,
 ]
 
 interface Props {
