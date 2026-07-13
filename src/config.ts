@@ -77,9 +77,9 @@ export const phaseConfig = {
     // Popup
     popup: {
       header: 'Upcoming Classes',
-      subheader: 'June-July 2026',
+      subheader: 'August-September 2026',
       description:
-        "As the monsoon rhythms roll in, step into a season of movement and magic with our exciting June-July sessions! Whether you're a beginner taking your very first steps or a dancer looking to sharpen your skills, we've got the perfect class waiting for you.",
+        "As the monsoon rhythms roll in, step into a season of movement and magic with our exciting August-September sessions! Whether you're a beginner taking your very first steps or a dancer looking to sharpen your skills, we've got the perfect class waiting for you.",
       tableLabel: "What's New This Season",
       buttonText: 'Check Full Schedule',
     },
