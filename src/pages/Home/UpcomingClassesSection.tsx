@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { imageKitUrl, phase, PhaseEnum, phaseConfig } from '@/config'
+import { phase, phaseConfig, promotedBatch } from '@/config'
+import { generatePosterUrls } from '@/utils/functions'
+import { PhaseEnum } from '@/utils/types'
 
-const posters = [
-  `${imageKitUrl}/posters/august-vasco.png`,
-  `${imageKitUrl}/posters/august-fatorda.png`,
-  `${imageKitUrl}/posters/august-porvorim.png`,
-]
+const posters = generatePosterUrls(promotedBatch)
 
 interface Props {
   hideTitle?: boolean
@@ -57,10 +55,9 @@ function UpcomingClassesSection({ hideTitle = false }: Props) {
     setCurrentIndex((prev) => (prev - 1 + posters.length) % posters.length)
   }
 
-  if (!config.showUpcomingClasses || phase === PhaseEnum.BREAK) return null
+  if (!config.showUpcomingClasses) return null
 
-  const title = config.upcomingClasses.title
-  const description = config.upcomingClasses.description
+  const { title, title2, description } = config.upcomingClasses
 
   return (
     <section className="py-24 relative">
@@ -69,10 +66,9 @@ function UpcomingClassesSection({ hideTitle = false }: Props) {
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-white">
               {title}
-              {phase === PhaseEnum.BATCH_ONGOING && (
+              {title2 && (
                 <>
-                  {' '}
-                  <span className="text-gradient-primary">Classes</span>
+                  <span className="text-gradient-primary"> {title2}</span>
                 </>
               )}
             </h2>

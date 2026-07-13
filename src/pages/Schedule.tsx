@@ -5,24 +5,23 @@ import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { locations } from './Locations'
 import Seo, { SITE_URL } from '@/components/Seo'
-import { imageKitUrl, phase, PhaseEnum, phaseConfig } from '@/config'
+import { generateSchedule } from '@/utils/functions'
+import {
+  phaseConfig,
+  currentBatch,
+  nextBatch,
+  phase,
+  imageKitUrl,
+  breakResumeDateDisplay,
+  promotedBatch,
+} from '@/config'
+import { PhaseEnum, ScheduleItem } from '@/utils/types'
 import UpcomingClassesSection from './Home/UpcomingClassesSection'
 import { Link } from 'react-router-dom'
-import { getStartsLabel, slugify } from '@/utils/functions'
+import { getStartsLabel } from '@/utils/functions'
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
-}
-
-type Level = 'Beginner' | 'Intermediate' | 'Advanced' | 'All Levels'
-
-type ScheduleItem = {
-  day: string
-  location: string
-  time: string
-  level: Level[]
-  dance: string
-  starts?: string
 }
 
 type ScheduleTableProps = {
@@ -30,111 +29,6 @@ type ScheduleTableProps = {
   data: ScheduleItem[]
   onLocationClick: (locationName: string) => void
 }
-
-const currentScheduleLabel = 'June, July 2026'
-const nextScheduleLabel = 'August, September 2026'
-
-const currentSchedule: ScheduleItem[] = [
-  {
-    day: 'Monday',
-    location: 'Fatorda',
-    time: '7:00 PM - 9:00 PM',
-    level: ['Beginner', 'Intermediate'],
-    dance: 'Bachata',
-    starts: '1 June 2026',
-  },
-  {
-    day: 'Tuesday',
-    location: 'Porvorim',
-    time: '7:00 PM - 9:00 PM',
-    level: ['Beginner', 'Intermediate'],
-    dance: 'International Jive',
-    starts: '2 June 2026',
-  },
-  {
-    day: 'Wednesday',
-    location: 'Vasco',
-    time: '7:00 PM - 9:00 PM',
-    level: ['Beginner', 'Intermediate'],
-    dance: 'Salsa',
-    starts: '3 June 2026',
-  },
-  {
-    day: 'Thursday',
-    location: 'Fatorda',
-    time: '7:00 PM - 9:00 PM',
-    level: ['Beginner', 'Intermediate'],
-    dance: 'Bachata',
-    starts: '1 June 2026',
-  },
-  {
-    day: 'Friday',
-    location: 'Porvorim',
-    time: '7:00 PM - 9:00 PM',
-    level: ['Beginner', 'Intermediate'],
-    dance: 'International Jive',
-    starts: '2 June 2026',
-  },
-  {
-    day: 'Saturday',
-    location: 'Vasco',
-    time: '7:00 PM - 9:00 PM',
-    level: ['Beginner', 'Intermediate'],
-    dance: 'Salsa',
-    starts: '3 June 2026',
-  },
-]
-
-const nextSchedule: ScheduleItem[] = [
-  {
-    day: 'Monday',
-    location: 'Fatorda',
-    time: '7:00 PM - 9:00 PM',
-    level: ['Beginner', 'Intermediate'],
-    dance: "Int'l Jive",
-    starts: '6 August 2026',
-  },
-  {
-    day: 'Tuesday',
-    location: 'Porvorim',
-    time: '7:00 PM - 9:00 PM',
-    level: ['Beginner', 'Intermediate'],
-    dance: 'Bachata',
-    starts: '7 August 2026',
-  },
-  {
-    day: 'Wednesday',
-    location: 'Vasco',
-    time: '7:00 PM - 9:00 PM',
-    level: ['Beginner', 'Intermediate'],
-    dance: 'Samba',
-    starts: '5 August 2026',
-  },
-  {
-    day: 'Thursday',
-    location: 'Fatorda',
-    time: '7:00 PM - 9:00 PM',
-    level: ['Beginner', 'Intermediate'],
-    dance: "Int'l Jive",
-    starts: '6 August 2026',
-  },
-  {
-    day: 'Friday',
-    location: 'Porvorim',
-    time: '7:00 PM - 9:00 PM',
-    level: ['Beginner', 'Intermediate'],
-    dance: 'Bachata',
-    starts: '7 August 2026',
-  },
-  {
-    day: 'Saturday',
-    location: 'Vasco',
-    time: '7:00 PM - 9:00 PM',
-    level: ['Beginner', 'Intermediate'],
-    dance: 'Samba',
-    starts: '5 August 2026',
-  },
-]
 
 function ScheduleTable({ title, data, onLocationClick }: ScheduleTableProps) {
   return (
@@ -237,7 +131,11 @@ function ScheduleTable({ title, data, onLocationClick }: ScheduleTableProps) {
                     {/* Dance */}
                     <td className="px-4 md:px-8 py-6">
                       <Link
-                        to={`/forms/${slugify(item.dance)}`}
+                        to={`/forms/${item.dance
+                          .toLowerCase()
+                          .replace(/[^a-z0-9]+/g, '-')
+                          .replace(/-+/g, '-')
+                          .replace(/^-|-$/g, '')}`}
                         className="text-white font-medium whitespace-nowrap flex gap-1 group/location w-fit"
                       >
                         {item.dance}
@@ -277,12 +175,29 @@ function ScheduleTable({ title, data, onLocationClick }: ScheduleTableProps) {
 
 export function Schedule() {
   const [selectedLocation, setSelectedLocation] = useState<(typeof locations)[0] | null>(null)
+  const config = phaseConfig[phase]
 
   const handleLocationClick = (locationName: string) => {
     const loc = locations.find((l) => l.name === locationName)
 
     if (loc) {
       setSelectedLocation(loc)
+    }
+  }
+
+  // Build schedule tables based on phase
+  const scheduleTables: { title: string; data: ScheduleItem[] }[] = []
+  if (config.showSchedule) {
+    if (phase === PhaseEnum.BATCH_ONGOING) {
+      scheduleTables.push({ title: currentBatch.label, data: generateSchedule(currentBatch) })
+      if (nextBatch) {
+        scheduleTables.push({ title: nextBatch.label, data: generateSchedule(nextBatch) })
+      }
+    } else if (phase === PhaseEnum.BATCHES_ANNOUNCED) {
+      scheduleTables.push({ title: currentBatch.label, data: generateSchedule(currentBatch) })
+      if (nextBatch) {
+        scheduleTables.push({ title: nextBatch.label, data: generateSchedule(nextBatch) })
+      }
     }
   }
 
@@ -318,25 +233,14 @@ export function Schedule() {
           >
             {phase === PhaseEnum.BREAK ? (
               <>
-                We're taking a brief break. New batch resumes on{' '}
-                <span className="text-purple-400 font-semibold">
-                  {phaseConfig[phase].resumeDate?.toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })}
-                </span>
-              </>
-            ) : phase === PhaseEnum.COMING_SOON ? (
-              <>
-                New batch launching soon! Schedule will be available on{' '}
-                <span className="text-purple-400 font-semibold">
-                  {phaseConfig[phase].nextBatchDate?.toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })}
-                </span>
+                We're taking a brief break.
+                {breakResumeDateDisplay && (
+                  <>
+                    {' '}
+                    New batch resumes on{' '}
+                    <span className="text-purple-400 font-semibold">{breakResumeDateDisplay}</span>
+                  </>
+                )}
               </>
             ) : (
               'Find the perfect time and location to start your dance journey. We offer classes across multiple locations in Goa.'
@@ -345,46 +249,30 @@ export function Schedule() {
         </div>
 
         {/* Schedule Tables */}
-        {phaseConfig[phase].showSchedule ? (
+        {scheduleTables.length > 0 ? (
           <div className="space-y-16">
-            <ScheduleTable
-              title={currentScheduleLabel}
-              data={currentSchedule}
-              onLocationClick={handleLocationClick}
-            />
-
-            <ScheduleTable
-              title={nextScheduleLabel}
-              data={nextSchedule}
-              onLocationClick={handleLocationClick}
-            />
+            {scheduleTables.map((table) => (
+              <ScheduleTable
+                key={table.title}
+                title={table.title}
+                data={table.data}
+                onLocationClick={handleLocationClick}
+              />
+            ))}
           </div>
         ) : (
-          <div className="glass-card p-12 text-center space-y-4 border-purple-500/30">
+          <div className="glass-card p-12 text-center space-y-4 border-purple-500/30 w-fit mx-auto">
             <h2 className="text-2xl font-bold text-white">
               {phase === PhaseEnum.BREAK ? 'Classes Are on Break' : 'Schedule Coming Soon'}
             </h2>
             <p className="text-slate-400 max-w-xl mx-auto">
-              {phase === PhaseEnum.BREAK
-                ? `We'll resume classes on ${phaseConfig[phase].resumeDate?.toLocaleDateString(
-                    'en-US',
-                    {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    }
-                  )}. Call us to register for the next batch!`
-                : `New batch schedule will be available on ${phaseConfig[
-                    phase
-                  ].nextBatchDate?.toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })}`}
+              {phase === PhaseEnum.BREAK && breakResumeDateDisplay
+                ? `We'll resume classes on ${breakResumeDateDisplay}. Call us to register for the next batch!`
+                : 'New batch schedule will be available soon. Call us to register!'}
             </p>
             <a
               href="tel:+919823014397"
-              className="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-xl font-bold hover:shadow-lg hover:shadow-purple-500/30 transition-all"
+              className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-8 py-4 rounded-2xl font-bold shadow-xl shadow-purple-500/20 hover:shadow-purple-500/40 hover:scale-105 transition-all active:scale-95 flex items-center gap-2 text-center justify-center inline-block"
             >
               Call to Register
             </a>

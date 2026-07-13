@@ -1,7 +1,7 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { motion } from 'motion/react'
 import { ArrowLeft, Play, Calendar, MapPin, CheckCircle2 } from 'lucide-react'
-import { danceForms } from '../data/danceForms'
+import { danceForms } from '../data/data'
 import Seo, { SITE_URL } from '@/components/Seo'
 import { forDanceDetail } from '@/utils/breadcrumb'
 
@@ -40,8 +40,8 @@ export function DanceDetail() {
             ratingValue: '4.8',
             bestRating: '5',
             worstRating: '1',
-            ratingCount: '127'
-          }
+            ratingCount: '127',
+          },
         }}
       />
       <div className="container max-w-7xl mx-auto px-6">

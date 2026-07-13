@@ -2,25 +2,10 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'motion/react'
 import { ArrowRight, X } from 'lucide-react'
-import { phase, phaseConfig } from '@/config'
+import { phase, phaseConfig, promotedBatch } from '@/config'
+import { generatePopupData } from '@/utils/functions'
 
-const upcomingClasses = [
-  {
-    city: 'Margao',
-    style: "Int'l Jive",
-    startDate: 'August 6',
-  },
-  {
-    city: 'Porvorim',
-    style: 'Bachata',
-    startDate: 'August 7',
-  },
-  {
-    city: 'Vasco',
-    style: 'Samba',
-    startDate: 'August 5',
-  },
-]
+const upcomingClasses = generatePopupData(promotedBatch)
 
 export function UpcomingClassesPopup() {
   const config = phaseConfig[phase]
@@ -66,7 +51,7 @@ export function UpcomingClassesPopup() {
             {/* Header */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-gradient-to-r from-purple-600/20 to-fuchsia-600/20">
               <div>
-                <p className="text-sm font-medium text-purple-300">{config.popup.subheader}</p>
+                <p className="text-sm font-medium text-purple-300">{promotedBatch.label}</p>
 
                 <h3 className="mt-1 text-xl font-bold text-white">{config.popup.header}</h3>
               </div>
@@ -81,7 +66,9 @@ export function UpcomingClassesPopup() {
 
             {/* Body */}
             <div className="p-6 space-y-5">
-              <p className="text-sm leading-relaxed text-slate-400">{config.popup.description}</p>
+              <p className="text-sm leading-relaxed text-slate-400">
+                {promotedBatch.seasonDescription}
+              </p>
 
               <p className="text-xs font-semibold tracking-wide uppercase text-purple-300">
                 {config.popup.tableLabel}
@@ -102,12 +89,12 @@ export function UpcomingClassesPopup() {
                   <tbody>
                     {upcomingClasses.map((item, index) => (
                       <tr
-                        key={`${item.city}-${item.style}`}
+                        key={`${item.location}-${item.style}`}
                         className={`border-t border-white/10 ${
                           index % 2 === 0 ? 'bg-white/[0.02]' : 'bg-transparent'
                         }`}
                       >
-                        <td className="px-4 py-3 font-semibold text-white">{item.city}</td>
+                        <td className="px-4 py-3 font-semibold text-white">{item.location}</td>
 
                         <td className="px-4 py-3 text-slate-300">{item.style}</td>
 

@@ -16,21 +16,21 @@ export function CTASection() {
           <div className="flex max-md:flex-col justify-center gap-4 pt-2">
             <a
               href={config.cta.primaryButton.href}
-              className="bg-white text-slate-950 px-8 py-3.5 rounded-2xl font-bold text-base hover:bg-purple-50 transition-all active:scale-95 text-center"
+              className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-8 py-4 rounded-2xl font-bold shadow-xl shadow-purple-500/20 hover:shadow-purple-500/40 hover:scale-105 transition-all active:scale-95 flex items-center gap-2 text-center justify-center"
             >
               {config.cta.primaryButton.text}
             </a>
             {config.cta.secondaryButton.href.startsWith('/') ? (
               <Link
                 to={config.cta.secondaryButton.href}
-                className="bg-transparent border-2 border-white/20 text-white px-8 py-3.5 rounded-2xl font-bold text-base hover:bg-white/5 transition-all active:scale-95"
+                className="bg-white/5 border border-white/10 backdrop-blur-md text-white px-8 py-4 rounded-2xl font-bold hover:bg-white/10 transition-all active:scale-95 text-center"
               >
                 {config.cta.secondaryButton.text}
               </Link>
             ) : (
               <a
                 href={config.cta.secondaryButton.href}
-                className="bg-transparent border-2 border-white/20 text-white px-8 py-3.5 rounded-2xl font-bold text-base hover:bg-white/5 transition-all active:scale-95 text-center"
+                className="bg-white/5 border border-white/10 backdrop-blur-md text-white px-8 py-4 rounded-2xl font-bold hover:bg-white/10 transition-all active:scale-95 text-center"
               >
                 {config.cta.secondaryButton.text}
               </a>
