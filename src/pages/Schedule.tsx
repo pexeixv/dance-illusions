@@ -32,7 +32,7 @@ type ScheduleTableProps = {
 }
 
 const currentScheduleLabel = 'June, July 2026'
-const nextScheduleLabel = 'April, May 2026'
+const nextScheduleLabel = 'August, September 2026'
 
 const currentSchedule: ScheduleItem[] = [
   {
@@ -91,42 +91,48 @@ const nextSchedule: ScheduleItem[] = [
     location: 'Fatorda',
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
-    dance: 'Rumba',
+    dance: "Int'l Jive",
+    starts: '6 August 2026',
   },
   {
     day: 'Tuesday',
     location: 'Porvorim',
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
-    dance: 'Salsa',
+    dance: 'Bachata',
+    starts: '7 August 2026',
   },
   {
     day: 'Wednesday',
     location: 'Vasco',
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
-    dance: 'Cha Cha',
+    dance: 'Samba',
+    starts: '5 August 2026',
   },
   {
     day: 'Thursday',
     location: 'Fatorda',
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
-    dance: 'Rumba',
+    dance: "Int'l Jive",
+    starts: '6 August 2026',
   },
   {
     day: 'Friday',
     location: 'Porvorim',
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
-    dance: 'Salsa',
+    dance: 'Bachata',
+    starts: '7 August 2026',
   },
   {
     day: 'Saturday',
     location: 'Vasco',
     time: '7:00 PM - 9:00 PM',
     level: ['Beginner', 'Intermediate'],
-    dance: 'Cha Cha',
+    dance: 'Samba',
+    starts: '5 August 2026',
   },
 ]
 
@@ -347,11 +353,11 @@ export function Schedule() {
               onLocationClick={handleLocationClick}
             />
 
-            {/* <ScheduleTable
+            <ScheduleTable
               title={nextScheduleLabel}
               data={nextSchedule}
               onLocationClick={handleLocationClick}
-            /> */}
+            />
           </div>
         ) : (
           <div className="glass-card p-12 text-center space-y-4 border-purple-500/30">
