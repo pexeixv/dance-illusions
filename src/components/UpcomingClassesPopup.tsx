@@ -82,7 +82,7 @@ export function UpcomingClassesPopup() {
 
                       <th className="px-4 py-3 font-semibold text-slate-300">Dance Form</th>
 
-                      <th className="px-4 py-3 font-semibold text-slate-300">Starting From</th>
+                      <th className="px-4 py-3 font-semibold text-slate-300">Starts</th>
                     </tr>
                   </thead>
 
