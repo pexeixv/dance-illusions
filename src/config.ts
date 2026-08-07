@@ -13,7 +13,8 @@ export const yearsOfExperience = currentYear - startYear
 
 // ─── Phase Configuration ───────────────────────────────────────
 
-export const phase = PhaseEnum.BATCHES_ANNOUNCED
+export const phase = PhaseEnum.BATCH_ONGOING
+export const showDialog = true
 
 // ─── Batch Data Types ──────────────────────────────────────────
 
@@ -21,43 +22,12 @@ export const phase = PhaseEnum.BATCHES_ANNOUNCED
 // 🎯 EDIT BELOW WHEN BATCHES CHANGE
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-export const currentBatch: BatchConfig = {
-  label: 'June, July 2026',
-  seasonDescription:
-    "As the monsoon rhythms roll in, step into a season of movement and magic with our exciting June-July sessions! Whether you're a beginner taking your very first steps or a dancer looking to sharpen your skills, we've got the perfect class waiting for you.",
-  locations: [
-    {
-      location: LocationEnum.FATORDA,
-      dance: DanceEnum.BACHATA,
-      day: DayEnum.MONDAY,
-      time: '7:00 PM - 9:00 PM',
-      level: [LevelEnum.BEGINNER, LevelEnum.INTERMEDIATE],
-      startDate: '2026-06-01',
-      poster: '/posters/june-bachata.png',
-    },
-    {
-      location: LocationEnum.PORVORIM,
-      dance: DanceEnum.INTL_JIVE,
-      day: DayEnum.TUESDAY,
-      time: '7:00 PM - 9:00 PM',
-      level: [LevelEnum.BEGINNER, LevelEnum.INTERMEDIATE],
-      startDate: '2026-06-02',
-      poster: '/posters/june-jive.png',
-    },
-    {
-      location: LocationEnum.VASCO,
-      dance: DanceEnum.SALSA,
-      day: DayEnum.WEDNESDAY,
-      time: '7:00 PM - 9:00 PM',
-      level: [LevelEnum.BEGINNER, LevelEnum.INTERMEDIATE],
-      startDate: '2026-06-03',
-      poster: '/posters/june-salsa.png',
-    },
-  ],
-}
+export const nextBatch: BatchConfig | null = null
 
-export const nextBatch: BatchConfig | null = {
-  label: 'August, September 2026',
+export const currentBatch: BatchConfig | null = {
+  month1: 'August',
+  month2: 'September',
+  year: 2026,
   seasonDescription:
     "As the monsoon rhythms roll in, step into a season of movement and magic with our exciting August-September sessions! Whether you're a beginner taking your very first steps or a dancer looking to sharpen your skills, we've got the perfect class waiting for you.",
   locations: [
@@ -107,9 +77,9 @@ export const breakResumeDateDisplay = breakResumeDate ? formatDateLong(breakResu
 export const phaseConfig = {
   [PhaseEnum.BATCH_ONGOING]: {
     label: 'Classes Running',
-    showSchedule: true,
-    showUpcomingClasses: true,
-    showPopup: true,
+    showSchedule: showDialog,
+    showUpcomingClasses: showDialog,
+    showPopup: showDialog,
     // CTA Section
     cta: {
       heading: 'Ready to take your first step?',
@@ -138,9 +108,9 @@ export const phaseConfig = {
   },
   [PhaseEnum.BATCHES_ANNOUNCED]: {
     label: 'Enrollments Open',
-    showSchedule: true,
-    showUpcomingClasses: true,
-    showPopup: true,
+    showSchedule: showDialog,
+    showUpcomingClasses: showDialog,
+    showPopup: showDialog,
     // CTA Section
     cta: {
       heading: 'Join our next batch and start dancing!',
@@ -168,9 +138,9 @@ export const phaseConfig = {
   },
   [PhaseEnum.BREAK]: {
     label: 'Break Between Batches',
-    showSchedule: false,
-    showUpcomingClasses: false,
-    showPopup: false,
+    showSchedule: showDialog,
+    showUpcomingClasses: showDialog,
+    showPopup: showDialog,
     // CTA Section
     cta: {
       heading: 'Classes resume soon. Save your spot!',
