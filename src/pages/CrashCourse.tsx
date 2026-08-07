@@ -121,7 +121,7 @@ export function CrashCourse() {
             <ul className="space-y-4">
               {[
                 '5 Intensive Sessions',
-                '5+ Different Dance Styles',
+                'Upto 7 Different Dance Styles',
                 'Basic Technique & Musicality',
                 'Social Dance Etiquette',
               ].map((item) => (
@@ -151,7 +151,7 @@ export function CrashCourse() {
             <div className="absolute inset-0 bg-purple-600/20 blur-[100px] rounded-full" />
             <div className="relative z-10 rounded-3xl overflow-hidden border border-white/10 shadow-2xl aspect-[4/5]">
               <img
-                src={`${imageKitUrl}/crash/group.jpg?w=1200&h=600&fit=crop`}
+                src={`${imageKitUrl}/posters/sunday-august.png?w=1200&h=600&fit=crop`}
                 alt="Dance Class"
                 className="object-cover w-full h-full"
                 referrerPolicy="no-referrer"
@@ -159,26 +159,6 @@ export function CrashCourse() {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60" />
             </div>
           </motion.div>
-        </div>
-
-        {/* Benefits Grid */}
-        <div className="grid grid-cols-1 gap-8 mb-32 md:grid-cols-2 lg:grid-cols-4">
-          {benefits.map((benefit, idx) => (
-            <motion.div
-              key={benefit.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
-              viewport={{ once: true }}
-              className="p-8 glass-card group hover:shadow-purple-500/20"
-            >
-              <div className="flex items-center justify-center mb-6 text-purple-400 transition-transform border w-14 h-14 rounded-2xl bg-white/5 border-white/10 group-hover:scale-110">
-                <benefit.icon size={28} />
-              </div>
-              <h3 className="mb-4 text-xl font-bold text-white">{benefit.title}</h3>
-              <p className="leading-relaxed text-slate-400">{benefit.description}</p>
-            </motion.div>
-          ))}
         </div>
 
         {/* Dance Forms Learned */}
@@ -209,6 +189,33 @@ export function CrashCourse() {
             ))}
           </div>
         </div>
+
+        {/* Benefits Grid */}
+        <div className="grid grid-cols-1 gap-8 mb-32 md:grid-cols-2 lg:grid-cols-4">
+          {benefits.map((benefit, idx) => (
+            <motion.div
+              key={benefit.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.1 }}
+              viewport={{ once: true }}
+              className="p-8 glass-card group hover:shadow-purple-500/20"
+            >
+              <div className="flex items-center justify-center mb-6 text-purple-400 transition-transform border w-14 h-14 rounded-2xl bg-white/5 border-white/10 group-hover:scale-110">
+                <benefit.icon size={28} />
+              </div>
+              <h3 className="mb-4 text-xl font-bold text-white">{benefit.title}</h3>
+              <p className="leading-relaxed text-slate-400">{benefit.description}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        <img
+          src={`${imageKitUrl}/crash/group.jpg?w=1200&h=600&fit=crop`}
+          alt="Dance Class"
+          className="object-cover w-full h-full my-20 rounded-2xl shadow-2xl border-4 border-white"
+          referrerPolicy="no-referrer"
+        />
       </div>
     </div>
   )

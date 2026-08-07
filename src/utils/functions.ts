@@ -80,17 +80,19 @@ export function getEarliestStartDate(batch: BatchConfig): string {
 
 // ─── Schedule & Popup Data Generators ──────────────────────────
 
-// Each location's class runs twice per week (Mon→Thu, Tue→Fri, Wed→Sat)
-export const repeatDayMap: Record<string, string> = {
-  Monday: 'Thursday',
-  Tuesday: 'Friday',
-  Wednesday: 'Saturday',
+const dayOrder: Record<string, number> = {
+  Monday: 1,
+  Tuesday: 2,
+  Wednesday: 3,
+  Thursday: 4,
+  Friday: 5,
+  Saturday: 6,
+  Sunday: 7,
 }
 
-/** Convert batch locations into schedule table rows (3 locations → 6 rows) */
+/** Convert batch locations into schedule table rows */
 export function generateSchedule(batch: BatchConfig): ScheduleItem[] {
-  const primary: ScheduleItem[] = []
-  const repeat: ScheduleItem[] = []
+  const schedule: ScheduleItem[] = []
   for (const loc of batch.locations) {
     const base = {
       location: loc.location,
@@ -99,10 +101,12 @@ export function generateSchedule(batch: BatchConfig): ScheduleItem[] {
       dance: loc.dance,
       starts: formatDateForSchedule(loc.startDate),
     }
-    primary.push({ ...base, day: loc.day })
-    repeat.push({ ...base, day: repeatDayMap[loc.day] ?? loc.day })
+    for (const day of loc.day) {
+      schedule.push({ ...base, day })
+    }
   }
-  return [...primary, ...repeat]
+  
+  return schedule.sort((a, b) => (dayOrder[a.day] || 99) - (dayOrder[b.day] || 99))
 }
 
 /** Generate popup table data from batch locations */

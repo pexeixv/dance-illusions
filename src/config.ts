@@ -34,7 +34,7 @@ export const currentBatch: BatchConfig | null = {
     {
       location: LocationEnum.FATORDA,
       dance: DanceEnum.INTL_JIVE,
-      day: DayEnum.MONDAY,
+      day: [DayEnum.MONDAY, DayEnum.THURSDAY],
       time: '7:00 PM - 9:00 PM',
       level: [LevelEnum.BEGINNER, LevelEnum.INTERMEDIATE],
       startDate: '2026-08-06',
@@ -43,7 +43,7 @@ export const currentBatch: BatchConfig | null = {
     {
       location: LocationEnum.PORVORIM,
       dance: DanceEnum.BACHATA,
-      day: DayEnum.TUESDAY,
+      day: [DayEnum.TUESDAY, DayEnum.FRIDAY],
       time: '7:00 PM - 9:00 PM',
       level: [LevelEnum.BEGINNER, LevelEnum.INTERMEDIATE],
       startDate: '2026-08-07',
@@ -52,11 +52,20 @@ export const currentBatch: BatchConfig | null = {
     {
       location: LocationEnum.VASCO,
       dance: DanceEnum.SAMBA,
-      day: DayEnum.WEDNESDAY,
+      day: [DayEnum.WEDNESDAY, DayEnum.SATURDAY],
       time: '7:00 PM - 9:00 PM',
       level: [LevelEnum.BEGINNER, LevelEnum.INTERMEDIATE],
       startDate: '2026-08-05',
       poster: '/posters/august-vasco.png',
+    },
+    {
+      location: LocationEnum.MARGAO,
+      dance: DanceEnum.CRASH_COURSE,
+      day: [DayEnum.SUNDAY],
+      time: '7:00 PM - 9:00 PM',
+      level: [LevelEnum.BEGINNER],
+      startDate: '2026-08-30',
+      poster: '/posters/sunday-august-banner.png',
     },
   ],
 }

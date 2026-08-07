@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { phase, phaseConfig, promotedBatch } from '@/config'
+import { currentBatch, imageKitUrl, phase, phaseConfig, promotedBatch } from '@/config'
 import { generatePosterUrls } from '@/utils/functions'
-import { PhaseEnum } from '@/utils/types'
+import { DanceEnum, PhaseEnum } from '@/utils/types'
+import { Link } from 'react-router-dom'
 
 const posters = generatePosterUrls(promotedBatch)
 
@@ -77,23 +78,40 @@ function UpcomingClassesSection({ hideTitle = false }: Props) {
         )}
 
         {/* Desktop Grid */}
-        <div className="hidden md:grid md:grid-cols-3 gap-8">
-          {posters.map((poster, index) => (
-            <motion.div
-              key={poster}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="rounded-2xl overflow-hidden shadow-2xl glass-card group"
-            >
+        <div className={`hidden md:grid md:grid-cols-3 gap-8`}>
+          {posters
+            .filter((a) => !a?.includes('sunday'))
+            .map((poster, index) => (
+              <motion.div
+                key={poster}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="rounded-2xl overflow-hidden shadow-2xl glass-card group"
+              >
+                <img
+                  src={poster}
+                  alt={`Upcoming Class ${index + 1}`}
+                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </motion.div>
+            ))}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 4 * 0.1 }}
+            viewport={{ once: true }}
+            className="rounded-2xl overflow-hidden shadow-2xl glass-card group md:col-span-3"
+          >
+            <Link to="/crash-course" className="block">
               <img
-                src={poster}
-                alt={`Upcoming Class ${index + 1}`}
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                src={`${imageKitUrl}${currentBatch?.locations.find((loc) => loc.dance === DanceEnum.CRASH_COURSE)?.poster}`}
+                alt="Upcoming Class Sunday"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 "
               />
-            </motion.div>
-          ))}
+            </Link>
+          </motion.div>
         </div>
 
         {/* Mobile Carousel */}

@@ -1,4 +1,10 @@
-import { BrowserRouter as Router, Routes, Route, ScrollRestoration } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  ScrollRestoration,
+  Navigate,
+} from 'react-router-dom'
 import { lazy, Suspense } from 'react'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
@@ -53,6 +59,10 @@ export default function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/forms" element={<DanceForms />} />
+                <Route
+                  path="/forms/7-forms-crash-course"
+                  element={<Navigate to="/crash-course" />}
+                />
                 <Route path="/forms/:slug" element={<DanceDetail />} />
                 <Route path="/locations" element={<Locations />} />
                 <Route path="/schedule" element={<Schedule />} />
