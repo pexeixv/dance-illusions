@@ -5,7 +5,7 @@ import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { locations } from './Locations'
 import Seo, { SITE_URL } from '@/components/Seo'
-import { generateSchedule } from '@/utils/functions'
+import { generateBatchLabel, generateSchedule } from '@/utils/functions'
 import {
   phaseConfig,
   currentBatch,
@@ -189,14 +189,26 @@ export function Schedule() {
   const scheduleTables: { title: string; data: ScheduleItem[] }[] = []
   if (config.showSchedule) {
     if (phase === PhaseEnum.BATCH_ONGOING) {
-      scheduleTables.push({ title: currentBatch.label, data: generateSchedule(currentBatch) })
+      scheduleTables.push({
+        title: generateBatchLabel(currentBatch),
+        data: generateSchedule(currentBatch),
+      })
       if (nextBatch) {
-        scheduleTables.push({ title: nextBatch.label, data: generateSchedule(nextBatch) })
+        scheduleTables.push({
+          title: generateBatchLabel(nextBatch),
+          data: generateSchedule(nextBatch),
+        })
       }
     } else if (phase === PhaseEnum.BATCHES_ANNOUNCED) {
-      scheduleTables.push({ title: currentBatch.label, data: generateSchedule(currentBatch) })
+      scheduleTables.push({
+        title: generateBatchLabel(currentBatch),
+        data: generateSchedule(currentBatch),
+      })
       if (nextBatch) {
-        scheduleTables.push({ title: nextBatch.label, data: generateSchedule(nextBatch) })
+        scheduleTables.push({
+          title: generateBatchLabel(nextBatch),
+          data: generateSchedule(nextBatch),
+        })
       }
     }
   }

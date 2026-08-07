@@ -16,7 +16,9 @@ export type BatchLocation = {
 }
 
 export type BatchConfig = {
-  label: string // Schedule table header (e.g. 'August, September 2026')
+  month1: string // First month of the batch (e.g. 'June')
+  month2?: string // Second month of the batch (e.g. 'July')
+  year: number // Year of the batch (e.g. 2026)
   seasonDescription: string // Seasonal flavour text for popup body
   locations: BatchLocation[]
 }

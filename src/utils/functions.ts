@@ -118,3 +118,7 @@ export function generatePopupData(batch: BatchConfig) {
 export function generatePosterUrls(batch: BatchConfig): string[] {
   return batch.locations.map((loc) => `${imageKitUrl}${loc.poster}`)
 }
+
+export function generateBatchLabel(batch: BatchConfig): string {
+  return `${batch.month1}-${batch.month2} ${batch.year}`
+}

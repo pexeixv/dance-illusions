@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'motion/react'
 import { ArrowRight, X } from 'lucide-react'
 import { phase, phaseConfig, promotedBatch } from '@/config'
 import { generatePopupData } from '@/utils/functions'
-import { PhaseEnum } from '@/utils/types'
 
 const upcomingClasses = generatePopupData(promotedBatch)
 
@@ -27,8 +26,6 @@ export function UpcomingClassesPopup() {
       window.removeEventListener('keydown', handleKeyDown)
     }
   }, [])
-
-  if (phase !== PhaseEnum.BATCHES_ANNOUNCED) return null
 
   return (
     <AnimatePresence>
