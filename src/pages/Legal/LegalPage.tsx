@@ -1,6 +1,7 @@
+import { useMemo } from 'react'
+import { marked } from 'marked'
 import Seo, { SITE_URL } from '@/components/Seo'
 import { motion } from 'motion/react'
-import ReactMarkdown from 'react-markdown'
 import termsContent from './terms-of-service.md?raw'
 import privacyContent from './privacy-policy.md?raw'
 
@@ -24,6 +25,13 @@ export function LegalPage({ type }: LegalPageProps) {
   const description = descriptions[type]
   const path = `/${type}`
 
+  const htmlContent = useMemo(() => {
+    return marked(content, {
+      breaks: true,
+      gfm: true,
+    })
+  }, [content])
+
   return (
     <div className="pt-32 pb-24">
       <Seo title={title} description={description} canonical={SITE_URL + path} noIndex={true} />
@@ -34,25 +42,12 @@ export function LegalPage({ type }: LegalPageProps) {
           className="glass-card p-12 space-y-8"
         >
           <h1 className="text-4xl font-bold text-white">{title}</h1>
-          <div className="prose prose-invert max-w-none text-slate-400 leading-relaxed">
-            <ReactMarkdown
-              components={{
-                h1: ({ children }) => (
-                  <h1 className="text-4xl font-bold text-white mt-8 mb-4">{children}</h1>
-                ),
-                h2: ({ children }) => (
-                  <h2 className="text-2xl font-bold text-white mt-6 mb-3">{children}</h2>
-                ),
-                p: ({ children }) => <p className="mb-4 text-slate-400">{children}</p>,
-                ul: ({ children }) => (
-                  <ul className="list-disc list-inside mb-4 ml-2">{children}</ul>
-                ),
-                li: ({ children }) => <li className="mb-2 text-slate-400">{children}</li>,
-              }}
-            >
-              {content}
-            </ReactMarkdown>
-          </div>
+          <div
+            className="prose prose-invert max-w-none text-slate-400 leading-relaxed space-y-4"
+            dangerouslySetInnerHTML={{
+              __html: htmlContent,
+            }}
+          />
         </motion.div>
       </div>
     </div>
