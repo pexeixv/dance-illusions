@@ -102,7 +102,7 @@ function UpcomingClassesSection({ hideTitle = false }: Props) {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 4 * 0.1 }}
             viewport={{ once: true }}
-            className="rounded-2xl overflow-hidden shadow-2xl glass-card group md:col-span-3"
+            className="rounded-2xl overflow-hidden shadow-2xl glass-card group md:col-span-3 hidden"
           >
             <Link to="/crash-course" className="block">
               <img

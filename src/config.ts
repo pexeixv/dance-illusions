@@ -22,7 +22,42 @@ export const showDialog = true
 // 🎯 EDIT BELOW WHEN BATCHES CHANGE
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-export const nextBatch: BatchConfig | null = null
+export const nextBatch: BatchConfig | null = {
+  month1: 'October',
+  month2: 'November',
+  year: 2026,
+  seasonDescription:
+    'Step into the wedding and Christmas season with our exciting October-November Social Jive sessions, perfect for beginners and dancers looking to sharpen their skills, at a location near you!',
+  locations: [
+    {
+      location: LocationEnum.FATORDA,
+      dance: DanceEnum.SOCIAL_JIVE,
+      day: [DayEnum.MONDAY, DayEnum.THURSDAY],
+      time: '7:00 PM - 9:00 PM',
+      level: [LevelEnum.BEGINNER],
+      startDate: '2026-10-08',
+      poster: '/posters/fatorda-oct.jpeg',
+    },
+    {
+      location: LocationEnum.PORVORIM,
+      dance: DanceEnum.SOCIAL_JIVE,
+      day: [DayEnum.TUESDAY, DayEnum.FRIDAY],
+      time: '7:00 PM - 9:00 PM',
+      level: [LevelEnum.BEGINNER],
+      startDate: '2026-10-09',
+      poster: '/posters/porvorim-oct.jpeg',
+    },
+    {
+      location: LocationEnum.VASCO,
+      dance: DanceEnum.SOCIAL_JIVE,
+      day: [DayEnum.WEDNESDAY, DayEnum.SATURDAY],
+      time: '7:00 PM - 9:00 PM',
+      level: [LevelEnum.BEGINNER],
+      startDate: '2026-10-10',
+      poster: '/posters/vasco-oct.jpeg',
+    },
+  ],
+}
 
 export const currentBatch: BatchConfig | null = {
   month1: 'August',
