@@ -22,7 +22,7 @@ export const showDialog = true
 // 🎯 EDIT BELOW WHEN BATCHES CHANGE
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-export const nextBatch: BatchConfig | null = {
+export const currentBatch: BatchConfig | null = {
   month1: 'October',
   month2: 'November',
   year: 2026,
@@ -59,51 +59,8 @@ export const nextBatch: BatchConfig | null = {
   ],
 }
 
-export const currentBatch: BatchConfig | null = {
-  month1: 'August',
-  month2: 'September',
-  year: 2026,
-  seasonDescription:
-    "As the monsoon rhythms roll in, step into a season of movement and magic with our exciting August-September sessions! Whether you're a beginner taking your very first steps or a dancer looking to sharpen your skills, we've got the perfect class waiting for you.",
-  locations: [
-    {
-      location: LocationEnum.FATORDA,
-      dance: DanceEnum.INTL_JIVE,
-      day: [DayEnum.MONDAY, DayEnum.THURSDAY],
-      time: '7:00 PM - 9:00 PM',
-      level: [LevelEnum.BEGINNER, LevelEnum.INTERMEDIATE],
-      startDate: '2026-08-06',
-      poster: '/posters/august-fatorda.png',
-    },
-    {
-      location: LocationEnum.PORVORIM,
-      dance: DanceEnum.BACHATA,
-      day: [DayEnum.TUESDAY, DayEnum.FRIDAY],
-      time: '7:00 PM - 9:00 PM',
-      level: [LevelEnum.BEGINNER, LevelEnum.INTERMEDIATE],
-      startDate: '2026-08-07',
-      poster: '/posters/august-porvorim.png',
-    },
-    {
-      location: LocationEnum.VASCO,
-      dance: DanceEnum.SAMBA,
-      day: [DayEnum.WEDNESDAY, DayEnum.SATURDAY],
-      time: '7:00 PM - 9:00 PM',
-      level: [LevelEnum.BEGINNER, LevelEnum.INTERMEDIATE],
-      startDate: '2026-08-05',
-      poster: '/posters/august-vasco.png',
-    },
-    {
-      location: LocationEnum.MARGAO,
-      dance: DanceEnum.CRASH_COURSE,
-      day: [DayEnum.SUNDAY],
-      time: '7:00 PM - 9:00 PM',
-      level: [LevelEnum.BEGINNER],
-      startDate: '2026-08-30',
-      poster: '/posters/sunday-august-banner.png',
-    },
-  ],
-}
+export const currentBatch: BatchConfig | null = null
+      
 
 /** The batch to promote in popups, posters, and CTAs */
 export const promotedBatch: BatchConfig = nextBatch ?? currentBatch
