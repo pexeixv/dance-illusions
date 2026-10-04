@@ -44,7 +44,7 @@ export const nextBatch: BatchConfig | null = {
       day: [DayEnum.TUESDAY, DayEnum.FRIDAY],
       time: '7:00 PM - 9:00 PM',
       level: [LevelEnum.BEGINNER],
-      startDate: '2026-10-09',
+      startDate: '2026-10-06',
       poster: '/posters/porvorim-oct.jpeg',
     },
     {
@@ -53,7 +53,7 @@ export const nextBatch: BatchConfig | null = {
       day: [DayEnum.WEDNESDAY, DayEnum.SATURDAY],
       time: '7:00 PM - 9:00 PM',
       level: [LevelEnum.BEGINNER],
-      startDate: '2026-10-10',
+      startDate: '2026-10-07',
       poster: '/posters/vasco-oct.jpeg',
     },
   ],
