@@ -59,7 +59,7 @@ export const currentBatch: BatchConfig | null = {
   ],
 }
 
-export const currentBatch: BatchConfig | null = null
+export const nextBatch: BatchConfig | null = null
       
 
 /** The batch to promote in popups, posters, and CTAs */
