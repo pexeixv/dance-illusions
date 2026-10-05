@@ -98,7 +98,7 @@ export function Blog() {
             transition={{ delay: 0.1 }}
             className="text-slate-400 text-lg"
           >
-            Tips, stories and updates from the Dance Illusions studio floor.
+            Updates from the Dance Illusions studio floor.
           </motion.p>
         </div>
 
