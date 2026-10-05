@@ -27,6 +27,34 @@ function ensureAbsoluteUrl(url?: string): string | undefined {
   return `${base}${path}`
 }
 
+function transformHygraphOgImage(
+  src: string,
+  width = 1200,
+  height = 630,
+  quality = 75
+): string {
+  try {
+    const url = new URL(src)
+    if (!/(^|\.)graphassets\.com$/.test(url.hostname)) return src
+    const segments = url.pathname.split('/').filter(Boolean)
+    if (segments.some((s) => s.includes('='))) return src
+    const handle = segments.pop()
+    if (!handle) return src
+    url.pathname =
+      '/' +
+      [
+        ...segments,
+        `resize=width:${width},height:${height},fit:crop`,
+        `quality=value:${quality}`,
+        'output=format:jpg',
+        handle,
+      ].join('/')
+    return url.toString()
+  } catch {
+    return src
+  }
+}
+
 function cleanTemplateHead(html: string): string {
   return html
     .replace(/<title[\s\S]*?<\/title>/gi, '')
@@ -174,7 +202,9 @@ export function seoPlugin(): Plugin {
                 description:
                   post.excerpt || `${post.title} - read more on the Dance Illusions Goa blog.`,
                 canonical: `${SITE_URL}${postPath}`,
-                ogImage: post.coverImage?.url || DEFAULT_OG_IMAGE,
+                ogImage: post.coverImage?.url
+                  ? transformHygraphOgImage(post.coverImage.url, 1200, 630, 75)
+                  : DEFAULT_OG_IMAGE,
                 ogType: 'article',
               }
             }

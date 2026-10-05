@@ -235,6 +235,35 @@ export function optimizeAssetUrl(src: string, width: number): string {
   }
 }
 
+/** Transform raw Hygraph asset URL into lower quality optimized OG image URL (1200x630, quality=75, format=jpg) */
+export function transformHygraphOgImage(
+  src: string,
+  width = 1200,
+  height = 630,
+  quality = 75
+): string {
+  try {
+    const url = new URL(src)
+    if (!HYGRAPH_ASSET_HOST.test(url.hostname)) return src
+    const segments = url.pathname.split('/').filter(Boolean)
+    if (segments.some((s) => s.includes('='))) return src
+    const handle = segments.pop()
+    if (!handle) return src
+    url.pathname =
+      '/' +
+      [
+        ...segments,
+        `resize=width:${width},height:${height},fit:crop`,
+        `quality=value:${quality}`,
+        'output=format:jpg',
+        handle,
+      ].join('/')
+    return url.toString()
+  } catch {
+    return src
+  }
+}
+
 /** Machine-readable ISO date for <time dateTime> and JSON-LD. */
 export function postIsoDate(post: Pick<PostSummary, 'date' | 'publishedAt'>): string | null {
   return post.date ?? post.publishedAt ?? null
