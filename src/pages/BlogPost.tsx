@@ -4,6 +4,7 @@ import { motion } from 'motion/react'
 import { ArrowLeft, Calendar, User } from 'lucide-react'
 import Markdown, { type Components } from 'react-markdown'
 import Seo, { SITE_URL } from '@/components/Seo'
+import ImageCarousel from '@/components/ImageCarousel'
 import {
   formatPostDate,
   getPostBySlug,
@@ -209,10 +210,16 @@ export function BlogPost() {
               )}
             </div>
 
-            <div className="mt-16 glass-card p-4 lg:p-8 flex flex-col sm:flex-row lg:items-center justify-between gap-6">
+            {post.carouselImages && post.carouselImages.length > 0 && (
+              <div className="mt-12">
+                <ImageCarousel images={post.carouselImages.map((img) => img.url)} />
+              </div>
+            )}
+
+            <div className="mt-16 glass-card p-6 lg:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
               <div>
                 <p className="text-white font-bold text-lg">Ready to try it yourself?</p>
-                <p className="text-slate-400 text-sm">Join a class near you</p>
+                <p className="text-slate-400 text-sm max-sm:text-center">Join a class near you</p>
               </div>
               <Link
                 to="/schedule"
