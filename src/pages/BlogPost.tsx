@@ -14,41 +14,19 @@ import {
 import { forBlogPost } from '@/utils/breadcrumb'
 import NotFound from './NotFound'
 
-// No @tailwindcss/typography in the project, so style markdown elements directly.
+// Styling comes from @tailwindcss/typography (the `prose` classes on the wrapper).
+// These overrides only keep behavior that isn't styling.
 const markdownComponents: Components = {
-  h1: ({ children }) => <h2 className="mt-12 mb-4 text-3xl font-bold text-white">{children}</h2>,
-  h2: ({ children }) => <h2 className="mt-12 mb-4 text-3xl font-bold text-white">{children}</h2>,
-  h3: ({ children }) => <h3 className="mt-10 mb-3 text-2xl font-bold text-white">{children}</h3>,
-  h4: ({ children }) => <h4 className="mt-8 mb-2 text-xl font-bold text-white">{children}</h4>,
-  p: ({ children }) => <p className="my-5 text-lg leading-relaxed text-slate-300">{children}</p>,
+  // The post title is already the page's <h1>, so demote any markdown h1
+  h1: ({ children }) => <h2>{children}</h2>,
   a: ({ href, children }) => {
     const isExternal = !!href && /^https?:\/\//.test(href)
     return (
-      <a
-        href={href}
-        className="text-purple-400 underline underline-offset-4 hover:text-fuchsia-400 transition-colors"
-        {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-      >
+      <a href={href} {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
         {children}
       </a>
     )
   },
-  ul: ({ children }) => (
-    <ul className="my-5 ml-6 list-disc space-y-2 text-lg text-slate-300 marker:text-purple-400">
-      {children}
-    </ul>
-  ),
-  ol: ({ children }) => (
-    <ol className="my-5 ml-6 list-decimal space-y-2 text-lg text-slate-300 marker:text-purple-400">
-      {children}
-    </ol>
-  ),
-  blockquote: ({ children }) => (
-    <blockquote className="my-8 border-l-4 border-purple-500 pl-6 italic text-slate-300">
-      {children}
-    </blockquote>
-  ),
-  hr: () => <hr className="my-12 border-white/10" />,
   img: ({ src, alt }) => {
     if (!src) return null
     const small = optimizeAssetUrl(src, 800)
@@ -70,32 +48,9 @@ const markdownComponents: Components = {
           el.removeAttribute('srcset')
           el.src = src
         }}
-        className="my-8 w-full rounded-2xl border border-white/10"
       />
     )
   },
-  pre: ({ children }) => (
-    <pre className="my-6 overflow-x-auto rounded-2xl border border-white/10 bg-slate-900 p-5 text-sm">
-      {children}
-    </pre>
-  ),
-  code: ({ children, className }) => (
-    <code className={className ?? 'rounded bg-white/10 px-1.5 py-0.5 text-sm text-purple-300'}>
-      {children}
-    </code>
-  ),
-  strong: ({ children }) => <strong className="font-semibold text-white">{children}</strong>,
-  table: ({ children }) => (
-    <div className="my-8 overflow-x-auto rounded-2xl border border-white/10">
-      <table className="w-full text-left text-sm">{children}</table>
-    </div>
-  ),
-  th: ({ children }) => (
-    <th className="border-b border-white/10 bg-white/5 px-4 py-3 font-semibold text-white">
-      {children}
-    </th>
-  ),
-  td: ({ children }) => <td className="border-b border-white/5 px-4 py-3">{children}</td>,
 }
 
 function PostSkeleton() {
@@ -210,7 +165,7 @@ export function BlogPost() {
                     {date}
                   </time>
                 )}
-                {post.author && (
+                {false && post.author && (
                   <span className="inline-flex items-center gap-2">
                     {post.author.picture ? (
                       <img
@@ -246,20 +201,22 @@ export function BlogPost() {
 
             <div className="mt-10">
               {post.content?.markdown ? (
-                <Markdown components={markdownComponents}>{post.content.markdown}</Markdown>
+                <div className="prose prose-invert prose-lg max-w-none">
+                  <Markdown components={markdownComponents}>{post.content.markdown}</Markdown>
+                </div>
               ) : (
                 post.excerpt && <p className="text-lg text-slate-300">{post.excerpt}</p>
               )}
             </div>
 
-            <div className="mt-16 glass-card p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="mt-16 glass-card p-4 lg:p-8 flex flex-col sm:flex-row lg:items-center justify-between gap-6">
               <div>
                 <p className="text-white font-bold text-lg">Ready to try it yourself?</p>
-                <p className="text-slate-400 text-sm">Join a class near you in Goa.</p>
+                <p className="text-slate-400 text-sm">Join a class near you</p>
               </div>
               <Link
                 to="/schedule"
-                className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-8 py-3 rounded-xl font-bold shadow-xl shadow-purple-500/20 hover:brightness-110 transition-all active:scale-95"
+                className="bg-gradient-to-r from-violet-600 to-fuchsia-600 w-fit text-white px-8 py-3 rounded-xl font-bold shadow-xl shadow-purple-500/20 hover:brightness-110 transition-all active:scale-95 text-sm"
               >
                 View Schedule
               </Link>
