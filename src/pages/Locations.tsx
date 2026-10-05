@@ -30,11 +30,11 @@ export const locations = [
   },
   {
     name: 'Porvorim',
-    venue: 'Clergy Home Hall',
-    address: 'Porvorim, Goa 403521',
+    venue: 'CoPlay, Porvorim Gymkhana',
+    address: 'Porvorim, Goa 403501',
     schedule: 'Tuesdays & Fridays',
-    image: '/locations/clergy-home.png',
-    googleMapsUrl: 'https://maps.google.com/?q=Clergy+Home+Porvorim+Goa',
+    image: '/locations/coplay.png',
+    googleMapsUrl: 'https://maps.app.goo.gl/6Yy7k5KF4RxBEyfc9',
   },
 ]
 
@@ -58,7 +58,7 @@ export function Locations() {
             { '@type': 'ListItem', position: 1, name: 'Margao - Loyola School Hall' },
             { '@type': 'ListItem', position: 2, name: 'Vasco da Gama - Flora Grande Hotel' },
             { '@type': 'ListItem', position: 3, name: 'Fatorda - Rosary School Hall' },
-            { '@type': 'ListItem', position: 4, name: 'Porvorim - Clergy Home Hall' },
+            { '@type': 'ListItem', position: 4, name: 'Porvorim - CoPlay, Porvorim Gymkhana' },
           ],
         }}
       />
