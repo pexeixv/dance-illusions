@@ -28,6 +28,8 @@ const Gallery = lazy(() => import('./pages/Gallery').then((m) => ({ default: m.G
 const WeddingDance = lazy(() =>
   import('./pages/WeddingDance').then((m) => ({ default: m.WeddingDance }))
 )
+const Blog = lazy(() => import('./pages/Blog').then((m) => ({ default: m.Blog })))
+const BlogPost = lazy(() => import('./pages/BlogPost').then((m) => ({ default: m.BlogPost })))
 const LegalPage = lazy(() =>
   import('./pages/Legal/LegalPage').then((m) => ({ default: m.LegalPage }))
 )
@@ -70,6 +72,9 @@ export default function App() {
                 <Route path="/socials" element={<Socials />} />
                 <Route path="/gallery" element={<Gallery />} />
                 <Route path="/wedding" element={<WeddingDance />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/page/:page" element={<Blog />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
                 <Route path="/privacy-policy" element={<LegalPage type="privacy-policy" />} />
                 <Route path="/terms-of-service" element={<LegalPage type="terms-of-service" />} />
                 <Route path="*" element={<NotFound />} />

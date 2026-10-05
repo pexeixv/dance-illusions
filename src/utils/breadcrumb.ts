@@ -28,6 +28,16 @@ export const breadcrumbs = {
   socials: { name: 'Socials', url: `${SITE_URL}/socials` },
   gallery: { name: 'Gallery', url: `${SITE_URL}/gallery` },
   crashCourse: { name: 'Crash Course', url: `${SITE_URL}/crash-course` },
+  blog: { name: 'Blog', url: `${SITE_URL}/blog` },
+}
+
+/** Plain item list (not JSON-LD) so it can be passed to <Seo breadcrumbs={...} /> */
+export function forBlogPost(postTitle: string, postSlug: string): BreadcrumbItem[] {
+  return [
+    breadcrumbs.home,
+    breadcrumbs.blog,
+    { name: postTitle, url: `${SITE_URL}/blog/${postSlug}` },
+  ]
 }
 
 export function forDanceDetail(danceTitle: string, danceSlug: string) {
