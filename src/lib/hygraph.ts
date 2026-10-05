@@ -36,6 +36,7 @@ export type PostSummary = {
 
 export type PostDetail = PostSummary & {
   content: { markdown: string } | null
+  carouselImages?: Array<{ url: string }> | null
   updatedAt: string
 }
 
@@ -141,6 +142,9 @@ const POST_BY_SLUG_QUERY = /* GraphQL */ `
       updatedAt
       content {
         markdown
+      }
+      carouselImages {
+        url
       }
     }
   }

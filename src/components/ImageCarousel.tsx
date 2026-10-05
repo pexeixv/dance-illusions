@@ -1,17 +1,32 @@
 import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
-import { ChevronLeft, ChevronRight, X } from 'lucide-react'
+import { ChevronLeft, ChevronRight, X, Loader2 } from 'lucide-react'
 import { imageKitUrl } from '@/config'
+import { optimizeAssetUrl } from '@/lib/hygraph'
 
 interface Props {
   images: string[]
 }
 
+const getImageUrl = (src: string, width: number): string => {
+  if (src.startsWith('http')) {
+    return optimizeAssetUrl(src, width)
+  }
+  if (src.startsWith('/')) {
+    return src
+  }
+  return `${imageKitUrl}/${src}`
+}
+
 export default function ImageCarousel({ images }: Props) {
+  if (!images || images.length === 0) return null
+
   const [currentIndex, setCurrentIndex] = useState(0)
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)
   const [isHovered, setIsHovered] = useState(false)
+  const [loadedImages, setLoadedImages] = useState<Record<number, boolean>>({})
+  const [lightboxLoaded, setLightboxLoaded] = useState(false)
 
   const N = images.length
 
@@ -31,8 +46,19 @@ export default function ImageCarousel({ images }: Props) {
     return () => clearInterval(timer)
   }, [isHovered, lightboxOpen, nextSlide])
 
+  useEffect(() => {
+    if (lightboxOpen) {
+      setLightboxLoaded(false)
+    }
+  }, [lightboxIndex, lightboxOpen])
+
+  const handleImageLoad = (index: number) => {
+    setLoadedImages((prev) => ({ ...prev, [index]: true }))
+  }
+
   const openLightbox = (index: number) => {
     setLightboxIndex(index)
+    setLightboxLoaded(false)
     setLightboxOpen(true)
   }
 
@@ -42,11 +68,13 @@ export default function ImageCarousel({ images }: Props) {
 
   const nextLightbox = useCallback(() => {
     setLightboxIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1))
-  }, [])
+    setLightboxLoaded(false)
+  }, [images.length])
 
   const prevLightbox = useCallback(() => {
     setLightboxIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))
-  }, [])
+    setLightboxLoaded(false)
+  }, [images.length])
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -61,7 +89,7 @@ export default function ImageCarousel({ images }: Props) {
   }, [lightboxOpen, nextLightbox, prevLightbox])
 
   return (
-    <div className=" overflow-hidden">
+    <div className="overflow-hidden">
       <main className="max-w-7xl mx-auto px-6 py-16 overflow-hidden">
         <motion.div
           className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] flex justify-center items-center cursor-grab active:cursor-grabbing z-10 pb-40"
@@ -118,10 +146,12 @@ export default function ImageCarousel({ images }: Props) {
               opacity = 0
             }
 
+            const isLoaded = !!loadedImages[i]
+
             return (
               <motion.div
                 key={i}
-                className="absolute w-[260px] md:w-[360px] lg:w-[460px] aspect-[4/5] overflow-hidden cursor-pointer shadow-2xl"
+                className="absolute w-[260px] md:w-[360px] lg:w-[460px] aspect-[4/5] overflow-hidden cursor-pointer shadow-2xl rounded-3xl bg-slate-900/80 border border-white/10"
                 initial={false}
                 animate={{
                   x,
@@ -138,9 +168,20 @@ export default function ImageCarousel({ images }: Props) {
                   else if (diff === 1) nextSlide()
                 }}
               >
+                {!isLoaded && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-slate-900/90 z-10">
+                    <Loader2 className="w-8 h-8 text-purple-400 animate-spin" />
+                  </div>
+                )}
                 <img
-                  src={img.startsWith('http') ? img : `${imageKitUrl}/${img}`}
-                  className="w-full h-full object-cover pointer-events-none"
+                  src={getImageUrl(img, 500)}
+                  alt={`Slide ${i + 1}`}
+                  className={`w-full h-full object-cover pointer-events-none transition-opacity duration-500 ${
+                    isLoaded ? 'opacity-100' : 'opacity-0'
+                  }`}
+                  loading="lazy"
+                  decoding="async"
+                  onLoad={() => handleImageLoad(i)}
                   referrerPolicy="no-referrer"
                 />
                 <motion.div
@@ -157,7 +198,7 @@ export default function ImageCarousel({ images }: Props) {
             <button
               onClick={prevSlide}
               onPointerDown={(e) => e.stopPropagation()}
-              className=" bg-black/50 hover:bg-black/80 text-white p-3 backdrop-blur-sm transition-all "
+              className="bg-black/50 hover:bg-black/80 text-white p-3 backdrop-blur-sm transition-all rounded-full"
             >
               <ChevronLeft size={24} />
             </button>
@@ -165,7 +206,7 @@ export default function ImageCarousel({ images }: Props) {
             <button
               onClick={nextSlide}
               onPointerDown={(e) => e.stopPropagation()}
-              className=" bg-black/50 hover:bg-black/80 text-white p-3 backdrop-blur-sm transition-all"
+              className="bg-black/50 hover:bg-black/80 text-white p-3 backdrop-blur-sm transition-all rounded-full"
             >
               <ChevronRight size={24} />
             </button>
@@ -188,7 +229,7 @@ export default function ImageCarousel({ images }: Props) {
               </div>
               <button
                 onClick={closeLightbox}
-                className="text-white/70 hover:text-white transition-colors p-2  hover:bg-white/10"
+                className="text-white/70 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10"
               >
                 <X size={28} />
               </button>
@@ -208,7 +249,7 @@ export default function ImageCarousel({ images }: Props) {
                 e.stopPropagation()
                 prevLightbox()
               }}
-              className="absolute left-6 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors p-4 !z-100 hover:bg-white/10"
+              className="absolute left-6 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors p-4 z-10 hover:bg-white/10 rounded-full"
             >
               <ChevronLeft size={36} />
             </button>
@@ -218,7 +259,7 @@ export default function ImageCarousel({ images }: Props) {
                 e.stopPropagation()
                 nextLightbox()
               }}
-              className="absolute right-6 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors p-4 z-10 hover:bg-white/10 "
+              className="absolute right-6 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors p-4 z-10 hover:bg-white/10 rounded-full"
             >
               <ChevronRight size={36} />
             </button>
@@ -227,20 +268,24 @@ export default function ImageCarousel({ images }: Props) {
               className="relative w-full h-full flex items-center justify-center p-12"
               onClick={closeLightbox}
             >
+              {!lightboxLoaded && (
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <Loader2 className="w-10 h-10 text-purple-400 animate-spin" />
+                </div>
+              )}
               <motion.img
                 key={lightboxIndex}
                 initial={{ opacity: 0, scale: 0.98 }}
-                animate={{ opacity: 1, scale: 1 }}
+                animate={{ opacity: lightboxLoaded ? 1 : 0, scale: lightboxLoaded ? 1 : 0.98 }}
                 exit={{ opacity: 0, scale: 0.98 }}
                 transition={{ duration: 0.3 }}
-                src={
-                  images[lightboxIndex].startsWith('http')
-                    ? images[lightboxIndex]
-                    : `${imageKitUrl}/${images[lightboxIndex]}`
-                }
+                src={getImageUrl(images[lightboxIndex], 1600)}
                 alt={`Lightbox ${lightboxIndex + 1}`}
-                className="max-w-full max-h-full object-contain shadow-2xl"
+                className="max-w-full max-h-full object-contain shadow-2xl rounded-xl"
                 onClick={(e) => e.stopPropagation()}
+                onLoad={() => setLightboxLoaded(true)}
+                loading="lazy"
+                decoding="async"
                 referrerPolicy="no-referrer"
               />
             </div>
