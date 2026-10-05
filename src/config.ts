@@ -7,6 +7,8 @@ import {
 import { BatchConfig, DanceEnum, DayEnum, LevelEnum, LocationEnum, PhaseEnum } from './utils/types'
 
 export const imageKitUrl = import.meta.env.VITE_IMAGEKIT_URL
+export const hygraphEndpoint = import.meta.env.VITE_HYGRAPH_ENDPOINT
+export const BLOG_POSTS_PER_PAGE = 9
 export const startYear = 2006
 export const currentYear = new Date().getFullYear()
 export const yearsOfExperience = currentYear - startYear
