@@ -4,7 +4,13 @@ import { motion } from 'motion/react'
 import { ArrowLeft, Calendar, User } from 'lucide-react'
 import Markdown, { type Components } from 'react-markdown'
 import Seo, { SITE_URL } from '@/components/Seo'
-import { formatPostDate, getPostBySlug, postIsoDate, type PostDetail } from '@/lib/hygraph'
+import {
+  formatPostDate,
+  getPostBySlug,
+  optimizeAssetUrl,
+  postIsoDate,
+  type PostDetail,
+} from '@/lib/hygraph'
 import { forBlogPost } from '@/utils/breadcrumb'
 import NotFound from './NotFound'
 
@@ -43,14 +49,31 @@ const markdownComponents: Components = {
     </blockquote>
   ),
   hr: () => <hr className="my-12 border-white/10" />,
-  img: ({ src, alt }) => (
-    <img
-      src={src}
-      alt={alt ?? ''}
-      loading="lazy"
-      className="my-8 w-full rounded-2xl border border-white/10"
-    />
-  ),
+  img: ({ src, alt }) => {
+    if (!src) return null
+    const small = optimizeAssetUrl(src, 800)
+    const large = optimizeAssetUrl(src, 1600)
+    const optimized = small !== src
+    return (
+      <img
+        src={small}
+        srcSet={optimized ? `${small} 800w, ${large} 1600w` : undefined}
+        sizes={optimized ? '(min-width: 768px) 768px, 100vw' : undefined}
+        alt={alt ?? ''}
+        loading="lazy"
+        decoding="async"
+        // If a transformed URL ever fails, fall back to the original upload
+        onError={(e) => {
+          const el = e.currentTarget
+          if (el.dataset.fallback) return
+          el.dataset.fallback = '1'
+          el.removeAttribute('srcset')
+          el.src = src
+        }}
+        className="my-8 w-full rounded-2xl border border-white/10"
+      />
+    )
+  },
   pre: ({ children }) => (
     <pre className="my-6 overflow-x-auto rounded-2xl border border-white/10 bg-slate-900 p-5 text-sm">
       {children}
@@ -125,14 +148,14 @@ export function BlogPost() {
           description={post.excerpt ?? `${post.title} - read more on the Dance Illusions Goa blog.`}
           canonical={url}
           ogType="article"
-          ogImage={post.coverImage?.url}
+          ogImage={post.coverImage?.og}
           breadcrumbs={forBlogPost(post.title, post.slug)}
           schema={{
             '@context': 'https://schema.org',
             '@type': 'BlogPosting',
             headline: post.title,
             description: post.excerpt ?? undefined,
-            image: post.coverImage?.url,
+            image: post.coverImage?.og,
             datePublished: postIsoDate(post) ?? undefined,
             dateModified: post.updatedAt,
             mainEntityOfPage: url,
@@ -191,9 +214,12 @@ export function BlogPost() {
                   <span className="inline-flex items-center gap-2">
                     {post.author.picture ? (
                       <img
-                        src={post.author.picture.url}
+                        src={post.author.picture.avatar}
                         alt=""
+                        width={48}
+                        height={48}
                         className="size-6 rounded-full object-cover"
+                        decoding="async"
                       />
                     ) : (
                       <User size={16} className="text-purple-400" />
@@ -206,11 +232,15 @@ export function BlogPost() {
 
             {post.coverImage && (
               <img
-                src={post.coverImage.url}
+                src={post.coverImage.coverLg}
+                srcSet={`${post.coverImage.coverSm} 768w, ${post.coverImage.coverLg} 1536w`}
+                sizes="(min-width: 768px) 768px, 100vw"
                 alt={post.title}
                 width={post.coverImage.width ?? undefined}
                 height={post.coverImage.height ?? undefined}
                 className="mt-10 w-full rounded-3xl border border-white/10 shadow-2xl"
+                fetchPriority="high"
+                decoding="async"
               />
             )}
 

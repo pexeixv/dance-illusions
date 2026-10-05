@@ -136,12 +136,16 @@ export function Blog() {
                       <div className="aspect-[16/10] overflow-hidden bg-slate-900">
                         {post.coverImage && (
                           <img
-                            src={post.coverImage.url}
+                            src={post.coverImage.cardLg}
+                            srcSet={`${post.coverImage.cardSm} 480w, ${post.coverImage.cardLg} 800w`}
+                            sizes="(min-width: 1280px) 400px, (min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                             alt={post.title}
-                            width={post.coverImage.width ?? undefined}
-                            height={post.coverImage.height ?? undefined}
+                            width={800}
+                            height={500}
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                             loading={idx < 3 ? 'eager' : 'lazy'}
+                            fetchPriority={idx === 0 ? 'high' : 'auto'}
+                            decoding="async"
                           />
                         )}
                       </div>
