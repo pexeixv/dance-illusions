@@ -3,11 +3,20 @@ import {
   formatDateLong,
   formatDateWithOrdinal,
   getEarliestStartDate,
-} from './utils/functions'
-import { BatchConfig, DanceEnum, DayEnum, LevelEnum, LocationEnum, PhaseEnum } from './utils/types'
+} from './utils/functions.ts'
+import { BatchConfig, DanceEnum, DayEnum, LevelEnum, LocationEnum, PhaseEnum } from './utils/types.ts'
 
-export const imageKitUrl = import.meta.env.VITE_IMAGEKIT_URL
-export const hygraphEndpoint = import.meta.env.VITE_HYGRAPH_ENDPOINT
+const metaEnv = (import.meta as unknown as { env?: Record<string, string> })?.env
+
+export const imageKitUrl =
+  metaEnv?.VITE_IMAGEKIT_URL ||
+  (typeof process !== 'undefined' ? process.env?.VITE_IMAGEKIT_URL : '') ||
+  'https://ik.imagekit.io/gavin/di'
+
+export const hygraphEndpoint =
+  metaEnv?.VITE_HYGRAPH_ENDPOINT ||
+  (typeof process !== 'undefined' ? process.env?.VITE_HYGRAPH_ENDPOINT : '') ||
+  'https://ap-south-1.cdn.hygraph.com/content/cmuv1k7800xn206wcfvc98h4f/master'
 export const BLOG_POSTS_PER_PAGE = 9
 export const startYear = 2006
 export const currentYear = new Date().getFullYear()

@@ -1,7 +1,7 @@
 import { Star, Award, Music, MapPin } from 'lucide-react'
-import { yearsOfExperience } from '@/config'
-import { DanceCategoryEnum, DanceEnum, DanceForm } from '@/utils/types'
-import { slugify } from '@/utils/functions'
+import { yearsOfExperience } from '../config.ts'
+import { DanceCategoryEnum, DanceEnum, DanceForm } from '../utils/types.ts'
+import { slugify } from '../utils/functions.ts'
 
 export const danceForms: DanceForm[] = [
   {

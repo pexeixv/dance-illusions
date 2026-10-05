@@ -1,5 +1,5 @@
-import { currentBatch, imageKitUrl, nextBatch, promotedBatch } from '@/config'
-import { BatchConfig, ScheduleItem } from './types'
+import { currentBatch, imageKitUrl, nextBatch, promotedBatch } from '../config.ts'
+import { BatchConfig, ScheduleItem } from './types.ts'
 
 export const getStartsLabel = (startsDate: string): string => {
   const today = new Date()

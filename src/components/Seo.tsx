@@ -1,8 +1,7 @@
 import { Helmet } from 'react-helmet-async'
+import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE } from '@/seo.config'
 
-export const SITE_URL = 'https://danceillusions.in'
-const SITE_NAME = 'Dance Illusions Goa'
-const DEFAULT_OG_IMAGE = `${SITE_URL}/og.jpg`
+export { SITE_URL }
 const TWITTER_HANDLE = '@'
 
 // ─────────────────────────────────────────────────────────────
